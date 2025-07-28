@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+/* Global Styles */
+@font-face {
+  font-family: Nexa-Trial;
+  src: url("./Nexa-Trial-Regular\ \(2\).ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.choose-path-container {
+  padding-inline: 1em;
+  padding-block: 7em 2em;
+  background-color: #fafafa;
+  font-family: "Poppins", sans-serif;
+}
+.choose-path-header {
+  margin-bottom: 1em;
+  text-align: center;
+}
+.choose-path-header h6 {
+  color: #fdb241;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  padding-bottom: 0.3em;
+}
+.choose-path-header h2 {
+  font-size: 1.7rem;
+  font-family: "Nexa-Trial", sans-serif;
+  padding-bottom: 0.3em;
+  font-weight: 700;
+  color: #121212;
+}
+.choose-path-header p {
+  font-size: 0.875rem;
+  color: #737373;
+  font-weight: 400;
+}
+.enroll-card {
+  background-color: #f6fdff;
+  padding-inline: 0.8em;
+  padding-bottom: 3em;
+}
+.enroll-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 1.25em 1.125em;
+}
+.enroll-steps div {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.625rem;
+  justify-content: center;
+}
+.enroll-steps div img {
+  padding-left: 0.625em;
+  height: 0.625em;
+}
+.enroll-steps div.active {
+  display: flex;
+}
+.step {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  color: #8d8d99;
+  background-color: #e1e1e6;
+  border-radius: 50px;
+  padding: 0.5em 1em;
+  font-size: 0.875rem;
+}
+.step.active {
+  background-color: #035472;
+  color: #ffffff;
+}
+.step-label {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #737373;
+}
+.step-label.active {
+  color: #035472;
+}
+.enroll-form {
+  background-color: #ffffff;
+  padding: 1.2em 1.5em 3em 1.5em;
+}
+.form-heading {
+  font-size: 1.25em;
+  text-align: center;
+  padding-block: 0.5em;
+  color: #0e2a46;
+  font-weight: 600;
+}
+.form-container {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
+.form-container label {
+  display: block;
+  color: #121212;
+  font-size: 0.875em;
+  font-weight: #121212;
+  padding-bottom: 0.5em;
+}
+.form-container select,
+.form-container input {
+  width: 100%;
+  height: 3.625em;
+  outline: none;
+  padding: 1em;
+  background-color: transparent;
+  border: 1px solid #cacaca;
+  font-size: 1em;
+  border-radius: 4px;
+}
+.select-wrapper {
+  position: relative;
+}
+.form-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0.75em;
+}
+.select-wrapper img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.75em;
+}
+.form-container button {
+  background-color: #035472;
+  padding: 1.5em;
+  font-family: "Nexa-Trial", sans-serif;
+  color: #ffffff;
+  font-size: 0.875em;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s background-color ease-in-out;
+}
+.form-container button:hover {
+  background-color: #04698d;
+}
+.form-container.active {
+  display: grid;
+}
+.form-buttons {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  padding-top: 1em;
+}
+input::placeholder {
+  font-family: "Sora", sans-serif;
+}
+.form-container select:focus,
+.form-container input:focus {
+  border: 1px solid #cacaca;
+}
+
+@media screen and (min-width: 600px) {
+  .choose-path-container {
+    padding-inline: 2.5em;
+    padding-block: 7em 2em;
+  }
+  .form-container button {
+    padding: 0.9375em 2.5em;
+    text-align: center;
+  }
+  .form-buttons {
+    flex-direction: row;
+    padding-top: 2em;
+  }
+  .choose-path-header h6 {
+    font-size: 1em;
+  }
+  .choose-path-header h2 {
+    font-size: 2em;
+  }
+  .choose-path-header p {
+    font-size: 0.875em;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .enroll-card {
+    padding-inline: 2.5em;
+  }
+  .form-container select,
+  .form-container input {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .choose-path-container {
+    padding-inline: 4em;
+    padding-block: 8em 2em;
+  }
+  .choose-path-header h2 {
+    font-size: 2.5em;
+  }
+  .enroll-steps div {
+    display: flex;
+  }
+  .enroll-steps div img {
+    padding-right: 1em;
+  }
+  .choose-path-header p {
+    padding-bottom: 3rem;
+    width: 50%;
+  }
+  .form-heading {
+    text-align: left;
+  }
+  .enroll-card {
+    padding-inline: 2.5em;
+  }
+  .enroll-steps {
+    padding-block: 2, 5em 1.125em;
+  }
+  .enroll-form {
+    padding: 3.7em 2.8em;
+  }
+  .form-container select,
+  .form-container input {
+    padding: 1em 2.5em;
+  }
+  .form-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .choose-path-container {
+    padding-inline: 5em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .choose-path-container {
+    padding-inline: 7em;
+  }
+}
+@media screen and (min-width: 1320px) {
+  .choose-path-container {
+    padding-inline: 9.5em;
+  }
+}
