@@ -1,0 +1,314 @@
+/* This can be for the homepage while others should have their own .css files.  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap");
+/* Global Styles */
+@font-face {
+  font-family: Nexa-Trial;
+  src: url("./Nexa-Trial-Regular\ \(2\).ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.access-container {
+  padding-inline: 1.46em;
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.access-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1975em;
+}
+.line {
+  width: 5.875em;
+  height: 0.4375em;
+  background-color: #fdb241;
+ margin: 0 auto;
+}
+.access-content h2 {
+  font-size: 1.7rem;
+  letter-spacing: 0.2px;
+  font-weight: 700;
+  color: #121212;
+  text-align: center;
+}
+.access-content p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #737373;
+  text-align: center;
+}
+.learn {
+  display: flex;
+  align-items: center;
+  padding-block: 0.25em;
+  gap: 0.625em;
+  justify-content: center;
+}
+.access-content h6 {
+  color: #035472;
+  font-size: 0.875rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.working-with-us {
+  padding-inline: 1.46em;
+  padding-block: 1.5em 3em;
+}
+.work-content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.work-content h2 {
+  font-size: 1.7rem;
+  text-align: center;
+  color: #121212;
+  padding-bottom: 1em;
+}
+.work-image-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  padding: 0;
+}
+.work {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.work .need-image {
+  width: 100%;
+  background-color: #feefef;
+  border-radius: 0.5em 0.5em 0 0;
+  display: none;
+}
+.work .need-image img {
+  display: none;
+}
+.work .need-content {
+  padding-block: 1em;
+  padding-inline: 1.8em;
+  background-image: url("../images/BACKGROUND.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.second-paragraph {
+  font-weight: 400;
+  font-size: 0.875em;
+}
+.work-paragraph-intro {
+  font-size: 1.25rem;
+  font-weight: 900;
+  padding-bottom: 1em;
+}
+.talent,
+.project .work-button {
+  background-color: #035472;
+  color: white;
+}
+.project,
+.talent .work-button {
+  background-color: #fdb241;
+  color: #035472;
+}
+.work-button {
+  padding: 0.9375em 2.5em;
+  font-size: 0.875em;
+  margin-top: 1em;
+  border-radius: 0.3em;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.work-button:hover {
+  transform: scale(1.03);
+}
+@media screen and (min-width: 600px){
+  .working-with-us, .access-container{
+    padding-inline: 2.5em;
+  }
+  .access-content h2 {
+    width: 68%;
+    margin: 0 auto;;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1023px) {
+    .access-content h2 {
+    width: 50%;
+    margin: 0;
+  }
+    .learn, .access-content p, .access-content h2 {
+    text-align: left;
+  }
+  .line{
+    margin: 0;
+  }
+  .learn{
+      justify-content: flex-start
+  }
+  .work-image-container {
+    flex-direction: row;
+    padding: 0;
+    justify-content: space-between;
+  }
+  .work .need-content {
+    height: 100%;
+    min-height: 19em;
+    padding-bottom: 2.5em;
+  }
+  .work-button {
+    position: absolute;
+    bottom: 1em;
+    left: 1.78em;
+  }
+  #first-need {
+    padding-right: 2.7em;
+  }
+    .work-content h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+   .access {
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+      .access-content h2 {
+    width: 50%;
+    margin: 0;
+  }
+    .learn, .access-content p, .access-content h2 {
+    text-align: left;
+  }
+  .line{
+    margin: 0;
+  }
+  .learn{
+      justify-content: flex-start
+  }
+  .access-container {
+    flex-direction: row;
+    padding-inline: 4em;
+    padding-block: 5.31em;
+    justify-content: space-between;
+  }
+  .access-content {
+    width: 50%;
+    gap: 2.1975em;
+  }
+  .access-content h2 {
+    width: 100%;
+    font-size: 2.5em;
+    padding-right: 1em;
+  }
+  .working-with-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 4em;
+    padding-bottom: 5em;
+  }
+  .work-content h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .access {
+    margin: 0 auto;
+  }
+  .work-paragraph-intro {
+    font-size: 1.25rem;
+    font-weight: 900;
+    padding-bottom: 1em;
+  }
+  .work-image-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 90em;
+  }
+  .work {
+    width: 50%;
+    padding-inline: 0.4em;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding-right: 3em;
+    background-image: url("../images/BACKGROUND.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    align-items: center;
+    height: 450px;
+  }
+  .first-work {
+    background-color: #035472;
+  }
+  .second-work {
+    background-color: #fdb241;
+  }
+  .work .need-image {
+    background-color: transparent;
+    display: flex;
+  }
+  .work-button {
+    position: absolute;
+    bottom: 0.75em;
+    left: 1.78em;
+  }
+  .work .need-image img {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .second-paragraph {
+    padding-right: 5em;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .access-container {
+    padding-inline: 5em;
+  }
+  .working-with-us {
+    padding-inline: 5em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .access-container {
+    padding-inline: 7em;
+  }
+  .working-with-us {
+    padding-inline: 7em;
+  }
+  .work{
+    align-items: flex-start;
+  }
+     .need-content {
+    margin-top: 3em;
+  }
+    .work{
+    height:370px;
+  }
+}
+@media screen and (min-width: 1320px) {
+  .access-container {
+    padding-inline: 9.5em;
+  }
+  .working-with-us {
+    padding-inline: 9.5em;
+  }
+}
+
