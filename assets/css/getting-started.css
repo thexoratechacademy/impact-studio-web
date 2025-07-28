@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap");
+/* Global Styles */
+@font-face {
+  font-family: Nexa-Trial;
+  src: url("./Nexa-Trial-Regular\ \(2\).ttf");
+}
+@font-face {
+  font-family: Nexa-bold;
+  src: url(../css/Nexa-Heavy.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fafafa;
+  font-family: "Nexa-Trial", sans-serif;
+}
+.getting-started {
+  position: relative;
+  background-color: #0e2a46;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/5af9584b4b60110d4ce963ab9177a6ac9b01964c.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  overflow: hidden;
+  padding: 2em 1.5em;
+}
+.getting-started::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #0e2a46;
+  opacity: 0.85;
+  z-index: 0;
+}
+.getting-started > * {
+  position: relative;
+  z-index: 1;
+}
+.separator {
+  width: 5.875em;
+  height: 0.4375em;
+  background-color: #fdb241;
+  margin-block: 2em 1em;
+}
+.ready {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-family: "Nexa-bold", sans-serif;
+  padding-bottom: 1em;
+}
+.journey {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #ffffff;
+  padding-bottom: 2em;
+}
+.getting-started button {
+  cursor: pointer;
+  background-color: #fdb241;
+  padding: 0.9em 2.5em;
+  border-radius: 0.3em;
+  color: #0e2a46;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.375em;
+  letter-spacing: 0.2px;
+  transition: 0.2s;
+  border: none;
+  margin-bottom: 2em;
+  font-family: "Nexa-Trial", sans-serif;
+}
+.getting-started button:hover {
+  transform: scale(1.05);
+  background-color: #fda21c;
+}
+@media screen and (min-width: 1024px) {
+  .getting-started {
+    height: 466px;
+  }
+  .separator {
+    margin-block: 4.875em 1.5em;
+  }
+  .ready {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+  .journey {
+    text-align: center;
+    width: 60%;
+    padding-bottom: 1.5em;
+    line-height: 150%;
+  }
+  .spaces {
+    display: block;
+    padding-top: 1em;
+  }
+}
