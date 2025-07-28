@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.add("active");
       });
       navBtn.forEach((nav) => {
-        nav.addEventListener("click", (e) => {
-        });
+        nav.addEventListener("click", (e) => {});
       });
       document.addEventListener("click", (event) => {
         if (
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
           navLinks.classList.remove("active");
         }
       });
-       //Drop-down Menu
+      //Drop-down Menu
       const dropdown = document.querySelector(".dropdown");
       const dropdownMenu = document.querySelector(".dropdown-menu");
 
@@ -50,14 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdownMenu.style.display = "none";
           }
         });
-      } else{
+      } else {
         {
-    // Mobile behavior (click toggle)
-    dropdown.addEventListener("click", () => {
-      const isOpen = dropdownMenu.style.display === "block";
-      dropdownMenu.style.display = isOpen ? "none" : "block";
-    });
-      }}
+          // Mobile behavior (click toggle)
+          dropdown.addEventListener("click", () => {
+            const isOpen = dropdownMenu.style.display === "block";
+            dropdownMenu.style.display = isOpen ? "none" : "block";
+          });
+        }
+      }
     })
 
     .catch((err) => console.error("Failed to load navbar:", err));
