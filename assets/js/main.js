@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((html) => {
       document.getElementById("sponsors-section-placeholder").innerHTML = html;
     })
-
     .catch((err) => console.error("Failed to load footer:", err));
 });
 // Inject the footer component into the homepage(index.html).
