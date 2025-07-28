@@ -1,0 +1,447 @@
+/* This can be for the homepage while others should have their own .css files.  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap");
+/* Web-Development Styles */
+@font-face {
+  font-family: Nexa-Trial;
+  src: url("./Nexa-Trial-Regular\ \(2\).ttf");
+}
+@font-face {
+  font-family: Nexa;
+  src: url("./Nexa-ExtraLight.ttf");
+}
+@font-face {
+  font-family: Nexa-bold;
+  src: url(../css/Nexa-Heavy.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.web-hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1.46em;
+  padding-block: 6em 3em;
+  background-color: #fafafa;
+}
+.web-hero-content {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 2em;
+}
+.web-hero-content h1 {
+  padding-bottom: 0.3em;
+  line-height: 1.3em;
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 950;
+  color: #252b42;
+}
+.web-hero-content h4,
+.intro-content p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  letter-spacing: 0.2px;
+  color: #737373;
+  padding-bottom: 1.2em;
+  margin: 0 auto;
+}
+.web-hero-content button,
+.enroll-btn {
+  cursor: pointer;
+  background-color: #035472;
+  padding: 0.9em 1.5em;
+  border-radius: 0.3em;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.375em;
+  letter-spacing: 0.2px;
+  transition: 0.2s;
+  border: none;
+}
+.web-hero-content button:hover,
+.enroll-btn:hover {
+  transform: scale(1.05);
+  background-color: #04698d;
+}
+.web-hero-image {
+  width: 100%;
+  position: relative;
+}
+.web-hero-image img {
+  width: 100%;
+  height: auto;
+}
+.web-hero-image .first-image {
+  width: 93%;
+  display: block;
+  margin-left: auto;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+.web-hero-image .first-image img {
+  width: 100%;
+  height: auto;
+}
+.web-hero-image .second-image {
+  position: absolute;
+  top: 3em;
+  left: 0;
+  width: 60%;
+  display: block;
+  z-index: 1;
+  height: auto;
+}
+.web-second-section {
+  padding-inline: 1.46rem;
+  padding-block: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-color: #fff;
+}
+.web-dev-intro {
+  display: flex;
+  width: 100%;
+  flex-direction: column-reverse;
+}
+.intro-content {
+  text-align: center;
+  padding-bottom: 1em;
+}
+.intro-content p {
+  font-size: 1rem;
+}
+.box {
+  position: relative;
+  height: 250px;
+  width: 80%;
+  max-width: 18em;
+  margin: auto;
+}
+.box div {
+  width: 10em;
+  height: 10em;
+  border-radius: 1.25em;
+}
+.box .first-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #95d5ea;
+}
+.box .second-box {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ffd05a;
+}
+.intro-content .line-break span {
+  color: #0e2a46;
+  font-weight: 900;
+}
+.web-dev-details-content p {
+  padding: 1.5em 2em;
+}
+.web-dev-details-content {
+  border: 0.5px solid #c4c4c4;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 2em;
+}
+.web-dev-details-content ul {
+  list-style-type: none;
+  padding: 1.5em 2em;
+  font-weight: 400;
+  color: #4d5756;
+  font-size: 0.9375rem;
+}
+.web-dev-details-content ul li,
+.price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 400;
+  align-items: center;
+}
+.date-text {
+  width: 100%;
+  border-bottom: 0.5px solid #c4c4c4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.web-dev-details-content .price {
+  border-top: 0.5px solid #c4c4c4;
+}
+.web-dev-details-content .price span,
+.date-text .date-figure {
+  font-family: "Nexa-bold";
+}
+.date-text p {
+  color: #333931;
+  font-size: 14px;
+}
+.date-text .date-figure,
+.price span {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #0e2a46;
+  padding-left: 0;
+}
+.enroll-btn {
+  display: block;
+  margin: auto;
+  margin-block: 1.5em;
+  padding: 0.9375em 2.5em;
+}
+@media screen and (max-width: 350px) {
+  .web-hero-container {
+    padding-inline: 1.3em;
+    padding-block: 7em 2em;
+  }
+  .web-hero-content button,
+  .enroll-btn {
+    font-size: 0.5rem;
+  }
+}
+@media screen and (min-width: 600px) {
+  .web-hero-container {
+    padding-inline: 2.5em;
+    padding-block: 7em 2em;
+  }
+  .web-hero-content h1 {
+    font-size: 2rem;
+  }
+  .web-hero-content h4 {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  .web-hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .web-hero-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5em;
+    justify-content: space-between;
+    padding-inline: 4em;
+    padding-block: 8em 2em;
+  }
+  .web-hero-content,
+  .web-hero-image {
+    width: 50%;
+  }
+  .web-hero-content {
+    text-align: left;
+    padding-bottom: 0em;
+  }
+  .web-hero-image {
+    width: 50%;
+    position: relative;
+    overflow: visible;
+  }
+  .web-hero-image .first-image {
+    display: block;
+    margin-left: auto;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    z-index: 2;
+  }
+  .web-hero-image .second-image {
+    left: 0em;
+    top: 87px;
+    width: 100%;
+    display: block;
+    z-index: 1;
+    width: 300px;
+    height: 292px;
+  }
+  .web-hero-content h1 {
+    font-size: 3rem;
+    font-weight: 950;
+    font-style: normal;
+  }
+  .web-second-section {
+    padding-inline: 4em;
+    padding-block: 8.75em 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+  }
+  .web-dev-intro {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .intro-content {
+    text-align: left;
+  }
+  .intro-content .line-break {
+    display: block;
+    padding-top: 1em;
+  }
+  .intro-content p {
+    font-size: 0.875rem;
+  }
+  .web-dev-details {
+    width: 500px;
+  }
+  .web-dev-details-content .date-text {
+    padding-inline: 1em;
+    padding-top: 1em;
+  }
+  .web-dev-details-content .date-text p,
+  .web-dev-details-content ul li {
+    font-size: 1rem;
+  }
+  .web-dev-details-content .date-figure {
+    font-size: 1.3125rem;
+  }
+  .enroll-btn {
+    margin: 0;
+    margin-block: 1.5em;
+    margin-left: auto;
+  }
+  .web-dev-details-content ul li {
+    padding-inline: 1em;
+    padding-bottom: 1.3125em;
+  }
+  .web-dev-details-content .price {
+    padding-inline: 3rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .web-hero-container {
+    padding-inline: 5em;
+  }
+  .web-hero-image .second-image {
+    left: 2em;
+    top: 87px;
+    width: 100%;
+    display: block;
+    z-index: 1;
+    width: 300px;
+    height: 292px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .web-hero-container {
+    padding-inline: 7em;
+  }
+  .web-hero-image .second-image {
+    left: 2em;
+    top: 87px;
+    width: 100%;
+    display: block;
+    z-index: 1;
+    width: 300px;
+    height: 292px;
+  }
+}
+@media screen and (min-width: 1320px) {
+  .web-hero-container {
+    padding-inline: 9.5em;
+  }
+  .web-hero-content,
+  .web-hero-image {
+    width: 50%;
+  }
+  .web-hero-content {
+    text-align: left;
+    padding-bottom: 0em;
+  }
+  .web-hero-image {
+    width: 50%;
+    position: relative;
+    overflow: visible;
+  }
+  .web-hero-image .first-image {
+    display: block;
+    margin-left: auto;
+    width: 497px;
+    height: 442px;
+    position: relative;
+    z-index: 2;
+  }
+  .web-hero-image .second-image {
+    left: -1.5em;
+    top: 97px;
+    width: 100%;
+    display: block;
+    z-index: 1;
+    width: 337px;
+    height: 292px;
+  }
+  .web-hero-content h1 {
+    font-size: 3.625rem;
+    font-weight: 950;
+    font-style: normal;
+  }
+  .web-second-section {
+    padding-inline: 9.5em;
+    padding-block: 8.75em 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+  }
+  .web-dev-intro {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .intro-content {
+    text-align: left;
+  }
+  .intro-content .line-break {
+    display: block;
+    padding-top: 1em;
+  }
+  .intro-content p {
+    font-size: 0.875rem;
+  }
+  .web-dev-details {
+    width: 500px;
+  }
+  .web-dev-details-content .date-text {
+    padding-inline: 1em;
+    padding-top: 1em;
+  }
+  .web-dev-details-content .date-text p,
+  .web-dev-details-content ul li {
+    font-size: 1rem;
+  }
+  .web-dev-details-content .date-figure {
+    font-size: 1.3125rem;
+  }
+  .enroll-btn {
+    margin: 0;
+    margin-block: 1.5em;
+    margin-left: auto;
+  }
+  .web-dev-details-content ul li {
+    padding-inline: 1em;
+    padding-bottom: 1.3125em;
+  }
+  .web-dev-details-content .price {
+    padding-inline: 3rem;
+  }
+}

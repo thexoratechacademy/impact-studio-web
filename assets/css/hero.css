@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap");
+/* Global Styles */
+@font-face {
+  font-family: Nexa-Trial;
+  src: url("./Nexa-Trial-Regular\ \(2\).ttf");
+}
+@font-face {
+  font-family: Nexa-Heavy;
+  src: url("./Nexa-Heavy.ttf");
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.hero-container {
+  width: 100%;
+  padding-inline: 1.46em;
+  padding-block: 6em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 2em 0.5em;
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
+.hero-content {
+  width: 100%;
+  text-align: center;
+}
+.hero-heading {
+  padding-bottom: 0.3em;
+  line-height: 1.3em;
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 950;
+  color: #252b42;
+}
+
+.hero-paragraph {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  letter-spacing: 0.2px;
+  color: #737373;
+  padding-bottom: 1.5em;
+}
+.hero-buttons {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+.enroll,
+.course {
+  cursor: pointer;
+  background-color: #035472;
+  padding: 0.9em 1.5em;
+  border-radius: 0.3em;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.375em;
+  letter-spacing: 0.2px;
+  transition: 0.2s all ease-in-out;
+  border: 1px solid #035472;
+}
+.enroll:hover,
+.course:hover {
+  transform: scale(1.05);
+}
+.enroll:hover {
+  background-color: #04698d;
+}
+.course {
+  background-color: transparent;
+  color: #035472;
+}
+.expertise-container {
+  padding-inline: 1.46rem;
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.expertise {
+  width: 100%;
+  min-height: 18em;
+  background-color: #ffffff;
+  padding: 2em 1em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 0.6em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.expertise:hover {
+  transform: scale(1.02);
+}
+.expertise-image {
+  width: 4.5em;
+  min-width: 4.5em;
+  height: 4.5em;
+  border-radius: 50%;
+  background-color: #035472;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+.expertise-image img {
+  width: 2em;
+  height: 2em;
+}
+.expertise-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  flex: 1;
+  height: 100%;
+}
+.expertise-heading {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.1px;
+  line-height: 1.3em;
+  color: #333333;
+  margin: 0;
+}
+.divider {
+  background-color: #f7a90e;
+  width: 3em;
+  height: 0.2em;
+}
+.expertise-paragraph {
+  font-size: 0.875rem;
+  color: #737373;
+  line-height: 1.4em;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  padding-right: 1.9em;
+  margin-top: auto;
+}
+.expertise-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+}
+@media screen and (max-width: 350px) {
+  .hero-container {
+    padding-inline: 1.3em;
+    padding-block: 7em 2em;
+  }
+  .enroll,
+  .course {
+    font-size: 0.5rem;
+  }
+}
+@media screen and (min-width: 600px) {
+  .hero-container {
+    padding-inline: 2.5em;
+    padding-block: 7em 2em;
+  }
+  .hero-heading {
+    font-size: 2rem;
+  }
+  .hero-paragraph {
+    font-size: 1.1rem;
+  }
+  .expertise-container {
+    padding-inline: 2.5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  .expertise {
+    height: 100%;
+    min-height: 20em;
+    padding-bottom: 1em;
+  }
+  #experience {
+    padding-right: 4em;
+  }
+}
+@media screen and (min-width: 700px) {
+  .expertise {
+    min-height: 19em;
+  }
+  #experience {
+    padding-right: 5em;
+  }
+}
+@media screen and (min-width: 778px) {
+  .expertise {
+    min-height: 25em;
+  }
+  #last {
+    min-height: 22em;
+  }
+}
+@media screen and (min-width: 800px) {
+  .hero-heading {
+    font-size: 2.5rem;
+  }
+  #second-heading {
+    padding-right: 3em;
+  }
+}
+@media screen and (min-width: 850px) {
+  .expertise {
+    min-height: 24em;
+  }
+  #experience {
+    padding-right: 6em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hero {
+    position: relative;
+  }
+  .hero-container {
+    padding-inline: 4em;
+    padding-block: 8em 2em;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .hero-image {
+    position: absolute;
+    top: 0;
+    right: 9.5em;
+    display: none;
+    justify-content: flex-end;
+    width: 30%;
+    border-top-left-radius: 120px;
+    border-bottom-left-radius: 120px;
+  }
+  .hero-image img {
+    width: 500px;
+    border-top-left-radius: 120px;
+    height: 500px;
+    z-index: -1;
+  }
+  .hero-content {
+    width: 60%;
+    padding-top: 1.4em;
+    text-align: left;
+    padding-right: 1em;
+  }
+  .hero-image {
+    width: 50%;
+  }
+  .hero-heading {
+    padding-bottom: 0.3em;
+    font-size: 3rem;
+    line-height: 1em;
+    font-weight: 950;
+  }
+  .hero-paragraph {
+    line-height: 1.6rem;
+    padding-block: 1.8em;
+    padding-right: 0.4em;
+    font-size: 1rem;
+  }
+  .hero-buttons {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 1em;
+  }
+  .enroll,
+  .courses {
+    padding: 0.9em 2.5em;
+  }
+  .expertise-container {
+    width: 100%;
+    padding-inline: 4em;
+    padding-block: 4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+  }
+  .expertise {
+    width: 40%;
+    padding: 2em 2em 1em 2.8em;
+    height: 100%;
+    min-height: 27em;
+  }
+  #first {
+    padding-right: 0em;
+  }
+  #second {
+    padding-right: 2em;
+  }
+  #experience {
+    padding-right: 2.5em;
+  }
+  #second-heading {
+    padding-right: 0em;
+  }
+  #last {
+    min-height: 27em;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .hero-container {
+    padding-inline: 5em;
+  }
+  .expertise-container {
+    padding-inline: 5em;
+  }
+  #expertise-third {
+    padding-right: 3em;
+  }
+  .expertise,
+  #last {
+    min-height: 26em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .hero-container {
+    padding-inline: 7em;
+  }
+  .expertise-container {
+    padding-inline: 7em;
+  }
+  .hero-heading {
+    font-size: 3.5rem;
+  }
+  #experience {
+    padding-right: 3.5em;
+  }
+  #second {
+    padding-right: 2.5em;
+  }
+}
+@media screen and (min-width: 1320px) {
+  .hero-container {
+    padding-inline: 9.5em;
+    padding-block: 8rem 2em;
+  }
+  .hero-content {
+    width: 50%;
+    padding-top: 1.4em;
+    text-align: left;
+    padding-right: 1em;
+  }
+  .hero-image {
+    width: 50%;
+  }
+  .hero-heading {
+    font-size: 4.5rem;
+    font-weight: 950;
+  }
+  .expertise-container {
+    width: 100%;
+    padding-inline: 9.5em;
+  }
+  .expertise {
+    width: 32%;
+  }
+}
