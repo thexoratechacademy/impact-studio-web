@@ -1,0 +1,130 @@
+const steps = document.querySelectorAll(".form-container");
+const stepIndicators = document.querySelectorAll(".enroll-steps div");
+const prevBtns = document.querySelectorAll(".previous");
+const nextBtns = document.querySelectorAll(".next-btn");
+const stepLabel = document.querySelectorAll(".step-label");
+const stepNumber = document.querySelectorAll(".step");
+
+let currentStep = 0;
+
+// injecting Nabar
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("../../components/navbar.html")
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("navbar-placeholder").innerHTML = html;
+      // Hamburger Menubar
+      const hamburger = document.querySelector(".hamburger-menu");
+      const navLinks = document.querySelector(".nav-links");
+      const navBtn = document.querySelectorAll(".nav-links ul li a");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.add("active");
+      });
+
+      navBtn.forEach((nav) => {
+        nav.addEventListener("click", (e) => {
+        });
+      });
+      document.addEventListener("click", (event) => {
+        if (
+          !navLinks.contains(event.target) &&
+          !hamburger.contains(event.target)
+        ) {
+          navLinks.classList.remove("active");
+        }
+      });
+      //Drop-down Menu
+      const dropdown = document.querySelector(".dropdown");
+      const dropdownMenu = document.querySelector(".dropdown-menu");
+      if (window.innerWidth >= 1024) {
+        dropdown.addEventListener("mouseenter", function () {
+          dropdownMenu.style.display = "block";
+        });
+        dropdown.addEventListener("mouseleave", function () {
+          setTimeout(function () {
+            if (!dropdownMenu.matches(":hover")) {
+              dropdownMenu.style.display = "none";
+            }
+          }, 2000);
+        });
+        dropdownMenu.addEventListener("mouseenter", function () {
+          dropdownMenu.style.display = "block";
+        });
+        document.addEventListener("click", function (event) {
+          if (
+            !dropdown.contains(event.target) &&
+            !dropdownMenu.contains(event.target)
+          ) {
+            dropdownMenu.style.display = "none";
+          }
+        });
+      } else{
+        {
+    // Mobile behavior (click toggle)
+    dropdown.addEventListener("click", () => {
+      const isOpen = dropdownMenu.style.display === "block";
+      dropdownMenu.style.display = isOpen ? "none" : "block";
+    });
+      }}
+    })
+    .catch((err) => console.error("Failed to load navbar:", err));
+});
+
+function updateFormSteps() {
+  steps.forEach((step, index) => {
+    step.classList.toggle("active", index === currentStep);
+  });
+  stepLabel.forEach((label, index) => {
+    label.classList.toggle("active", index === currentStep);
+  });
+  stepNumber.forEach((number, index) => {
+    number.classList.toggle("active", index === currentStep);
+  });
+
+  stepIndicators.forEach((indicator, index) => {
+    indicator.classList.toggle("active", index === currentStep);
+  });
+
+  prevBtns.forEach((btn) => {
+    btn.style.display = currentStep === 0 ? "none" : "inline-block";
+  });
+
+  nextBtns.forEach((btn) => {
+    btn.textContent = currentStep === steps.length - 1 ? "Submit" : "Next";
+  });
+}
+
+nextBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      updateFormSteps();
+    } else {
+      document.querySelector("form").submit();
+    }
+  });
+});
+
+prevBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (currentStep > 0) {
+      currentStep--;
+      updateFormSteps();
+    }
+  });
+});
+
+updateFormSteps();
+
+// Inject the footer component into the homepage(index.html).
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("../../components/footer.html")
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+    })
+    .catch((err) => console.error("Failed to load footer:", err));
+});
