@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+  font-family: "Nexa-Trial";
+  src: url("../fonts/Nexa-Trial-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nexa-Heavy";
+  src: url("../fonts/Nexa-Heavy.ttf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nexa-Trial-Bold";
+  src: url("../fonts/Nexa-Trial-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.form-section {
+  max-width: 1000px;
+  margin: auto;
+  
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.form-header .underline {
+  width: 60px;
+  height: 4px;
+  background-color: #f6a623;
+  margin: 0 auto 1rem auto;
+  border-radius: 2px;
+}
+
+.form-header h1 {
+  font-family: "Nexa-Heavy";
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 125%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #48484c;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.form-header p {
+  font-family: "Nexa-Trial", sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #6b6b6b;
+}
+
+.form-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  border: 30px solid #f6fdff;
+}
+
+.form-card h3 {
+  font-family: 'Poppins',sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 1.5rem;
+  line-height: 22px;
+  color: #003057;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: 'poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+input,
+select {
+  height: 58px;
+  width: 428px;
+  border-radius: 6px;
+  border: 1px solid #cacaca;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #0077b6;
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+  align-self: flex-start;
+  background-color: #004a64;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #006989;
+}
+
+@media (max-width: 768px) {
+  .underline{
+    margin-top: 3rem;
+  }
+  .form-header{
+    width: fit-content;
+    place-self: anchor-center;
+  }
+
+  .form-header h1 {
+  font-size: 1.3rem;
+}
+
+.form-header .underline{
+  margin-top: 1rem;
+}
+  .form-row {
+    flex-direction: column;
+  }
+
+  input,
+  select {
+    height: 10vh;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #cacaca;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .form-header h1 {
+    font-size: x-large;
+  }
+
+  .form-header .underline {
+    width: 50px;
+    height: 3px;
+    margin-bottom: 1rem;
+  }
+
+  .form-card {
+    padding: 1.5rem;
+  }
+
+  input,
+  select {
+    width: 100%; 
+    height: 56px;
+  }
+
+  .form-row {
+    flex-direction: column; 
+  }
+
+  button[type="submit"] {
+    width: 50%;
+    place-self: anchor-center;
+    font-size: 1rem;
+  }
+}
+
