@@ -1,0 +1,236 @@
+@font-face {
+  font-family: 'Nexa-Trial';
+  src: url('../fonts/Nexa-Trial-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nexa-Trial-Black';
+  src: url('../fonts/Nexa-Trial-Black.ttf');
+  font-weight: 950;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nexa-Trial-Bold';
+  src: url('../fonts/Nexa-Trial-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-container {
+  height: 100vh; 
+  overflow-y: scroll; 
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; 
+}
+
+
+ 
+.heading {
+  position: relative;
+  background-image: url("../images/background.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+}
+
+.heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 1;
+}
+
+.heading > * {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+
+h1 {
+   font-family: 'Nexa-Trial-Black', sans-serif;
+    font-size: 3.625rem;
+    line-height: 5rem;
+    letter-spacing: 0.0125rem;
+    color: white;
+}
+
+
+/* .Typo{
+  width: 80%;
+  height: 3.96%;
+  font-family: 'montserrat';
+  margin-top: 11.75rem;
+  margin-left: 56.5625rem;
+  background-color: #fff;
+} */
+
+/* .core-value-title{
+  font-family: 'Nexa-Trial-Bold', sans-serif;
+    /* font-size: 12.5rem; *
+    line-height: 2rem;
+    letter-spacing: 0.00625rem;
+    color: #252B42;
+} */
+
+/* .core-value-description{
+  font-family: 'Nexa-Trial', sans-serif;
+    line-height: 1.25rem;
+    letter-spacing: 0.00125rem;
+    color: #252B42;
+} */
+
+
+/* .core-values-text {
+    align-self: flex-start;
+    margin-right: auto; 
+     /* margin-top: 6.25rem; *
+} */
+
+ .Typo {
+  height: 3.96%;
+  font-family: 'montserrat';
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  } 
+
+.core-p {
+    height: 20vh;
+    font-family: 'Nexa-Trial', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.0125rem;
+    color: #737373;
+    text-align: left;
+    width: 100%;
+    place-self: center;
+    margin-top: revert;
+}
+@media (max-width: 768px) {
+
+  /* .heading {
+    height: 60vh;
+    background-image: url("../images/bag-img.jpg");
+    background-size: cover;
+    background-position: center;
+  }   * */
+  .Mission-section {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: auto;
+  }
+  
+  .miss {
+    margin-top: 2rem;
+    transform: scale(1.10);
+    width: 100%;
+    height: auto;
+  }
+  
+  .text {
+    font-size: 0.8rem;
+    padding-right: 0;
+  }
+
+  
+  .text-container{
+    width: 100%;
+    font-size: 14px;
+    min-height: auto;  
+    margin-bottom: 10px;
+    line-height: 20px
+    
+  }
+    
+    h2 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+}
+
+
+.mission-paragraph{
+  width: 100%;
+  max-width: 26.5625rem;
+  min-width: 10rem; 
+  font-family: 'Nexa-Trial', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125;
+  color: #737373;
+} 
+
+@media screen and (max-width: 768px) {
+  .mission-paragraph{
+    width: 100%;
+    max-width: 26.5625rem; 
+    min-width: 10rem; 
+    
+    line-height: 1.2rem;
+    padding: 0.5rem;
+  }
+
+   .mission-content{
+    padding: 1rem;
+    flex-direction: column;
+  
+    width: 100%;
+  }
+*/
+  .mission-content .dec {
+    width: 100%;
+    max-width: 26.5625rem; 
+    min-width: 10rem; 
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.01rem;
+    color: #737373;
+  }
+
+  .dec{
+    width: 100%;
+  }
+  
+}
+
+
+
+ .value-content{
+  width: 26.25rem;
+  height: 5rem;
+} 
+
