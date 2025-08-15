@@ -27,7 +27,7 @@
   width: 5.875em;
   height: 0.4375em;
   background-color: #fdb241;
- margin: 0 auto;
+  margin: 0 auto;
 }
 .access-content h2 {
   font-size: 1.7rem;
@@ -97,7 +97,7 @@
 .work .need-content {
   padding-block: 1em;
   padding-inline: 1.8em;
-  background-image: url("../images/BACKGROUND.png");
+  /* background-image: url("../images/BACKGROUND.png"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -133,29 +133,32 @@
 .work-button:hover {
   transform: scale(1.03);
 }
-@media screen and (min-width: 600px){
-  .working-with-us, .access-container{
+@media screen and (min-width: 600px) {
+  .working-with-us,
+  .access-container {
     padding-inline: 2.5em;
   }
   .access-content h2 {
     width: 68%;
-    margin: 0 auto;;
+    margin: 0 auto;
   }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1023px) {
-    .access-content h2 {
+  .access-content h2 {
     width: 50%;
     margin: 0;
   }
-    .learn, .access-content p, .access-content h2 {
+  .learn,
+  .access-content p,
+  .access-content h2 {
     text-align: left;
   }
-  .line{
+  .line {
     margin: 0;
   }
-  .learn{
-      justify-content: flex-start
+  .learn {
+    justify-content: flex-start;
   }
   .work-image-container {
     flex-direction: row;
@@ -175,27 +178,29 @@
   #first-need {
     padding-right: 2.7em;
   }
-    .work-content h2 {
+  .work-content h2 {
     font-size: 2.5rem;
     text-align: center;
   }
-   .access {
+  .access {
     margin: 0 auto;
   }
 }
 @media screen and (min-width: 1024px) {
-      .access-content h2 {
+  .access-content h2 {
     width: 50%;
     margin: 0;
   }
-    .learn, .access-content p, .access-content h2 {
+  .learn,
+  .access-content p,
+  .access-content h2 {
     text-align: left;
   }
-  .line{
+  .line {
     margin: 0;
   }
-  .learn{
-      justify-content: flex-start
+  .learn {
+    justify-content: flex-start;
   }
   .access-container {
     flex-direction: row;
@@ -245,7 +250,7 @@
     display: flex;
     flex-direction: row;
     padding-right: 3em;
-    background-image: url("../images/BACKGROUND.png");
+    /* background-image: url("../images/BACKGROUND.png"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -293,14 +298,14 @@
   .working-with-us {
     padding-inline: 7em;
   }
-  .work{
+  .work {
     align-items: flex-start;
   }
-     .need-content {
+  .need-content {
     margin-top: 3em;
   }
-    .work{
-    height:370px;
+  .work {
+    height: 370px;
   }
 }
 @media screen and (min-width: 1320px) {
@@ -311,4 +316,3 @@
     padding-inline: 9.5em;
   }
 }
-

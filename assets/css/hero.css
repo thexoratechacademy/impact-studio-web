@@ -245,7 +245,7 @@
     position: absolute;
     top: 0;
     right: 9.5em;
-    display: none;
+    /* display: none; */
     justify-content: flex-end;
     width: 30%;
     border-top-left-radius: 120px;
@@ -271,6 +271,7 @@
     font-size: 3rem;
     line-height: 1em;
     font-weight: 950;
+    max-width: 550px;
   }
   .hero-paragraph {
     line-height: 1.6rem;
@@ -377,3 +378,10 @@
     width: 32%;
   }
 }
+
+/* @media screen and (min-width: 1373px) {
+
+  .hero-heading {
+    background-color: #f7a90e;
+  }
+} */
