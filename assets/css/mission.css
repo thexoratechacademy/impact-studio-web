@@ -1,201 +1,196 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  color: #2c2c2c;
-}
-
 .mission-section {
-  background: #F6FDFF;
-  display: flex;
-  justify-content: center;
-  padding: 3rem 1.5rem;
-}
+            background-color: #f0f7ff;
+            padding: 2.5rem 1.25rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+        }
+        .sub-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.875rem;
+            height: 100%;
+            max-width: 81.25rem; 
+            width: 100%;
+            align-items: center;
+        }
+        .image-containers {
+            flex: 1;
+            padding-right: 1.25rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-containers img {
+            width: 33.09375rem;
+            height: 36.97375rem;
+            max-width: 100%;
+            height: auto;
+            opacity: 1;
+            transform: rotate(0deg);
+            border-radius: 0.9375rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+        }
+        .mission-parent {
+            flex: 1;
+            padding-left: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .mission-text {
+            max-width: 100%;
+            width: 80%;
+        }
+        .highlight {
+             width: 6.53vw;  
+             height: 0.4375rem;
+            /* width: 15%;
+            height: 1.4vh; */
+            background-color: #f4a261;
+            margin-bottom: 0.625rem;
+        }
+        .mission-text h2 {
+            color: #264653;
+            font-size: 2em;
+            margin-bottom: 0.9375rem;
+        }
+        .mission-text p {
+            color: #2a2a2a;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 0.9375rem;
+        }
 
-.mission-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 1200px;
-  width: 100%;
-}
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1024px) {
+            .sub-container {
+                flex-direction: row;
+                align-items: center;
+                gap: 24px;
+                margin: 0 auto;
+                max-width: 100%;
+            }
+            .image-containers {
+                padding: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .mission-parent {
+                padding: 0;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }
+            .mission-text {
+                max-width: 100%;
+                text-align: center;
+            }
+            .mission-text h2 {
+                font-size: 1.5em;
+                text-align: justify;
+            }
+            .mission-text p {
+                font-size: 0.9em;
+                text-align: justify;
+            }
+        }
 
-.image-collage {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
+        @media (min-width: 319px) and (max-width: 760px){
+            .sub-container{
+                flex-direction: row;
+            }
+            .image-containers img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+            .mission-section {
+                padding: 20px 10px;
+            }
 
-.image-collage img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-}
+            .highlight{
+                place-self: anchor-center;
+                margin-top: 1.1rem;
+                width: 30%;
+                height: 1.4vh;
+            }
+            .mission-text h2 {
+                font-size: 1.2em;
+                text-align: center;
+            }
+            .mission-text p {
+                font-size: 0.8em;
+                text-align: center;
+            }
+        }
 
-.mission-images {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-  transform: scale(0.85);
-}
+        @media (max-width: 480px) {
+            .sub-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .image-containers img {
+                width: 100%;
+                max-width: 80%;
+                height: 50vh;
+            }
+        }
 
-.mission-content {
-  width: fit-content;
-}
+        /* for macbook air */
+        @media (min-width: 820px) and (max-width: 1280px) {
+            .sub-container {
+                flex-direction: row;
+                gap: 1rem;
+            }
+            .image-containers img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
 
-.mission-content .highlight {
-  width: 20%;
-  height: 0.78vh;
-  background-color: #fdb241;
-  border-radius: 2px;
-  margin-bottom: 1rem;
-}
+            .mission-text{
+                max-width: 100%;
+                width: 85%;
+            }
 
-.mission-content h2 {
-  font-size: 2rem;
-  color: #2b2b4f;
-  margin-bottom: 1rem;
-}
+            .highlight{
+                width: 9.60vw;
+                height: 0.4375rem;
+            }
+        }
 
-.dec {
-  margin-bottom: 1em;
-  font-weight: 400;
-  font-size: 1rem;
-  letter-spacing: 0.0125;
-}
+        @media (max-width: 800px) {
+            .highlight{
+                width: 9.70vw;
+                height: 0.4375rem;
+            }
+        }
 
-@media (max-width: 480px) {
-  .mission-content {
-    width: 100%;
-    height: auto;
-  }
+        @media (min-width: 768px) {
+            .mission-section{
+                height: auto;
+            }
+            .sub-container {
+                gap: 30px; 
+            }
+            .image-containers {
+                padding-left: 2rem; 
+            }
+            .mission-parent {
+                padding-left: 0;
+            }
 
-  .mission-paragraph {
-    width: 100%;
-    height: auto;
-    padding: 0.5rem;
-  }
-   .dec {
-    line-height: 1.2rem;
-    letter-spacing: 0.01rem;
-    width: 100%;
-  }
+           
+        }
 
-  .highlight,.mission-content h2{
-    place-self: center;
-  }
-}
-
-@media (min-width: 992px) {
-  .mission-grid {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .mission-content {
-    width: 100%;
-  }
-}
-
-/*for smaller screens*/
-@media screen and (max-width: 768px) {
-  .mission-content {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .mission-paragraph {
-    width: 100%;
-    height: auto;
-  }
-
-  .mission-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image-collage {
-    grid-template-columns: 1fr;
-  }
-  
-}
-
-/*for larger screens*/
-@media screen and (min-width: 769px) {
-  .mission-content {
-    width: 100%;
-    padding: 2rem;
-  }
-
-  .mission-grid {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .image-collage {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/*for very large screens*/
-@media screen and (min-width: 1200px) {
-  .mission-content {
-    width: 100%;
-    padding: 3rem;
-  }
-
-  .mission-grid {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .image-collage {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/*for ipads and tablets*/
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .mission-content {
-    width: 100%;
-    padding: 2rem;
-  }
-
-  .mission-grid {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .image-collage {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-/*responsive from 446px to 768px*/
-@media screen and (min-width: 446px) and (max-width: 768px) {
-  .mission-content {
-    width: 100%;
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-  .mission-paragraph {
-    height: auto;
-    padding: 0.5rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .mission-content .highlight{
-    width: 10%;
-    height: 0.78vh;
-    place-self: center;
-  }
-
-  .mission-grid {
-    flex-direction: column;
-    align-items: center;
+        @media (max-width: 768px) {
+            .highlight {
+            width: 5.875rem; 
+            height: 0.4375rem;
   }
 }
