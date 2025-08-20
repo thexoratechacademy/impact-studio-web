@@ -61,25 +61,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     .catch((err) => console.error("Failed to load navbar:", err));
 });
-
-
 document.addEventListener("DOMContentLoaded", () => {
     Promise.all([
         fetch("../pages/hire-top-talent.html").then(res => res.text()),
         fetch("../pages/top.html").then(res => res.text())
     ])
     .then(([hireTopTalentHtml, topHtml]) => {
-        document.getElementById("hire-top-talent").innerHTML = 
-            hireTopTalentHtml + topHtml; // or topHtml + hireTopTalentHtml
+        document.getElementById("hire-top-talent").innerHTML = hireTopTalentHtml + topHtml;
     })
     .catch(err => console.error("Failed to load content:", err));
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../components/footer.html")
-    .then((response) => response.text())
-    .then((html) => {
-      document.getElementById("footer-placeholder").innerHTML = html;
-    })
-    .catch((err) => console.error("Failed to load footer:", err));
+    fetch("../components/footer.html")
+        .then((response) => response.text())
+        .then((html) => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+        })
+        .catch((err) => console.error("Failed to load footer:", err));
 });
+
+document.getElementById("hire-top-talent").innerHTML = hireTopTalentHtml;
+document.getElementById("top-talent").innerHTML = topHtml;

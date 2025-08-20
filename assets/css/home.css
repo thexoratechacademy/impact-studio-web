@@ -1,10 +1,25 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        max-width: 100%;
+        max-height: 100vh;
+        padding-top: 5rem;
+    }
+    .main{
+        position: relative;
+    }
+
 @media (max-width: 320px) {
-    p.section-description{
+    /* p.section-description{
         font-size: 0.8rem;
         width: 100%;
         height: 22vh;
         font-size: 0.870rem;
-    }
+    } */
 
     .talent-slider{
         
@@ -12,3 +27,5 @@
     }
 
 }
+
+
