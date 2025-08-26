@@ -29,18 +29,10 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.scroll-container {
-  height: 100vh; 
-  overflow-y: scroll; 
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
 
-.scroll-container::-webkit-scrollbar {
-  display: none; 
-}
 
 
  
@@ -59,7 +51,7 @@
   z-index: 0;
 }
 
-.heading::before {
+ .heading::before {
   content: '';
   position: absolute;
   top: 0;
@@ -75,7 +67,7 @@
   z-index: 2;
   color: white;
   top: 15%;
-}
+} 
 
 
 h1 {
