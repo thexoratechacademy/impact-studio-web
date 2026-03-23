@@ -65,28 +65,28 @@ document.addEventListener("DOMContentLoaded", () => {
 // Inject the section component into the homepage.
 document.addEventListener("DOMContentLoaded", () => {
   // Hero-Section
-  fetch("Sections/hero-section.html")
+  fetch("sections/hero-section.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("hero-section-placeholder").innerHTML = html;
     })
     .catch((err) => console.error("Failed to load footer:", err));
   // Course-Path Section
-  fetch("Sections/course-path-section.html")
+  fetch("sections/course-path-section.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("course-path-section-placeholder").innerHTML =
         html;
     });
   // Access Us Section
-  fetch("Sections/Access-us-section.html")
+  fetch("sections/Access-us-section.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("accessing-us-section-placeholder").innerHTML =
         html;
     });
   // Sponsors Section
-  fetch("Sections/sponsors.html")
+  fetch("sections/sponsors.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("sponsors-section-placeholder").innerHTML = html;
