@@ -1,6 +1,6 @@
 // Inject the navbar component into the homepage(index.html).
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("components/navbar.html")
+  fetch("./components/navbar.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("navbar-placeholder").innerHTML = html;
@@ -65,28 +65,28 @@ document.addEventListener("DOMContentLoaded", () => {
 // Inject the section component into the homepage.
 document.addEventListener("DOMContentLoaded", () => {
   // Hero-Section
-  fetch("sections/hero-section.html")
+  fetch("./sections/hero-section.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("hero-section-placeholder").innerHTML = html;
     })
     .catch((err) => console.error("Failed to load footer:", err));
   // Course-Path Section
-  fetch("sections/course-path-section.html")
+  fetch("./sections/course-path-section.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("course-path-section-placeholder").innerHTML =
         html;
     });
   // Access Us Section
-  fetch("sections/Access-us-section.html")
+  fetch("./sections/Access-us-section.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("accessing-us-section-placeholder").innerHTML =
         html;
     });
   // Sponsors Section
-  fetch("sections/sponsors.html")
+  fetch("./sections/sponsors.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("sponsors-section-placeholder").innerHTML = html;
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // Inject the footer component into the homepage(index.html).
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("components/footer.html")
+  fetch("./components/footer.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("footer-placeholder").innerHTML = html;
