@@ -202,6 +202,247 @@
   margin-block: 1.5em;
   padding: 0.9375em 2.5em;
 }
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  min-height: 660px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.circle-outline {
+  position: absolute;
+  top: 40%;
+  left: -5%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2.5px solid #6c4bdb;
+  background: transparent;
+}
+
+/* Orange — wider and taller */
+.shape-orange {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  width: clamp(120px, 35vw, 280px);
+  height: clamp(120px, 35vw, 280px);
+  aspect-ratio: 1;
+  background-color: #ffa500;
+  border-radius: 50% 0 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Teal — wider and taller */
+.shape-teal {
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  width: clamp(120px, 35vw, 280px);
+  height: clamp(120px, 35vw, 280px);
+  aspect-ratio: 1;
+  background-color: #2abfab;
+  border-radius: 50% 50% 50% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg.placeholder {
+  width: 8%;
+  height: auto;
+  max-width: 50px;
+  stroke: #333;
+  fill: none;
+  stroke-width: 1.5;
+  opacity: 0.45;
+}
+
+.shape-icon {
+  width: 25%;
+  height: auto;
+  max-width: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Badge moved close to teal shape — bottom-left of teal */
+.student-card {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  width: auto;
+  height: auto;
+  border-radius: 50px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.card-text .count {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2abfab;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.card-text .count i {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.card-text .label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -10px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar-more {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -10px;
+  background-color: #1a2d8f;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    min-height: 450px;
+    padding: 15px;
+  }
+
+  .shape-orange {
+    top: 8%;
+    left: 5%;
+    width: clamp(100px, 40vw, 200px);
+    height: clamp(100px, 40vw, 200px);
+  }
+
+  .shape-teal {
+    bottom: 5%;
+    right: 5%;
+    width: clamp(100px, 40vw, 200px);
+    height: clamp(100px, 40vw, 200px);
+  }
+
+  .student-card {
+    bottom: 20px;
+    padding: 8px 14px;
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .card-text .count {
+    font-size: 12px;
+  }
+
+  .card-text .label {
+    font-size: 10px;
+  }
+
+  .avatar,
+  .avatar-more {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    min-height: 350px;
+  }
+
+  .shape-orange {
+    width: clamp(90px, 42vw, 180px);
+    height: clamp(90px, 42vw, 180px);
+  }
+
+  .shape-teal {
+    width: clamp(90px, 42vw, 180px);
+    height: clamp(90px, 42vw, 180px);
+  }
+
+  .circle-outline {
+    width: 30px;
+    height: 30px;
+  }
+
+  .student-card {
+    bottom: 8px;
+    padding: 6px 12px;
+    font-size: 10px;
+    flex-direction: row;
+    gap: 6px;
+    border-radius: 30px;
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .card-text .count {
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .card-text .label {
+    font-size: 9px;
+    font-weight: 500;
+  }
+
+  .avatar,
+  .avatar-more {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  
+  .avatars {
+    gap: -6px;
+  }
+}
+
 @media screen and (max-width: 350px) {
   .web-hero-container {
     padding-inline: 1.3em;
@@ -224,6 +465,58 @@
     font-size: 1rem;
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    min-height: 500px;
+    padding: 20px;
+  }
+
+  .shape-orange {
+    top: 5%;
+    left: 5%;
+    width: clamp(180px, 30vw, 320px);
+    height: clamp(180px, 30vw, 320px);
+  }
+
+  .shape-teal {
+    bottom: 3%;
+    right: 5%;
+    width: clamp(180px, 30vw, 320px);
+    height: clamp(180px, 30vw, 320px);
+  }
+
+  .circle-outline {
+    width: 45px;
+    height: 45px;
+  }
+
+  .student-card {
+    bottom: 25px;
+    padding: 12px 20px;
+    font-size: 13px;
+    gap: 12px;
+  }
+
+  .card-text .count {
+    font-size: 15px;
+  }
+
+  .card-text .label {
+    font-size: 12px;
+  }
+
+  .avatar,
+  .avatar-more {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .avatars {
+    gap: -8px;
+  }
+}
+
 @media screen and (min-width: 800px) {
   .web-hero-content h1 {
     font-size: 2.5rem;

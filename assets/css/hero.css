@@ -243,7 +243,7 @@
   }
   .hero-image {
     position: absolute;
-    top: 0;
+    top: 80px;
     right: 9.5em;
     /* display: none; */
     justify-content: flex-end;

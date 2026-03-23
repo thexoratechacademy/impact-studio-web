@@ -181,8 +181,8 @@
     padding-inline: 4em;
   }
   .course-details {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    padding: 3em 0; 
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3em 0;
   }
   .course-introduction p {
     width: 50%;
