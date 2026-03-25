@@ -231,6 +231,8 @@
   left: 8%;
   width: clamp(120px, 35vw, 280px);
   height: clamp(120px, 35vw, 280px);
+  min-width: 200px;
+  min-height: 200px;
   aspect-ratio: 1;
   background-color: #ffa500;
   border-radius: 50% 0 50% 50%;
@@ -246,6 +248,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 
 /* Teal — wider and taller */
@@ -255,6 +258,8 @@
   right: 3%;
   width: clamp(120px, 35vw, 280px);
   height: clamp(120px, 35vw, 280px);
+  min-width: 200px;
+  min-height: 200px;
   aspect-ratio: 1;
   background-color: #2abfab;
   border-radius: 50% 50% 50% 0;
@@ -270,6 +275,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 
 /* ORANGE ANIMATION */
