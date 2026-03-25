@@ -227,8 +227,8 @@
 /* Orange — wider and taller */
 .shape-orange {
   position: absolute;
-  top: 5%;
-  left: 8%;
+  top: 0;
+  left: 0;
   width: clamp(120px, 35vw, 280px);
   height: clamp(120px, 35vw, 280px);
   min-width: 200px;
@@ -255,8 +255,8 @@
 /* Teal — wider and taller */
 .shape-teal {
   position: absolute;
-  bottom: 3%;
-  right: 3%;
+  bottom: 0;
+  right: 0;
   width: clamp(120px, 35vw, 280px);
   height: clamp(120px, 35vw, 280px);
   min-width: 200px;
@@ -283,15 +283,15 @@
 /* ORANGE ANIMATION */
 @keyframes swapOrange {
   0% {
-    top: 5%;
-    left: 8%;
+    top: 0;
+    left: 0;
     transform: rotate(0deg);
   }
 
   /* Pause at start */
   20% {
-    top: 5%;
-    left: 8%;
+    top: 0;
+    left: 0;
     transform: rotate(0deg);
   }
 
@@ -311,8 +311,8 @@
 
   /* Return */
   100% {
-    top: 5%;
-    left: 8%;
+    top: 0;
+    left: 0;
     transform: rotate(0deg);
   }
 }
@@ -320,15 +320,15 @@
 /* TEAL ANIMATION */
 @keyframes swapTeal {
   0% {
-    bottom: 3%;
-    right: 3%;
+    bottom: 0;
+    right: 0;
     transform: rotate(0deg);
   }
 
   /* Pause */
   20% {
-    bottom: 3%;
-    right: 3%;
+    bottom: 0;
+    right: 0;
     transform: rotate(0deg);
   }
 
@@ -348,8 +348,8 @@
 
   /* Return */
   100% {
-    bottom: 3%;
-    right: 3%;
+    bottom: 0;
+    right: 0;
     transform: rotate(0deg);
   }
 }
