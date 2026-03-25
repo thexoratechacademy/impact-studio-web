@@ -1,1 +1,1 @@
-# TODO: Add Navbar to Working With Us Page\n\n- [ ] Create TODO.md (current)\n- [ ] Edit sections/working-with-us.html to add script tag for navbar loading\n- [ ] Test in browser\n- [ ] Complete task
+# Push to origin/daniel branch&#10;&#10;- [x] Commit unstaged changes on main&#10;- [x] Switch to daniel branch&#10;- [ ] Merge latest main changes into daniel&#10;- [ ] Push daniel to origin&#10;- [ ] Verify
