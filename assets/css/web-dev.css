@@ -237,6 +237,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: swapOrange 6s infinite ease-in-out;
 }
 
 /* Teal — wider and taller */
@@ -252,6 +253,81 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: swapTeal 6s infinite ease-in-out;
+}
+
+/* ORANGE ANIMATION */
+@keyframes swapOrange {
+  0% {
+    top: 5%;
+    left: 8%;
+    transform: rotate(0deg);
+  }
+
+  /* Pause at start */
+  20% {
+    top: 5%;
+    left: 8%;
+    transform: rotate(0deg);
+  }
+
+  /* Move diagonally + rotate */
+  50% {
+    top: 280px;
+    left: 180px;
+    transform: rotate(90deg);
+  }
+
+  /* Pause at new position */
+  80% {
+    top: 280px;
+    left: 180px;
+    transform: rotate(90deg);
+  }
+
+  /* Return */
+  100% {
+    top: 5%;
+    left: 8%;
+    transform: rotate(0deg);
+  }
+}
+
+/* TEAL ANIMATION */
+@keyframes swapTeal {
+  0% {
+    bottom: 3%;
+    right: 3%;
+    transform: rotate(0deg);
+  }
+
+  /* Pause */
+  20% {
+    bottom: 3%;
+    right: 3%;
+    transform: rotate(0deg);
+  }
+
+  /* Move opposite direction */
+  50% {
+    bottom: 280px;
+    right: 180px;
+    transform: rotate(-90deg);
+  }
+
+  /* Pause */
+  80% {
+    bottom: 280px;
+    right: 180px;
+    transform: rotate(-90deg);
+  }
+
+  /* Return */
+  100% {
+    bottom: 3%;
+    right: 3%;
+    transform: rotate(0deg);
+  }
 }
 
 svg.placeholder {
