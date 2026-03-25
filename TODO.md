@@ -1,1 +1,1 @@
-# Push to origin/daniel branch&#10;&#10;- [ ] Commit unstaged changes on main&#10;- [ ] Switch to daniel branch&#10;- [ ] Merge latest main changes into daniel&#10;- [ ] Push daniel to origin&#10;- [ ] Verify
+- [x] Commit unstaged changes on main
