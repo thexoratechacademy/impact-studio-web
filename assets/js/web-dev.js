@@ -106,9 +106,52 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.innerWidth >= 1024) {
         handleDesktopTabs();
       }
+
+      // --- FAQ BUTTONS INTERACTIVITY ---
+      const faqQuestions = document.querySelectorAll(".FAQs-question");
+      faqQuestions.forEach((button) => {
+        button.addEventListener("click", () => {
+          const answer = button.nextElementSibling;
+          const chevron = button.querySelector("img");
+          if (answer && answer.classList.contains("faq-answer")) {
+            if (answer.style.display === "none") {
+              answer.style.display = "block";
+              if (chevron) {
+                chevron.style.transform = "rotate(180deg)";
+                chevron.style.transition = "transform 0.3s ease";
+              }
+            } else {
+              answer.style.display = "none";
+              if (chevron) {
+                chevron.style.transform = "rotate(0deg)";
+              }
+            }
+          }
+        });
+      });
+
+      // --- MODULE BUTTONS INTERACTIVITY ---
+      const moduleBtns = document.querySelectorAll(".modules-buttons button");
+      const moduleDisplay = document.getElementById("module-display-text");
+      
+      if (moduleBtns.length > 0 && moduleDisplay) {
+        moduleBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            moduleDisplay.innerText = btn.getAttribute("data-content");
+            moduleBtns.forEach(b => {
+              b.style.backgroundColor = "";
+              b.style.color = "";
+            });
+            btn.style.backgroundColor = "#035472";
+            btn.style.color = "#ffffff";
+          });
+        });
+      }
     })
-    .catch((err) => console.error("Failed to load footer:", err));
+
+    .catch((err) => console.error("Failed to load course overview:", err));
 });
+
 // Inject the getting-started component into the homepage(web-development.html).
 document.addEventListener("DOMContentLoaded", () => {
   fetch("../../Sections/getting-started.html")

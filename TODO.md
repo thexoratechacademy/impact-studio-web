@@ -1,1 +1,9 @@
-# Push to origin/daniel branch&#10;&#10;- [x] Commit unstaged changes on main&#10;- [x] Switch to daniel branch&#10;- [ ] Merge latest main changes into daniel&#10;- [ ] Push daniel to origin&#10;- [ ] Verify
+# Digital Marketing FAQ Refactor TODO
+
+## Steps:
+- [ ] 1. Create TODO.md with plan breakdown ✅
+- [ ] 2. Read sections/digital-path.html to confirm content ✅
+- [✅] 3. Edit desktop FAQ section in sections/digital-path.html to match exact Q&As
+- [✅] 4. Update TODO.md with completion status
+- [✅] 5. Verify changes (preview pages/digital-marketing.html)
+- [✅] 6. Mark task complete

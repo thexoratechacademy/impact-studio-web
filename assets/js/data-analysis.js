@@ -1,11 +1,12 @@
-// Inject the  course-overview component into the homepage(web-development.html).
+// Inject course-overview section for Data Analysis
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../Sections/digital-path.html")
+  fetch("../../Sections/data-analysis-path.html")
     .then((response) => response.text())
     .then((html) => {
-      document.getElementById("course-overview-digital-placeholder").innerHTML =
-        html;
-    
+      document.getElementById(
+        "course-overview-data-analysis-placeholder"
+      ).innerHTML = html;
+
       // --- MOBILE LOGIC ---
       document
         .querySelectorAll(".course-overview-heading")
@@ -38,9 +39,29 @@ document.addEventListener("DOMContentLoaded", () => {
           handleDesktopTabs();
         }
       });
-      // Run on load if already in desktop view
       if (window.innerWidth >= 1024) {
         handleDesktopTabs();
+      }
+
+      // --- MODULE BUTTONS INTERACTIVITY ---
+      const moduleBtns = document.querySelectorAll(".modules-buttons button");
+      const moduleDisplay = document.getElementById("module-display-text");
+      
+      if (moduleBtns.length > 0 && moduleDisplay) {
+        moduleBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            // Update the display text with the content embedded in the button's data attribute
+            moduleDisplay.innerText = btn.getAttribute("data-content");
+            
+            // Highlight the active button visually
+            moduleBtns.forEach(b => {
+              b.style.backgroundColor = "";
+              b.style.color = "";
+            });
+            btn.style.backgroundColor = "#035472"; // Using the site's primary teal color
+            btn.style.color = "#ffffff";
+          });
+        });
       }
 
       // --- FAQ BUTTONS INTERACTIVITY ---
@@ -65,28 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       });
-
-      // --- MODULE BUTTONS INTERACTIVITY ---
-      const moduleBtns = document.querySelectorAll(".modules-buttons button");
-
-      const moduleDisplay = document.getElementById("module-display-text");
-      
-      if (moduleBtns.length > 0 && moduleDisplay) {
-        moduleBtns.forEach(btn => {
-          btn.addEventListener("click", () => {
-            // Update the display text with the content embedded in the button's data attribute
-            moduleDisplay.innerText = btn.getAttribute("data-content");
-            
-            // Highlight the active button visually
-            moduleBtns.forEach(b => {
-              b.style.backgroundColor = "";
-              b.style.color = "";
-            });
-            btn.style.backgroundColor = "#035472"; // Using the site's primary teal color
-            btn.style.color = "#ffffff";
-          });
-        });
-      }
     })
-    .catch((err) => console.error("Failed to load footer:", err));
+    .catch((err) => console.error("Failed to load data analysis overview:", err));
 });

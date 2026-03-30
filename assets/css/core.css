@@ -7,24 +7,13 @@
   --yellow: #fdb241;
 }
 
+      /* TEMPORARY: Using Montserrat as primary because Nexa-Trial files appear to be demo versions */
+      /* To use Nexa properly: Purchase full commercial license from fonts.com/typofonderie */
+      
       @font-face {
         font-family: "Nexa-Trial";
-        src: url("../fonts/Nexa-Trial-Regular.ttf");
+        src: local("Arial");
         font-weight: normal;
-        font-style: normal;
-      }
-
-      @font-face {
-        font-family: "Nexa-Trial-Black";
-        src: url("../fonts/Nexa-Trial-Black.ttf");
-        font-weight: 950;
-        font-style: normal;
-      }
-
-      @font-face {
-        font-family: "Nexa-Trial-Bold";
-        src: url("../fonts/Nexa-Trial-Bold.ttf");
-        font-weight: 700;
         font-style: normal;
       }
 
@@ -35,7 +24,7 @@
       }
 
       body {
-        font-family: "Nexa-Trial", sans-serif;
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         color: #2c2c2c;
         overflow-x: hidden;
       }
@@ -71,7 +60,7 @@
       }
 
       .core-value-title {
-        font-family: "Nexa-Trial-Bold", sans-serif;
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         font-weight: 700;
         font-size: clamp(16px, 4vw, 17px);
         line-height: 1.5;
@@ -80,7 +69,7 @@
       }
 
       .core-value-description {
-        font-family: "Nexa-Trial", sans-serif;
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         font-weight: 400;
         font-size: 1rem;
         font-weight: 400;
@@ -93,16 +82,31 @@
         background: #fff;
         display: flex;
         justify-content: center;
-        padding: clamp(1.5rem, 5vw, 3rem) clamp(0.5rem, 3vw, 1.5rem);
+        padding-block: clamp(1.5rem, 5vw, 3rem);
+        padding-inline: 1.46rem;
         width: 100%;
         overflow: hidden;
+      }
+      @media screen and (min-width: 600px) {
+        .core-value-section { padding-inline: 2.5em; }
+      }
+      @media screen and (min-width: 1024px) {
+        .core-value-section { padding-inline: 4em; }
+      }
+      @media screen and (min-width: 1100px) {
+        .core-value-section { padding-inline: 5em; }
+      }
+      @media screen and (min-width: 1200px) {
+        .core-value-section { padding-inline: 7em; }
+      }
+      @media screen and (min-width: 1320px) {
+        .core-value-section { padding-inline: 9.5em; }
       }
 
       .core-value-grid {
         display: flex;
         flex-direction: row;
         gap: clamp(1.5rem, 4vw, 2rem);
-        max-width: 1200px;
         width: 100%;
         align-items: flex-start;
         min-width: 0;
@@ -175,7 +179,7 @@
       /* Very small screens (below 480px) */
       @media (max-width: 480px) {
         .core-value-section {
-          padding: clamp(1rem, 4vw, 1.5rem) 0.5rem;
+          padding-block: clamp(1rem, 4vw, 1.5rem);
         }
 
         .core-value-grid {
@@ -241,7 +245,7 @@
       }
       @media (min-width: 600px) and (max-width: 1280px) {
   .core-value-section {
-    padding: 2rem 1rem;
+    padding-block: 2rem;
     flex-direction: column;
     align-items: center;
   }
@@ -293,7 +297,7 @@
       /*for surface Duo*/
       @media(max-width:540px){
         .core-value-section {
-          padding: clamp(1.5rem, 4vw, 2rem) 0.5rem;
+          padding-block: clamp(1.5rem, 4vw, 2rem);
         }
 
         .core-value-grid {
@@ -355,7 +359,7 @@
       /* Medium screens - Tablets (769px - 1024px) */
       @media (min-width: 769px) and (max-width: 1024px) {
         .core-value-section {
-          padding: clamp(2rem, 5vw, 2.5rem) 1rem;
+          padding-block: clamp(2rem, 5vw, 2.5rem);
         }
 
         .core-value-grid {
@@ -396,7 +400,7 @@
       /* Large screens - Desktop (1025px - 1440px) */
       @media (min-width: 1025px) and (max-width: 1440px) {
         .core-value-section {
-          padding: clamp(2.5rem, 5vw, 3rem) 1.5rem;
+          padding-block: clamp(2.5rem, 5vw, 3rem);
         }
 
         .core-value-grid {
@@ -430,7 +434,7 @@
       /* Extra large screens - Large Desktop (1441px+) */
       @media (min-width: 1441px) {
         .core-value-section {
-          padding: clamp(3rem, 5vw, 3.5rem) 2rem;
+          padding-block: clamp(3rem, 5vw, 3.5rem);
         }
 
         .core-value-grid {
@@ -462,10 +466,20 @@
         }
       }
 
+      /* FAQ Styles - Ensure Unicode character support */
+      .FAQs-question p,
+      .faq-answer p,
+      .faq-answer ul li,
+      .faq-answer ol li {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
       /* Landscape orientation for tablets and phones */
       @media (max-width: 1024px) and (orientation: landscape) {
         .core-value-section {
-          padding: clamp(1.5rem, 4vw, 2rem) 1rem;
+          padding-block: clamp(1.5rem, 4vw, 2rem);
         }
 
         .core-value-grid {

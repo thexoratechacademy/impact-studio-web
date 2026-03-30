@@ -1,11 +1,12 @@
-// Inject the  course-overview component into the homepage(web-development.html).
+// Inject course-overview section for Cyber Security
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../Sections/digital-path.html")
+  fetch("../../Sections/cyber-security-path.html")
     .then((response) => response.text())
     .then((html) => {
-      document.getElementById("course-overview-digital-placeholder").innerHTML =
-        html;
-    
+      document.getElementById(
+        "course-overview-cyber-security-placeholder"
+      ).innerHTML = html;
+
       // --- MOBILE LOGIC ---
       document
         .querySelectorAll(".course-overview-heading")
@@ -38,37 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
           handleDesktopTabs();
         }
       });
-      // Run on load if already in desktop view
       if (window.innerWidth >= 1024) {
         handleDesktopTabs();
       }
 
-      // --- FAQ BUTTONS INTERACTIVITY ---
-      const faqQuestions = document.querySelectorAll(".FAQs-question");
-      faqQuestions.forEach((button) => {
-        button.addEventListener("click", () => {
-          const answer = button.nextElementSibling;
-          const chevron = button.querySelector("img");
-          if (answer && answer.classList.contains("faq-answer")) {
-            if (answer.style.display === "none") {
-              answer.style.display = "block";
-              if (chevron) {
-                chevron.style.transform = "rotate(180deg)";
-                chevron.style.transition = "transform 0.3s ease";
-              }
-            } else {
-              answer.style.display = "none";
-              if (chevron) {
-                chevron.style.transform = "rotate(0deg)";
-              }
-            }
-          }
-        });
-      });
-
       // --- MODULE BUTTONS INTERACTIVITY ---
       const moduleBtns = document.querySelectorAll(".modules-buttons button");
-
       const moduleDisplay = document.getElementById("module-display-text");
       
       if (moduleBtns.length > 0 && moduleDisplay) {
@@ -87,6 +63,38 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         });
       }
+
+      // --- FAQ BUTTONS INTERACTIVITY ---
+      setTimeout(() => {
+        const faqQuestions = document.querySelectorAll(".FAQs-question");
+        console.log("Cybersecurity FAQ buttons found:", faqQuestions.length);
+        
+        faqQuestions.forEach((button) => {
+          button.addEventListener("click", function() {
+            const answer = this.nextElementSibling;
+            const chevron = this.querySelector("img");
+            console.log("FAQ clicked, answer:", answer);
+            
+            if (answer && answer.classList.contains("faq-answer")) {
+              const isVisible = window.getComputedStyle(answer).display !== "none";
+              
+              if (!isVisible) {
+                answer.style.setProperty("display", "block", "important");
+                if (chevron) {
+                  chevron.style.transform = "rotate(180deg)";
+                  chevron.style.transition = "transform 0.3s ease";
+                }
+              } else {
+                answer.style.removeProperty("display");
+                answer.style.display = "none";
+                if (chevron) {
+                  chevron.style.transform = "rotate(0deg)";
+                }
+              }
+            }
+          });
+        });
+      }, 50);
     })
-    .catch((err) => console.error("Failed to load footer:", err));
+    .catch((err) => console.error("Failed to load cyber security overview:", err));
 });
