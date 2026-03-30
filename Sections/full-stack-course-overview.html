@@ -183,69 +183,18 @@
               <p>FAQs</p>
             </button>
             <div class="answer last-answer">
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p>Do I need a laptop?</p>
-              </button>
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p>What kind of laptop do I need?</p>
-              </button>
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p> Can I pay in installments?</p>
-              </button>
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p>Do I need any prior tech or coding knowledge?</p>
-              </button>
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p>Will I get a certificate after completing the course?</p>
-              </button>
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p>How much time do I need to dedicate weekly?</p>
-              </button>
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p>How much time do I need to dedicate weekly?</p>
-              </button>
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p>What happens after the course?</p>
-              </button>
-              <button class="FAQs-question">
-                <img
-                  src="../assets/images/Chevron Down.png"
-                  alt="chevron-down"
-                />
-                <p> Where will the classes be held?</p>
-              </button>
+              <button class="FAQs-question"><img src="../assets/images/Chevron Down.png" alt="chevron-down" /><p>Do I need prior coding experience to join?</p></button>
+              <div class="faq-answer" style="display: none;">
+                <p>No! We teach HTML, CSS, JavaScript from scratch, even if you've never coded before.</p>
+              </div>
+              <button class="FAQs-question"><img src="../assets/images/Chevron Down.png" alt="chevron-down" /><p>Will I build real projects?</p></button>
+              <div class="faq-answer" style="display: none;">
+                <p>Yes! You'll build responsive websites, interactive apps, and a portfolio-ready capstone project with real functionality.</p>
+              </div>
+              <button class="FAQs-question"><img src="../assets/images/Chevron Down.png" alt="chevron-down" /><p>Can I get a job after this course?</p></button>
+              <div class="faq-answer" style="display: none;">
+                <p>Yes! You'll have a job-ready portfolio, GitHub profile, and skills for junior developer roles or freelance work.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -337,41 +286,15 @@
                 </ul>
                 <h3 class="modules">Modules</h3>
                 <div class="modules-buttons">
-                  <button>Module 1</button>
-                  <button>Module 2</button>
-                  <button>Module 3</button>
-                  <button>Module 4</button>
-                  <button>Module 5</button>
-                  <button>Module 6</button>
+                  <button data-content="Learn HTML5, CSS3, Flexbox/Grid for building responsive websites.">Module 1: HTML, CSS & Responsive Design</button>
+                  <button data-content="Master JavaScript fundamentals and DOM manipulation for interactive web apps.">Module 2: JavaScript Fundamentals</button>
+                  <button data-content="Build dynamic UIs with React components, state, hooks, and routing.">Module 3: React.js Development</button>
+                  <button data-content="Learn Git version control, APIs, async programming, and modern ES6+ features.">Module 4: Advanced JavaScript & Tools</button>
+                  <button data-content="Create back-end APIs with Node.js/Express and connect to databases.">Module 5: Backend with Node.js & Databases</button>
+                  <button data-content="Deploy full-stack apps, authentication, testing, and production best practices.">Module 6: Deployment & Production</button>
                 </div>
                 <div class="modules-content ">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur. Eros enim quam nibh
-                    a orci porttitor duis. Congue tempor lacus phasellus lacus
-                    enim lobortis. Pulvinar adipiscing purus dictum non placerat
-                    elementum. Semper velit eget libero ac mi nullam. Nisi
-                    viverra nunc in nisl consequat ut. Purus nibh eget et mauris
-                    sed et diam nisl purus. Malesuada amet maecenas lacinia mi
-                    lectus. SapienLorem ipsum dolor sit amet consectetur. Eros
-                    enim quam nibh a orci porttitor duis. Congue tempor lacus
-                    phasellus lacus enim lobortis. Pulvinar adipiscing purus
-                    dictum non placerat elementum. Semper velit eget libero ac
-                    mi nullam. Nisi viverra nunc in nisl consequat ut. Purus
-                    nibh eget et mauris sed et diam nisl purus. Malesuada amet
-                    maecenas lacinia mi lectus. Sapien
-                  </p>
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Nulla perferendis tenetur sed ut natus maiores porro
-                    obcaecati! Accusantium commodi, sit nostrum pariatur harum
-                    distinctio iste expedita similique explicabo maiores quas?
-                  </p>
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Cum ab quasi pariatur officiis aut dolorum laboriosam maxime
-                    quia commodi suscipit asperiores sapiente, facilis,
-                    voluptate distinctio iste minima tempore excepturi corporis.
-                  </p>
+                  <p id="module-display-text">Click a module above to view its content.</p>
                 </div>
               </div>
             </div>
@@ -379,7 +302,7 @@
               <h3>Fees</h3>
               <div class="answer third-answer">
                 <p class="fees-heading">Standard</p>
-                <p class="fees-amount">₦300,000</p>
+                <p class="fees-amount">₦450,000</p>
                 <p class="fees-description">
                   Description of the tier list will go here, copy should be
                   concise and impactful.
@@ -460,62 +383,18 @@
             <div data-section="faqs" class="FAQs">
               <h3>FAQs</h3>
               <div class="answer last-answer">
-                <button class="FAQs-question">
-                  <img
-                    src="../assets/images/Chevron Down.png"
-                    alt="chevron-down"
-                  />
-                  <p>Do I need a laptop?</p>
-                </button>
-                <button class="FAQs-question">
-                  <img
-                    src="../assets/images/Chevron Down.png"
-                    alt="chevron-down"
-                  />
-                  <p>What kind of laptop do I need?</p>
-                </button>
-                <button class="FAQs-question">
-                  <img
-                    src="../assets/images/Chevron Down.png"
-                    alt="chevron-down"
-                  />
-                  <p> Can I pay in installments?</p>
-                </button>
-                <button class="FAQs-question">
-                  <img
-                    src="../assets/images/Chevron Down.png"
-                    alt="chevron-down"
-                  />
-                  <p>Do I need any prior tech or coding knowledge?</p>
-                </button>
-                <button class="FAQs-question">
-                  <img
-                    src="../assets/images/Chevron Down.png"
-                    alt="chevron-down"
-                  />
-                  <p>Will I get a certificate after completing the course?</p>
-                </button>
-                <button class="FAQs-question">
-                  <img
-                    src="../assets/images/Chevron Down.png"
-                    alt="chevron-down"
-                  />
-                  <p>How much time do I need to dedicate weekly?</p>
-                </button>
-                <button class="FAQs-question">
-                  <img
-                    src="../assets/images/Chevron Down.png"
-                    alt="chevron-down"
-                  />
-                  <p>What happens after the course?</p>
-                </button>
-                <button class="FAQs-question">
-                  <img
-                    src="../assets/images/Chevron Down.png"
-                    alt="chevron-down"
-                  />
-                  <p> Where will the classes be held?</p>
-                </button>
+                <button class="FAQs-question"><img src="../assets/images/Chevron Down.png" alt="chevron-down" /><p>Do I need prior coding experience to join?</p></button>
+                <div class="faq-answer" style="display: none;">
+                  <p>No! We teach HTML, CSS, JavaScript from scratch, even if you've never coded before.</p>
+                </div>
+                <button class="FAQs-question"><img src="../assets/images/Chevron Down.png" alt="chevron-down" /><p>Will I build real projects?</p></button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Yes! You'll build responsive websites, interactive apps, and a portfolio-ready capstone project with real functionality.</p>
+                </div>
+                <button class="FAQs-question"><img src="../assets/images/Chevron Down.png" alt="chevron-down" /><p>Can I get a job after this course?</p></button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Yes! You'll have a job-ready portfolio, GitHub profile, and skills for junior developer roles or freelance work.</p>
+                </div>
               </div>
             </div>
           </div>

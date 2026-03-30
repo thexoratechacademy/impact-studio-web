@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Get in touch with Thexora Tech Academy — we'd love to hear from you." />
+    <title>Contact Us – Thexora</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Banner -->
+    <section class="contact-hero">
+      <div class="contact-hero-inner">
+        <span class="hero-label">Get In Touch</span>
+        <h1>We'd Love to Hear From You</h1>
+        <p>Whether you have a question about our courses, want to partner with us, or just want to say hi — our team is always happy to help.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="contact-main">
+      <div class="contact-layout">
+
+        <!-- Left Column: Info + Socials -->
+        <aside class="contact-sidebar">
+
+          <!-- Info Cards -->
+          <div class="contact-info">
+            <div class="info-card">
+              <div class="info-icon"><i class="ri-map-pin-2-line"></i></div>
+              <div class="info-text">
+                <h3>Visit Us</h3>
+                <p>153 NTA Rd, behind Timeless Superstores,<br />Mgbuoba, Port Harcourt 500102, Rivers</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="ri-phone-line"></i></div>
+              <div class="info-text">
+                <h3>Call Us</h3>
+                <p>08065523089</p>
+                <p class="info-note">Mon – Fri, 9am – 5pm WAT</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="ri-mail-line"></i></div>
+              <div class="info-text">
+                <h3>Email Us</h3>
+                <p>talk2thexora@gmail.com</p>
+                <p class="info-note">We reply within 24 hours</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="contact-socials">
+            <p class="socials-label">Follow Us</p>
+            <div class="socials-row">
+              <a href="https://www.instagram.com/thexora_academy_?igsh=MXEzdmF3dnF3MDF1cw%3D%3D&utm_source=qr" target="_blank" class="social-link" aria-label="Instagram">
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a href="https://www.facebook.com/share/1FBAvWJZTm/?mibextid=wwXIfr" target="_blank" class="social-link" aria-label="Facebook">
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a href="https://www.tiktok.com/@thexora_academy?_r=1&_t=ZS-950g1PVcErJ" target="_blank" class="social-link" aria-label="TikTok">
+                <i class="ri-tiktok-fill"></i>
+              </a>
+              <a href="https://wa.me/2348065523089" target="_blank" class="social-link" aria-label="WhatsApp">
+                <i class="ri-whatsapp-line"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="contact-quick-links">
+            <p class="socials-label">Quick Links</p>
+            <ul>
+              <li><i class="ri-arrow-right-s-line"></i><a href="/pages/choose-path.html">Enroll in a Course</a></li>
+              <li><i class="ri-arrow-right-s-line"></i><a href="/pages/hire-page.html">Hire a Graduate</a></li>
+              <li><i class="ri-arrow-right-s-line"></i><a href="/pages/about.html">About Thexora</a></li>
+            </ul>
+          </div>
+
+        </aside>
+
+        <!-- Right Column: Contact Form -->
+        <div class="contact-form-wrapper">
+          <div class="contact-form-header">
+            <div class="contact-separator"></div>
+            <h2>Send Us a Message</h2>
+            <p>Fill in the form below and we'll get back to you as soon as possible.</p>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="full-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="full-name" name="fullName" placeholder="e.g. Jane Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="e.g. jane@email.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="optional">(optional)</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. +234 800 000 0000" />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject <span class="req">*</span></label>
+                <div class="select-wrap">
+                  <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select a subject</option>
+                    <option value="enrolment">Course Enrolment</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="hiring">Hiring a Graduate</option>
+                    <option value="general">General Enquiry</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <i class="ri-arrow-down-s-line select-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <label for="message">Message <span class="req">*</span></label>
+              <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help…" required></textarea>
+            </div>
+            <div class="form-footer">
+              <button type="submit" class="contact-submit" id="submit-btn">
+                Send Message <i class="ri-send-plane-line"></i>
+              </button>
+              <p class="form-success" id="form-success">
+                <i class="ri-checkbox-circle-line"></i> Message sent! We'll be in touch shortly.
+              </p>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../assets/js/contact.js" defer></script>
+  </body>
+</html>

@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       // Fetch all resources concurrently
       const [navbarResponse, hireResponse, topResponse, footerResponse] = await Promise.all([
-        fetch("/components/navbar.html"),
-        fetch("/pages/hire-top-talent.html"),
-        fetch("/pages/top.html"),
-        fetch("/components/footer.html"),
+        fetch("../components/navbar.html"),
+        fetch("hire-top-talent.html"),
+        fetch("top.html"),
+        fetch("../components/footer.html"),
       ]);
 
       // Check for fetch errors
