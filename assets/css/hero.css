@@ -31,6 +31,7 @@
 }
 .hero-image img {
   width: 100%;
+  max-width: 400px;
   height: auto;
 }
 .hero-content {
@@ -232,6 +233,7 @@
 @media screen and (min-width: 1024px) {
   .hero {
     position: relative;
+    top: -50px;
   }
   .hero-container {
     padding-inline: 4em;
@@ -242,24 +244,22 @@
     gap: 20px;
   }
   .hero-image {
-    position: absolute;
-    top: 100px;
-    right: 7em;
-    /* display: none; */
+    display: flex;
     justify-content: flex-end;
-    width: 35%;
-    max-width: 480px;
+    width: 50%;
+    max-width: 650px;
     border-top-left-radius: 120px;
     border-bottom-left-radius: 120px;
   }
   .hero-image img {
     width: 100%;
+    max-width: none;
     height: auto;
     border-top-left-radius: 120px;
-    z-index: -1;
+    z-index: 1;
   }
   .hero-content {
-    width: 58%;
+    width: 50%;
     max-width: 600px;
     padding-top: 1.4em;
     text-align: left;
