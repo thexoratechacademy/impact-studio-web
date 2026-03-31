@@ -245,6 +245,14 @@
 .icon-navy   { background: #e3eaf4; color: #0e2a46; }
 .icon-accent { background: #fdb241; color: #0e2a46; } /* Final project */
 
+/* Roadmap theme icon colors */
+.icon-green  { background: #d4edda; color: #28a745; }    /* Foundations */
+.icon-blue   { background: #d1ecf1; color: #17a2b8; }     /* CSS, React, DevOps */
+.icon-purple { background: #e2d5f1; color: #6f42c1; }     /* Responsive, Real-Time */
+.icon-red    { background: #f8d7da; color: #dc3545; }      /* Advanced JS, Security */
+.icon-black  { background: #e2e3e5; color: #383d41; }      /* Version Control */
+.icon-brown  { background: #f5e6d8; color: #8b4513; }      /* Backend Frameworks, Databases */
+
 .module-title {
   flex:        1;
   min-width:   0;
