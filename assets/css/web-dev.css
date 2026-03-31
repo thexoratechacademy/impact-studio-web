@@ -293,7 +293,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2.5px solid #6c4bdb;
+  border: 2.5px solid #fdb241;
   background: transparent;
 }
 
@@ -389,7 +389,7 @@ svg.placeholder {
 .card-text .count {
   font-size: 16px;
   font-weight: 700;
-  color: #2abfab;
+  color: #035472;
   display: inline-flex;
   align-items: flex-start;
   gap: 1px;
@@ -403,7 +403,7 @@ svg.placeholder {
 .card-text .label {
   font-size: 15px;
   font-weight: 600;
-  color: #1a1a2e;
+  color: #252b42;
 }
 
 .avatars {
@@ -429,7 +429,7 @@ svg.placeholder {
   border-radius: 50%;
   border: 2px solid white;
   margin-left: -10px;
-  background-color: #1a2d8f;
+  background-color: #035472;
   color: white;
   font-size: 12px;
   font-weight: 600;

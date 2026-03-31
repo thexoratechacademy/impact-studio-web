@@ -3,15 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile Information Form</title>
-    <link rel="stylesheet" href="../assets/css/top.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Profile Information Form | Thexora</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/top.css" />
   </head>
   <body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
     <section class="form-section">
-      
+
       <div class="form-header">
         <div class="underline"></div>
         <h1>Tell us what you're looking for, and we'll help you find the right fit</h1>
@@ -69,44 +79,36 @@
             </div>
           </div>
 
-          <button type="submit">Next</button>
+          <button type="submit">Next <i class="ri-arrow-right-line"></i></button>
         </form>
       </div>
     </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
     <script>
       // Form validation and submission handling
       document.getElementById('profile-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        
         const form = this;
         const isValid = form.checkValidity();
-        
         if (isValid) {
-          // Collect form data
           const formData = new FormData(form);
           const data = Object.fromEntries(formData.entries());
-          
           console.log('Form submitted successfully:', data);
           alert('Thank you! Your information has been submitted. We will contact you soon.');
-          
-          // Here you would typically send the data to your server
-          // Example: fetch('/api/submit', { method: 'POST', body: JSON.stringify(data) });
-          
           form.reset();
         } else {
-          // Show validation errors
           const inputs = form.querySelectorAll('input, select');
           inputs.forEach(input => {
-            if (!input.validity.valid) {
-              input.reportValidity();
-            }
+            if (!input.validity.valid) input.reportValidity();
           });
         }
       });
 
       // Real-time validation feedback
-      const inputs = document.querySelectorAll('#profile-form input, #profile-form select');
-      inputs.forEach(input => {
+      document.querySelectorAll('#profile-form input, #profile-form select').forEach(input => {
         input.addEventListener('blur', function() {
           if (this.value && !this.validity.valid) {
             this.style.borderColor = '#dc3545';
@@ -116,10 +118,53 @@
             this.style.borderColor = '#cacaca';
           }
         });
-        
         input.addEventListener('focus', function() {
-          this.style.borderColor = '#0077b6';
+          this.style.borderColor = '#035472';
         });
+      });
+    </script>
+
+    <script>
+      // Inject navbar and footer
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("../components/navbar.html")
+          .then(r => r.text())
+          .then(html => {
+            document.getElementById("navbar-placeholder").innerHTML = html;
+            const hamburger = document.querySelector(".hamburger-menu");
+            const navLinks = document.querySelector(".nav-links");
+            const dropdown = document.querySelector(".dropdown");
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+
+            if (hamburger && navLinks) {
+              hamburger.addEventListener("click", () => navLinks.classList.add("active"));
+              document.addEventListener("click", (e) => {
+                if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                  navLinks.classList.remove("active");
+                }
+              });
+            }
+            if (dropdown && dropdownMenu) {
+              if (window.innerWidth >= 1024) {
+                dropdown.addEventListener("mouseenter", () => { dropdownMenu.style.display = "block"; });
+                dropdown.addEventListener("mouseleave", () => { dropdownMenu.style.display = "none"; });
+                dropdownMenu.addEventListener("mouseenter", () => { dropdownMenu.style.display = "block"; });
+                dropdownMenu.addEventListener("mouseleave", () => { dropdownMenu.style.display = "none"; });
+              } else {
+                dropdown.addEventListener("click", () => {
+                  dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+                });
+              }
+            }
+          })
+          .catch(err => console.error("Failed to load navbar:", err));
+
+        fetch("../components/footer.html")
+          .then(r => r.text())
+          .then(html => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+          })
+          .catch(err => console.error("Failed to load footer:", err));
       });
     </script>
   </body>

@@ -86,7 +86,7 @@
   color: #121212;
   font-weight: 500;
   font-size: 1.2em;
-  font-family: Nexa-Trial, sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .mobile-container div .answer p,
@@ -357,11 +357,11 @@
     padding: 0.75em 1.125em;
     border: none;
     transition: all 0.3s ease;
-    font-family: "Nexa-Trial", sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
   .modules-buttons button:hover,
   .modules-buttons button:active {
-    background: linear-gradient(193.06deg, #897fff 5.92%, #4a3aff 89.21%);
+    background-color: #035472;
     color: #ffffff;
     border-radius: 0.5em;
   }
@@ -395,7 +395,6 @@
   }
   .desktop-container .features-content .fees .third-answer .flexible-payment {
     font-weight: 700;
-    font-style: Bold;
     font-size: 1.125em;
     color: #035472;
     padding-bottom: 1.5em;

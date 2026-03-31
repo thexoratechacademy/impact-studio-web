@@ -59,18 +59,16 @@
         .highlight {
              width: 6.53vw;  
              height: 0.4375rem;
-            /* width: 15%;
-            height: 1.4vh; */
-            background-color: #f4a261;
+            background-color: #fdb241;
             margin-bottom: 0.625rem;
         }
         .mission-text h2 {
-            color: #264653;
+            color: #0e2a46;
             font-size: 2em;
             margin-bottom: 0.9375rem;
         }
         .mission-text p {
-            color: #2a2a2a;
+            color: #737373;
             font-size: 1em;
             line-height: 1.6;
             margin-bottom: 0.9375rem;

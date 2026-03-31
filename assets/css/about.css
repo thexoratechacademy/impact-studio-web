@@ -88,8 +88,9 @@
 
 
 h1 {
-   font-family: 'Nexa-Trial-Black', sans-serif;
+   font-family: "Montserrat", sans-serif;
     font-size: 3.625rem;
+    font-weight: 900;
     line-height: 5rem;
     letter-spacing: 0.0125rem;
     color: white;
@@ -137,7 +138,7 @@ h1 {
 
 .core-p {
     height: 20vh;
-    font-family: 'Nexa-Trial', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.25rem;
@@ -196,11 +197,11 @@ h1 {
   width: 100%;
   max-width: 26.5625rem;
   min-width: 10rem; 
-  font-family: 'Nexa-Trial', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  letter-spacing: 0.0125;
+  letter-spacing: 0.0125rem;
   color: #737373;
 } 
 
@@ -214,13 +215,12 @@ h1 {
     padding: 0.5rem;
   }
 
-   .mission-content{
+  .mission-content{
     padding: 1rem;
     flex-direction: column;
-  
     width: 100%;
   }
-*/
+
   .mission-content .dec {
     width: 100%;
     max-width: 26.5625rem; 
