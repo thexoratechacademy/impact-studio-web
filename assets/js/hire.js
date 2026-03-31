@@ -5,48 +5,31 @@ document.addEventListener("DOMContentLoaded", async () => {
   const footerPlaceholder = document.getElementById("footer-placeholder");
 
   try {
-    // Check cache first
-    const cachedNavbar = localStorage.getItem("navbar-html");
-    const cachedHire = localStorage.getItem("hire-top-talent-html");
-    const cachedTop = localStorage.getItem("top-talent-html");
-    const cachedFooter = localStorage.getItem("footer-html");
+    // Fetch all resources concurrently (no caching for development)
+    const [navbarResponse, hireResponse, topResponse, footerResponse] = await Promise.all([
+      fetch("../components/navbar.html"),
+      fetch("hire-top-talent.html"),
+      fetch("top.html"),
+      fetch("../components/footer.html"),
+    ]);
 
-    if (cachedNavbar && cachedHire && cachedTop && cachedFooter) {
-      navbarPlaceholder.innerHTML = cachedNavbar;
-      hirePlaceholder.innerHTML = cachedHire;
-      topPlaceholder.innerHTML = cachedTop;
-      footerPlaceholder.innerHTML = cachedFooter;
-    } else {
-      // Fetch all resources concurrently
-      const [navbarResponse, hireResponse, topResponse, footerResponse] = await Promise.all([
-        fetch("../components/navbar.html"),
-        fetch("hire-top-talent.html"),
-        fetch("top.html"),
-        fetch("../components/footer.html"),
-      ]);
-
-      // Check for fetch errors
-      if (!navbarResponse.ok || !hireResponse.ok || !topResponse.ok || !footerResponse.ok) {
-        throw new Error("Failed to load resources");
-      }
-
-      const [navbarHtml, hireHtml, topHtml, footerHtml] = await Promise.all([
-        navbarResponse.text(),
-        hireResponse.text(),
-        topResponse.text(),
-        footerResponse.text(),
-      ]);
-
-      // Inject and cache content
-      navbarPlaceholder.innerHTML = navbarHtml;
-      localStorage.setItem("navbar-html", navbarHtml);
-      hirePlaceholder.innerHTML = hireHtml;
-      localStorage.setItem("hire-top-talent-html", hireHtml);
-      topPlaceholder.innerHTML = topHtml;
-      localStorage.setItem("top-talent-html", topHtml);
-      footerPlaceholder.innerHTML = footerHtml;
-      localStorage.setItem("footer-html", footerHtml);
+    // Check for fetch errors
+    if (!navbarResponse.ok || !hireResponse.ok || !topResponse.ok || !footerResponse.ok) {
+      throw new Error("Failed to load resources");
     }
+
+    const [navbarHtml, hireHtml, topHtml, footerHtml] = await Promise.all([
+      navbarResponse.text(),
+      hireResponse.text(),
+      topResponse.text(),
+      footerResponse.text(),
+    ]);
+
+    // Inject content
+    navbarPlaceholder.innerHTML = navbarHtml;
+    hirePlaceholder.innerHTML = hireHtml;
+    topPlaceholder.innerHTML = topHtml;
+    footerPlaceholder.innerHTML = footerHtml;
 
     // Initialize navbar interactions
     const hamburger = document.querySelector(".hamburger-menu");
