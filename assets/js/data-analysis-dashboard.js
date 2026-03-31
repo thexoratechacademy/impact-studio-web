@@ -57,7 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-expand parent module
     const parentModule = lesson.closest('.module');
     if (parentModule) {
+      // Close other modules first
+      modules.forEach(m => {
+        if (m !== parentModule) {
+          m.classList.remove('active');
+        }
+      });
       parentModule.classList.add('active');
+      
+      // Update breadcrumb to show current module
+      const moduleNum = parentModule.getAttribute('data-module');
+      const breadcrumbModule = document.getElementById('breadcrumbModule');
+      if (breadcrumbModule) {
+        breadcrumbModule.textContent = `Module ${moduleNum}`;
+      }
     }
   }
 
