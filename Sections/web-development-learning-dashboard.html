@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Learning Dashboard | Thexora</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/data-analysis-dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar (fixed, injected by JS) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page body: clears fixed navbar + matches site padding-inline -->
+    <div class="page-body">
+
+      <!-- Dashboard Layout -->
+      <div class="learning-dashboard">
+
+        <!-- ══════════════════════════════
+             SIDEBAR
+        ══════════════════════════════ -->
+        <aside class="sidebar" id="sidebar">
+
+          <!-- Sidebar Header -->
+          <div class="sidebar-header">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-icon">
+                <i class="ri-code-s-slash-line"></i>
+              </div>
+              <div>
+                <h3>Web Development</h3>
+                <span class="course-subtitle">Full-Stack Mastery Program</span>
+              </div>
+            </div>
+            <div class="course-meta">
+              <span><i class="ri-stack-line"></i> 12 Modules</span>
+            </div>
+          </div>
+
+          <!-- Modules list -->
+          <div class="modules-list">
+
+            <!-- Module 1 -->
+            <div class="module" data-module="1">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-global-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">01</span>
+                  Introduction to Web Development
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson active" data-lesson="1-1" data-content="Discover what web development is and how it shapes the digital world we interact with every day.">What is Web Development</li>
+                <li class="lesson" data-lesson="1-2" data-content="Understand how the internet works, including the client-server model and HTTP protocol.">How the Internet Works (Client-Server Model)</li>
+                <li class="lesson" data-lesson="1-3" data-content="Learn the differences between frontend, backend, and full-stack development roles.">Frontend vs Backend vs Full Stack</li>
+                <li class="lesson" data-lesson="1-4" data-content="Get an overview of modern web development technologies and frameworks.">Overview of Technologies Used in Web Development</li>
+                <li class="lesson" data-lesson="1-5" data-content="Set up your professional development environment with essential tools.">Setting Up Your Development Environment</li>
+                <li class="lesson" data-lesson="1-6" data-content="Master browser developer tools that every developer uses daily.">Introduction to Browsers and Developer Tools</li>
+              </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module" data-module="2">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-html5-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">02</span>
+                  HTML Fundamentals
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="2-1" data-content="Learn what HTML is and how it forms the backbone of every website.">What is HTML and How It Works</li>
+                <li class="lesson" data-lesson="2-2" data-content="Master the structure of HTML documents and doctype declarations.">HTML Document Structure</li>
+                <li class="lesson" data-lesson="2-3" data-content="Understand elements, tags, and attributes that build web pages.">Elements, Tags, and Attributes</li>
+                <li class="lesson" data-lesson="2-4" data-content="Create content with headings, paragraphs, links, and images.">Headings, Paragraphs, Links, Images</li>
+                <li class="lesson" data-lesson="2-5" data-content="Organize data using lists, tables, and interactive forms.">Lists, Tables, and Forms</li>
+                <li class="lesson" data-lesson="2-6" data-content="Write semantic HTML for better accessibility and SEO.">Semantic HTML (Header, Nav, Section, Footer)</li>
+              </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module" data-module="3">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-palette-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">03</span>
+                  CSS Fundamentals
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="3-1" data-content="Discover what CSS is and how it brings websites to life.">What is CSS</li>
+                <li class="lesson" data-lesson="3-2" data-content="Master selectors, properties, and values to style any element.">Selectors, Properties, and Values</li>
+                <li class="lesson" data-lesson="3-3" data-content="Create beautiful designs with colors, fonts, and typography.">Colors, Fonts, and Typography</li>
+                <li class="lesson" data-lesson="3-4" data-content="Understand spacing and layout with the box model.">Box Model (Margin, Padding, Border)</li>
+                <li class="lesson" data-lesson="3-5" data-content="Control layout with display and position properties.">Layout Systems (Display, Position)</li>
+                <li class="lesson" data-lesson="3-6" data-content="Build flexible layouts with Flexbox fundamentals.">Flexbox Fundamentals</li>
+                <li class="lesson" data-lesson="3-7" data-content="Create complex grids with CSS Grid basics.">CSS Grid Basics</li>
+                <li class="lesson" data-lesson="3-8" data-content="Learn principles for creating responsive designs.">Responsive Design Principles</li>
+              </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module" data-module="4">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-smartphone-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">04</span>
+                  Responsive Web Design
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="4-1" data-content="Learn the mobile-first approach to modern web design.">Mobile-First Design Approach</li>
+                <li class="lesson" data-lesson="4-2" data-content="Use media queries to adapt designs for different screens.">Media Queries</li>
+                <li class="lesson" data-lesson="4-3" data-content="Build responsive layouts using Flexbox and Grid.">Responsive Layouts Using Flexbox and Grid</li>
+                <li class="lesson" data-lesson="4-4" data-content="Master breakpoints for seamless device adaptation.">Breakpoints and Device Adaptation</li>
+                <li class="lesson" data-lesson="4-5" data-content="Optimize images and typography for all devices.">Responsive Images and Typography</li>
+                <li class="lesson" data-lesson="4-6" data-content="Create fluid layouts that work on any screen size.">Building Fluid Layouts</li>
+              </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module" data-module="5">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-javascript-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">05</span>
+                  JavaScript Fundamentals
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="5-1" data-content="Discover what JavaScript is and why it powers the web.">Introduction to JavaScript</li>
+                <li class="lesson" data-lesson="5-2" data-content="Learn variables, data types, and operators.">Variables, Data Types, and Operators</li>
+                <li class="lesson" data-lesson="5-3" data-content="Write reusable code with functions and understand scope.">Functions and Scope</li>
+                <li class="lesson" data-lesson="5-4" data-content="Work with collections using arrays and objects.">Arrays and Objects</li>
+                <li class="lesson" data-lesson="5-5" data-content="Control program flow with conditionals and loops.">Conditional Statements and Loops</li>
+                <li class="lesson" data-lesson="5-6" data-content="Make websites interactive with DOM manipulation.">DOM Manipulation</li>
+                <li class="lesson" data-lesson="5-7" data-content="Respond to user actions with events and event handling.">Events and Event Handling</li>
+              </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module" data-module="6">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-code-box-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">06</span>
+                  Advanced JavaScript
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="6-1" data-content="Master modern JavaScript with ES6+ features.">ES6+ Features (Arrow Functions, Destructuring, Modules)</li>
+                <li class="lesson" data-lesson="6-2" data-content="Handle async operations with Promises and async/await.">Asynchronous JavaScript (Promises, Async/Await)</li>
+                <li class="lesson" data-lesson="6-3" data-content="Fetch data from APIs and work with external data sources.">Fetch API and Working with Data</li>
+                <li class="lesson" data-lesson="6-4" data-content="Debug and handle errors gracefully.">Error Handling</li>
+                <li class="lesson" data-lesson="6-5" data-content="Store data locally with Local Storage and Session Storage.">Local Storage and Session Storage</li>
+                <li class="lesson" data-lesson="6-6" data-content="Write maintainable code with modular architecture.">Modular JavaScript Architecture</li>
+              </ul>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module" data-module="7">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-git-branch-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">07</span>
+                  Version Control with Git & GitHub
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="7-1" data-content="Understand Git and version control fundamentals.">What is Git and Version Control</li>
+                <li class="lesson" data-lesson="7-2" data-content="Master essential Git commands for daily development.">Git Commands (Init, Add, Commit, Push, Pull)</li>
+                <li class="lesson" data-lesson="7-3" data-content="Manage parallel development with branching and merging.">Branching and Merging</li>
+                <li class="lesson" data-lesson="7-4" data-content="Collaborate effectively using GitHub repositories.">Working with GitHub Repositories</li>
+                <li class="lesson" data-lesson="7-5" data-content="Learn professional collaboration workflows.">Collaboration Workflow</li>
+                <li class="lesson" data-lesson="7-6" data-content="Contribute to open-source projects confidently.">Open-Source Contribution Basics</li>
+              </ul>
+            </div>
+
+            <!-- Module 8 -->
+            <div class="module" data-module="8">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-reactjs-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">08</span>
+                  Frontend Framework Introduction
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="8-1" data-content="Understand what frontend frameworks are and why they're used.">What is a Frontend Framework</li>
+                <li class="lesson" data-lesson="8-2" data-content="Get introduced to React and component-based architecture.">Introduction to React (or Vue/Angular Conceptually)</li>
+                <li class="lesson" data-lesson="8-3" data-content="Build reusable UI components for efficient development.">Components and Reusable UI</li>
+                <li class="lesson" data-lesson="8-4" data-content="Learn state management basics with props.">State and Props Basics</li>
+                <li class="lesson" data-lesson="8-5" data-content="Structure React applications for scalability.">Project Structure Overview</li>
+                <li class="lesson" data-lesson="8-6" data-content="Understand why frameworks dominate real-world development.">Why Frameworks Are Used in Real-World Apps</li>
+              </ul>
+            </div>
+
+            <!-- Module 9 -->
+            <div class="module" data-module="9">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-server-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">09</span>
+                  Backend Development Basics
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="9-1" data-content="Discover what backend development entails.">What is Backend Development</li>
+                <li class="lesson" data-lesson="9-2" data-content="Understand servers and how APIs work.">Introduction to Servers and APIs</li>
+                <li class="lesson" data-lesson="9-3" data-content="Learn REST API fundamentals for web communication.">REST APIs Basics</li>
+                <li class="lesson" data-lesson="9-4" data-content">Explore database types: SQL vs NoSQL overview.">Databases (SQL vs NoSQL Overview)</li>
+                <li class="lesson" data-lesson="9-5" data-content="Perform CRUD operations on databases.">CRUD Operations</li>
+                <li class="lesson" data-lesson="9-6" data-content="Implement basic authentication systems.">Authentication Basics</li>
+              </ul>
+            </div>
+
+            <!-- Module 10 -->
+            <div class="module" data-module="10">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-database-2-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">10</span>
+                  Full Stack Development
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="10-1" data-content="Connect frontend applications to backend servers.">Connecting Frontend to Backend</li>
+                <li class="lesson" data-lesson="10-2" data-content="Integrate APIs into your applications.">API Integration</li>
+                <li class="lesson" data-lesson="10-3" data-content="Manage data flow between client and server.">Handling Data Flow</li>
+                <li class="lesson" data-lesson="10-4" data-content="Build complete user authentication systems.">User Authentication Systems</li>
+                <li class="lesson" data-lesson="10-5" data-content="Deploy applications to production environments.">Deployment Basics</li>
+                <li class="lesson" data-lesson="10-6" data-content="Secure applications with environment variables.">Environment Variables</li>
+              </ul>
+            </div>
+
+            <!-- Module 11 -->
+            <div class="module" data-module="11">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-cloud-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">11</span>
+                  Deployment & Hosting
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="11-1" data-content="Understand what deployment means and why it matters.">What is Deployment</li>
+                <li class="lesson" data-lesson="11-2" data-content="Explore popular hosting platforms for web applications.">Hosting Platforms Overview</li>
+                <li class="lesson" data-lesson="11-3" data-content="Learn about domains and DNS configuration.">Domain and DNS Basics</li>
+                <li class="lesson" data-lesson="11-4" data-content="Deploy frontend projects to production.">Deploying Frontend Projects</li>
+                <li class="lesson" data-lesson="11-5" data-content="Deploy full-stack applications with databases.">Deploying Full-Stack Applications</li>
+                <li class="lesson" data-lesson="11-6" data-content="Automate deployments with CI/CD pipelines.">CI/CD Introduction</li>
+              </ul>
+            </div>
+
+            <!-- Module 12 -->
+            <div class="module" data-module="12">
+              <div class="module-header">
+                <span class="module-icon icon-accent"><i class="ri-trophy-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">12</span>
+                  Capstone Project (Real-World Build)
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="12-1" data-content="Plan and structure your production-level web application.">Project Planning and Structure</li>
+                <li class="lesson" data-lesson="12-2" data-content="Implement professional UI design from scratch.">UI Design Implementation</li>
+                <li class="lesson" data-lesson="12-3" data-content="Build complete frontend functionality.">Frontend Development</li>
+                <li class="lesson" data-lesson="12-4" data-content="Integrate backend services and APIs.">Backend Integration</li>
+                <li class="lesson" data-lesson="12-5" data-content="Set up and configure databases.">Database Setup</li>
+                <li class="lesson" data-lesson="12-6" data-content="Implement secure authentication systems.">Authentication System</li>
+                <li class="lesson" data-lesson="12-7" data-content="Deploy and launch your application live.">Deployment and Launch</li>
+                <li class="lesson" data-lesson="12-8" data-content="Present your project professionally in your portfolio.">Portfolio Presentation</li>
+              </ul>
+            </div>
+
+          </div><!-- /.modules-list -->
+        </aside>
+
+        <!-- ══════════════════════════════
+             CONTENT AREA
+        ══════════════════════════════ -->
+        <main class="content-area">
+
+          <!-- Top bar: hamburger + breadcrumb -->
+          <div class="content-topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+              <i class="ri-menu-2-line"></i>
+            </button>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+              <a href="../pages/web-development.html" class="breadcrumb-link">
+                <i class="ri-arrow-left-line"></i> Back to Course
+              </a>
+              <span class="breadcrumb-sep">/</span>
+              <span class="breadcrumb-current" id="breadcrumbModule">Module 1</span>
+            </nav>
+          </div>
+
+          <!-- Lesson header -->
+          <div class="content-header">
+            <div class="lesson-badge">
+              <i class="ri-code-s-slash-line"></i>
+              <span id="lessonBadge">Lesson 1 of 6</span>
+            </div>
+            <h2 id="lessonTitle">What is Web Development</h2>
+          </div>
+
+          <!-- Lesson content card -->
+          <div class="lesson-content" id="lessonContent">
+            <p>Discover what web development is and how it shapes the digital world we interact with every day.</p>
+
+            <div class="content-section">
+              <h3><i class="ri-checkbox-circle-line"></i> Learning Objectives</h3>
+              <ul>
+                <li>Understand the definition and scope of web development</li>
+                <li>Recognize the impact of web development on modern society</li>
+                <li>Identify different types of web development specializations</li>
+                <li>Appreciate the role of developers in building digital experiences</li>
+              </ul>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-key-line"></i> Key Concepts</h3>
+              <p><strong>Web Development:</strong> The process of building, creating, and maintaining websites and web applications through coding, programming, and implementation of various technologies.</p>
+              <p><strong>Frontend Development:</strong> Building the visual, interactive parts of websites that users see and interact with directly.</p>
+              <p><strong>Backend Development:</strong> Creating the server-side logic, databases, and APIs that power websites behind the scenes.</p>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-global-line"></i> Why Web Development Matters</h3>
+              <p>In today's digital age, web development is the foundation of nearly every online interaction. From e-commerce to social media, education to healthcare, skilled developers build the platforms that connect people worldwide.</p>
+              <ul>
+                <li>Create accessible digital experiences for billions of users</li>
+                <li>Solve real-world problems through technology</li>
+                <li>Build scalable solutions that impact millions of lives</li>
+                <li>Enable remote work and global collaboration</li>
+                <li>Drive innovation across all industries</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" id="prevBtn" disabled>
+              <i class="ri-arrow-left-line"></i> Previous
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn">
+              Next Lesson <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+
+        </main>
+      </div><!-- /.learning-dashboard -->
+
+      <!-- Sidebar Overlay (mobile tap-to-close) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    </div><!-- /.page-body -->
+
+    <!-- Footer (full-width, outside page-body) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/web-dev-dashboard-ui.js"></script>
+    <script src="../assets/js/web-dev-dashboard.js"></script>
+  </body>
+</html>

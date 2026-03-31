@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cybersecurity Learning Dashboard | Thexora</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+WKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/data-analysis-dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar (fixed, injected by JS) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page body: clears fixed navbar + matches site padding-inline -->
+    <div class="page-body">
+
+      <!-- Dashboard Layout -->
+      <div class="learning-dashboard">
+
+        <!-- ══════════════════════════════
+             SIDEBAR
+        ══════════════════════════════ -->
+        <aside class="sidebar" id="sidebar">
+
+          <!-- Sidebar Header -->
+          <div class="sidebar-header">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-icon">
+                <i class="ri-shield-keyhole-line"></i>
+              </div>
+              <div>
+                <h3>Cybersecurity</h3>
+                <span class="course-subtitle">Ethical Hacking & Security Program</span>
+              </div>
+            </div>
+            <div class="course-meta">
+              <span><i class="ri-stack-line"></i> 9 Modules</span>
+            </div>
+          </div>
+
+          <!-- Modules list -->
+          <div class="modules-list">
+
+            <!-- Module 1 -->
+            <div class="module" data-module="1">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-shield-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">01</span>
+                  Introduction to Cybersecurity
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson active" data-lesson="1-1" data-content="Discover what cybersecurity is and why it's critical in today's digital world.">What is Cybersecurity</li>
+                <li class="lesson" data-lesson="1-2" data-content="Understand why cybersecurity is essential for modern organizations and individuals.">Importance of Cybersecurity in Modern Systems</li>
+                <li class="lesson" data-lesson="1-3" data-content="Learn about different types of cyber threats facing organizations today.">Types of Cyber Threats</li>
+                <li class="lesson" data-lesson="1-4" data-content="Master the CIA triad: Confidentiality, Integrity, and Availability principles.">Security Principles (CIA Triad)</li>
+                <li class="lesson" data-lesson="1-5" data-content="Explore exciting career paths in the cybersecurity industry.">Overview of Cybersecurity Careers</li>
+                <li class="lesson" data-lesson="1-6" data-content="Get introduced to ethical hacking and its role in security.">Ethical Hacking Introduction</li>
+              </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module" data-module="2">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-global-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">02</span>
+                  Networking Fundamentals
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="2-1" data-content="Learn how computer networks work and communicate.">Basics of Computer Networks</li>
+                <li class="lesson" data-lesson="2-2" data-content="Understand OSI and TCP/IP models that power all networking.">OSI and TCP/IP Models</li>
+                <li class="lesson" data-lesson="2-3" data-content="Master IP addressing, subnetting, and DNS fundamentals.">IP Addresses and DNS</li>
+                <li class="lesson" data-lesson="2-4" data-content="Learn the difference between HTTP and HTTPS protocols.">HTTP vs HTTPS</li>
+                <li class="lesson" data-lesson="2-5" data-content="Understand ports, protocols, and how they enable communication.">Ports and Protocols</li>
+                <li class="lesson" data-lesson="2-6" data-content="Learn about routers, switches, firewalls, and other network devices.">Network Devices (Routers, Switches, Firewalls)</li>
+              </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module" data-module="3">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-computer-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">03</span>
+                  Operating System Security
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="3-1" data-content="Compare Windows and Linux security features and vulnerabilities.">Windows vs Linux Security Basics</li>
+                <li class="lesson" data-lesson="3-2" data-content="Master file permissions and access control mechanisms.">File Permissions and Access Control</li>
+                <li class="lesson" data-lesson="3-3" data-content="Learn user management, privileges, and authentication.">User Management</li>
+                <li class="lesson" data-lesson="3-4" data-content="Monitor system processes and identify suspicious activity.">Process Monitoring</li>
+                <li class="lesson" data-lesson="3-5" data-content="Identify and mitigate system-level vulnerabilities.">System Vulnerabilities</li>
+                <li class="lesson" data-lesson="3-6" data-content="Get comfortable with Linux terminal commands for security tasks.">Introduction to Linux Terminal</li>
+              </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module" data-module="4">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-hacker-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">04</span>
+                  Ethical Hacking Fundamentals
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="4-1" data-content="Understand ethical hacking principles and legal considerations.">Ethical Hacking Concepts</li>
+                <li class="lesson" data-lesson="4-2" data-content="Learn about white hat, black hat, and grey hat hackers.">Types of Hackers (White, Black, Grey Hat)</li>
+                <li class="lesson" data-lesson="4-3" data-content="Master the phases of hacking from reconnaissance to reporting.">Hacking Phases (Reconnaissance to Reporting)</li>
+                <li class="lesson" data-lesson="4-4" data-content="Explore common attack methods used by malicious actors.">Common Attack Methods Overview</li>
+                <li class="lesson" data-lesson="4-5" data-content="Learn vulnerability assessment basics and methodologies.">Vulnerability Assessment Basics</li>
+                <li class="lesson" data-lesson="4-6" data-content="Get familiar with essential security tools and their uses.">Security Tools Overview</li>
+              </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module" data-module="5">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-code-s-slash-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">05</span>
+                  Web Application Security
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="5-1" data-content="Learn about OWASP Top 10 web application vulnerabilities.">Common Web Vulnerabilities (OWASP Top 10)</li>
+                <li class="lesson" data-lesson="5-2" data-content="Understand SQL injection attacks and prevention techniques.">SQL Injection Basics</li>
+                <li class="lesson" data-lesson="5-3" data-content="Master Cross-Site Scripting (XSS) attacks and defenses.">Cross-Site Scripting (XSS)</li>
+                <li class="lesson" data-lesson="5-4" data-content="Identify authentication flaws and strengthen login systems.">Authentication Vulnerabilities</li>
+                <li class="lesson" data-lesson="5-5" data-content="Secure user sessions and prevent session hijacking.">Session Management</li>
+                <li class="lesson" data-lesson="5-6" data-content="Apply secure coding practices to prevent vulnerabilities.">Secure Coding Practices</li>
+              </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module" data-module="6">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-network-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">06</span>
+                  Network Security
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="6-1" data-content="Configure firewalls and IDS/IPS systems for protection.">Firewalls and IDS/IPS Systems</li>
+                <li class="lesson" data-lesson="6-2" data-content="Use VPNs for secure communication and remote access.">VPNs and Secure Communication</li>
+                <li class="lesson" data-lesson="6-3" data-content="Analyze network packets to detect malicious activity.">Packet Analysis Basics</li>
+                <li class="lesson" data-lesson="6-4" data-content="Implement encryption and cryptography for data protection.">Encryption and Cryptography</li>
+                <li class="lesson" data-lesson="6-5" data-content="Use network monitoring tools to detect intrusions.">Network Monitoring Tools</li>
+                <li class="lesson" data-lesson="6-6" data-content="Apply attack prevention techniques to secure networks.">Attack Prevention Techniques</li>
+              </ul>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module" data-module="7">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-search-eye-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">07</span>
+                  Digital Forensics & Incident Response
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="7-1" data-content="Understand what digital forensics is and its applications.">What is Digital Forensics</li>
+                <li class="lesson" data-lesson="7-2" data-content="Learn the incident response process and best practices.">Incident Response Process</li>
+                <li class="lesson" data-lesson="7-3" data-content="Analyze malware to understand threats and behavior.">Malware Analysis Basics</li>
+                <li class="lesson" data-lesson="7-4" data-content="Extract insights from system and network logs.">Log Analysis</li>
+                <li class="lesson" data-lesson="7-5" data-content="Recover deleted or corrupted data using forensic tools.">Data Recovery Techniques</li>
+                <li class="lesson" data-lesson="7-6" data-content="Document and report security incidents effectively.">Reporting Security Incidents</li>
+              </ul>
+            </div>
+
+            <!-- Module 8 -->
+            <div class="module" data-module="8">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-rocket-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">08</span>
+                  Advanced Cybersecurity
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="8-1" data-content="Master advanced penetration testing concepts and methodologies.">Advanced Penetration Testing Concepts</li>
+                <li class="lesson" data-lesson="8-2" data-content="Conduct comprehensive security audits of systems.">Security Auditing</li>
+                <li class="lesson" data-lesson="8-3" data-content="Secure cloud infrastructure and applications.">Cloud Security Basics</li>
+                <li class="lesson" data-lesson="8-4" data-content="Implement application security throughout the SDLC.">Application Security</li>
+                <li class="lesson" data-lesson="8-5" data-content="Automate security tasks with modern tools and scripts.">Security Automation Tools</li>
+                <li class="lesson" data-lesson="8-6" data-content="Apply risk management frameworks to organizational security.">Risk Management Frameworks</li>
+              </ul>
+            </div>
+
+            <!-- Module 9 -->
+            <div class="module" data-module="9">
+              <div class="module-header">
+                <span class="module-icon icon-accent"><i class="ri-trophy-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">09</span>
+                  Capstone Project (Security Analysis)
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="9-1" data-content="Perform comprehensive security assessment of a real system.">Security Assessment of a System</li>
+                <li class="lesson" data-lesson="9-2" data-content="Identify and document security vulnerabilities.">Vulnerability Identification</li>
+                <li class="lesson" data-lesson="9-3" data-content="Analyze risks and prioritize security issues.">Risk Analysis</li>
+                <li class="lesson" data-lesson="9-4" data-content="Develop comprehensive security improvement plans.">Security Improvement Plan</li>
+                <li class="lesson" data-lesson="9-5" data-content="Create professional security assessment reports.">Final Security Report</li>
+                <li class="lesson" data-lesson="9-6" data-content="Present your capstone project professionally.">Portfolio Presentation</li>
+              </ul>
+            </div>
+
+          </div><!-- /.modules-list -->
+        </aside>
+
+        <!-- ══════════════════════════════
+             CONTENT AREA
+        ══════════════════════════════ -->
+        <main class="content-area">
+
+          <!-- Top bar: hamburger + breadcrumb -->
+          <div class="content-topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+              <i class="ri-menu-2-line"></i>
+            </button>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+              <a href="../pages/cyber-security.html" class="breadcrumb-link">
+                <i class="ri-arrow-left-line"></i> Back to Course
+              </a>
+              <span class="breadcrumb-sep">/</span>
+              <span class="breadcrumb-current" id="breadcrumbModule">Module 1</span>
+            </nav>
+          </div>
+
+          <!-- Lesson header -->
+          <div class="content-header">
+            <div class="lesson-badge">
+              <i class="ri-shield-keyhole-line"></i>
+              <span id="lessonBadge">Lesson 1 of 6</span>
+            </div>
+            <h2 id="lessonTitle">What is Cybersecurity</h2>
+          </div>
+
+          <!-- Lesson content card -->
+          <div class="lesson-content" id="lessonContent">
+            <p>Discover what cybersecurity is and why it's critical in today's digital world.</p>
+
+            <div class="content-section">
+              <h3><i class="ri-checkbox-circle-line"></i> Learning Objectives</h3>
+              <ul>
+                <li>Understand the definition and scope of cybersecurity</li>
+                <li>Recognize the impact of cyber threats on organizations</li>
+                <li>Identify key cybersecurity principles and frameworks</li>
+                <li>Appreciate the importance of security in modern systems</li>
+              </ul>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-key-line"></i> Key Concepts</h3>
+              <p><strong>Cybersecurity:</strong> The practice of protecting computer systems, networks, programs, and data from digital attacks, damage, or unauthorized access.</p>
+              <p><strong>CIA Triad:</strong> The three core principles of information security: Confidentiality (keeping data private), Integrity (ensuring data accuracy), and Availability (ensuring authorized access).</p>
+              <p><strong>Ethical Hacking:</strong> Authorized attempts to gain unauthorized access to computer systems to identify vulnerabilities before malicious hackers can exploit them.</p>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-global-line"></i> Why Cybersecurity Matters</h3>
+              <p>In our increasingly connected world, cyber threats are growing more sophisticated every day. Organizations need skilled professionals to:</p>
+              <ul>
+                <li>Protect sensitive data and privacy</li>
+                <li>Prevent financial losses from cyber attacks</li>
+                <li>Safeguard critical infrastructure</li>
+                <li>Maintain customer trust and reputation</li>
+                <li>Ensure business continuity</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" id="prevBtn" disabled>
+              <i class="ri-arrow-left-line"></i> Previous
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn">
+              Next Lesson <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+
+        </main>
+      </div><!-- /.learning-dashboard -->
+
+      <!-- Sidebar Overlay (mobile tap-to-close) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    </div><!-- /.page-body -->
+
+    <!-- Footer (full-width, outside page-body) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/cyber-security-dashboard-ui.js"></script>
+    <script src="../assets/js/cyber-security-dashboard.js"></script>
+  </body>
+</html>

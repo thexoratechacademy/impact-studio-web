@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile App Development Learning Dashboard | Thexora</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+WKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/data-analysis-dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar (fixed, injected by JS) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page body: clears fixed navbar + matches site padding-inline -->
+    <div class="page-body">
+
+      <!-- Dashboard Layout -->
+      <div class="learning-dashboard">
+
+        <!-- ══════════════════════════════
+             SIDEBAR
+        ══════════════════════════════ -->
+        <aside class="sidebar" id="sidebar">
+
+          <!-- Sidebar Header -->
+          <div class="sidebar-header">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-icon">
+                <i class="ri-smartphone-line"></i>
+              </div>
+              <div>
+                <h3>Mobile App Development</h3>
+                <span class="course-subtitle">Cross-Platform Mastery Program</span>
+              </div>
+            </div>
+            <div class="course-meta">
+              <span><i class="ri-stack-line"></i> 8 Modules</span>
+            </div>
+          </div>
+
+          <!-- Modules list -->
+          <div class="modules-list">
+
+            <!-- Module 1 -->
+            <div class="module" data-module="1">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-mobile-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">01</span>
+                  Introduction to Mobile App Development
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson active" data-lesson="1-1" data-content="Discover what mobile app development is and how it powers the apps we use every day.">What is Mobile App Development</li>
+                <li class="lesson" data-lesson="1-2" data-content="Understand the differences between Native, Hybrid, and Web Apps and when to use each approach.">Types of Mobile Apps (Native, Hybrid, Web Apps)</li>
+                <li class="lesson" data-lesson="1-3" data-content="Learn the key differences between Android and iOS development ecosystems.">Android vs iOS Development Overview</li>
+                <li class="lesson" data-lesson="1-4" data-content="Understand how mobile apps work from architecture to user interface.">How Mobile Apps Work (Architecture Basics)</li>
+                <li class="lesson" data-lesson="1-5" data-content="Get familiar with essential mobile development tools and environments.">Tools and Development Environments Overview</li>
+                <li class="lesson" data-lesson="1-6" data-content="Learn core principles for designing intuitive mobile user experiences.">Introduction to Mobile UI/UX Principles</li>
+              </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module" data-module="2">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-palette-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">02</span>
+                  Mobile UI Design Fundamentals
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="2-1" data-content="Master mobile-first design principles for modern smartphones.">Mobile-First Design Principles</li>
+                <li class="lesson" data-lesson="2-2" data-content="Learn essential UI components used in mobile applications.">UI Components in Mobile Apps</li>
+                <li class="lesson" data-lesson="2-3" data-content="Implement common navigation patterns like tabs, drawers, and stacks.">Navigation Patterns (Tabs, Drawers, Stacks)</li>
+                <li class="lesson" data-lesson="2-4" data-content="Design intuitive touch interactions and optimize usability.">Touch Interactions and Usability Principles</li>
+                <li class="lesson" data-lesson="2-5" data-content="Follow platform-specific design guidelines for Material Design and iOS HIG.">Design Guidelines (Material Design, iOS HIG)</li>
+                <li class="lesson" data-lesson="2-6" data-content="Create responsive layouts that work on all screen sizes.">Responsive Mobile Layouts</li>
+              </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module" data-module="3">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-code-s-slash-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">03</span>
+                  Flutter / React Native Fundamentals
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="3-1" data-content="Understand the benefits of cross-platform mobile development.">Introduction to Cross-Platform Development</li>
+                <li class="lesson" data-lesson="3-2" data-content="Get introduced to Flutter or React Native frameworks.">Flutter or React Native Overview</li>
+                <li class="lesson" data-lesson="3-3" data-content="Set up your development environment and project structure.">Project Structure Setup</li>
+                <li class="lesson" data-lesson="3-4" data-content="Work with components and widgets to build UIs.">Components and Widgets</li>
+                <li class="lesson" data-lesson="3-5" data-content="Manage application state effectively.">State Management Basics</li>
+                <li class="lesson" data-lesson="3-6" data-content="Implement navigation between different screens.">Navigation Between Screens</li>
+              </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module" data-module="4">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-function-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">04</span>
+                  Core Mobile App Development
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="4-1" data-content="Build interactive forms and handle user inputs effectively.">Working with Forms and Inputs</li>
+                <li class="lesson" data-lesson="4-2" data-content="Implement smooth user interaction flows.">Handling User Interactions</li>
+                <li class="lesson" data-lesson="4-3" data-content="Store data locally using mobile storage solutions.">Local Storage and Data Persistence</li>
+                <li class="lesson" data-lesson="4-4" data-content="Connect your app to external services and APIs.">API Integration in Mobile Apps</li>
+                <li class="lesson" data-lesson="4-5" data-content="Implement secure user authentication systems.">Authentication Systems</li>
+                <li class="lesson" data-lesson="4-6" data-content="Debug issues and handle errors gracefully.">Error Handling and Debugging</li>
+              </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module" data-module="5">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-server-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">05</span>
+                  Backend for Mobile Apps
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="5-1" data-content="Understand what backend services mobile apps need.">What is a Backend for Mobile Apps</li>
+                <li class="lesson" data-lesson="5-2" data-content="Work with REST APIs and JSON data formats.">REST APIs and JSON Data</li>
+                <li class="lesson" data-lesson="5-3" data-content="Learn database fundamentals for mobile applications.">Database Basics (Firebase / SQL / NoSQL)</li>
+                <li class="lesson" data-lesson="5-4" data-content="Build robust user authentication systems.">User Authentication Systems</li>
+                <li class="lesson" data-lesson="5-5" data-content="Handle file uploads and media content.">File Uploads and Media Handling</li>
+                <li class="lesson" data-lesson="5-6" data-content="Implement real-time data synchronization.">Real-Time Data Systems</li>
+              </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module" data-module="6">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-rocket-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">06</span>
+                  Advanced Mobile Development
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="6-1" data-content="Optimize app performance for smooth user experiences.">App Performance Optimization</li>
+                <li class="lesson" data-lesson="6-2" data-content="Implement push notifications to engage users.">Push Notifications</li>
+                <li class="lesson" data-lesson="6-3" data-content="Master advanced state management patterns.">State Management (Advanced Concepts)</li>
+                <li class="lesson" data-lesson="6-4" data-content="Apply proven app architecture patterns.">App Architecture Patterns</li>
+                <li class="lesson" data-lesson="6-5" data-content="Build apps that work without internet connectivity.">Offline Functionality</li>
+                <li class="lesson" data-lesson="6-6" data-content="Implement security best practices for mobile apps.">Security Best Practices</li>
+              </ul>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module" data-module="7">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-store-2-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">07</span>
+                  Deployment & App Store Release
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="7-1" data-content="Prepare your app for production release.">Building Production-Ready Apps</li>
+                <li class="lesson" data-lesson="7-2" data-content="Create Android APK and AAB build files.">Android APK / AAB Builds</li>
+                <li class="lesson" data-lesson="7-3" data-content="Understand the iOS build and signing process.">iOS Build Process Overview</li>
+                <li class="lesson" data-lesson="7-4" data-content="Publish your app on Google Play Store.">Google Play Store Publishing</li>
+                <li class="lesson" data-lesson="7-5" data-content="Navigate Apple App Store submission process.">Apple App Store Publishing</li>
+                <li class="lesson" data-lesson="7-6" data-content="Manage app updates and versioning strategies.">App Updates and Versioning</li>
+              </ul>
+            </div>
+
+            <!-- Module 8 -->
+            <div class="module" data-module="8">
+              <div class="module-header">
+                <span class="module-icon icon-accent"><i class="ri-trophy-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">08</span>
+                  Capstone Project (Mobile App)
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="8-1" data-content="Plan your capstone mobile app from concept to execution.">App Planning and Wireframing</li>
+                <li class="lesson" data-lesson="8-2" data-content="Implement professional UI design for your app.">UI Design Implementation</li>
+                <li class="lesson" data-lesson="8-3" data-content="Integrate backend services and databases.">Backend Integration</li>
+                <li class="lesson" data-lesson="8-4" data-content="Build secure authentication features.">Authentication System</li>
+                <li class="lesson" data-lesson="8-5" data-content="Connect your app to external APIs.">API Integration</li>
+                <li class="lesson" data-lesson="8-6" data-content="Deploy your app to major app stores.">Deployment to App Stores</li>
+                <li class="lesson" data-lesson="8-7" data-content="Present your capstone project professionally.">Portfolio Presentation</li>
+              </ul>
+            </div>
+
+          </div><!-- /.modules-list -->
+        </aside>
+
+        <!-- ══════════════════════════════
+             CONTENT AREA
+        ══════════════════════════════ -->
+        <main class="content-area">
+
+          <!-- Top bar: hamburger + breadcrumb -->
+          <div class="content-topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+              <i class="ri-menu-2-line"></i>
+            </button>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+              <a href="../pages/mobile-app-development.html" class="breadcrumb-link">
+                <i class="ri-arrow-left-line"></i> Back to Course
+              </a>
+              <span class="breadcrumb-sep">/</span>
+              <span class="breadcrumb-current" id="breadcrumbModule">Module 1</span>
+            </nav>
+          </div>
+
+          <!-- Lesson header -->
+          <div class="content-header">
+            <div class="lesson-badge">
+              <i class="ri-smartphone-line"></i>
+              <span id="lessonBadge">Lesson 1 of 6</span>
+            </div>
+            <h2 id="lessonTitle">What is Mobile App Development</h2>
+          </div>
+
+          <!-- Lesson content card -->
+          <div class="lesson-content" id="lessonContent">
+            <p>Discover what mobile app development is and how it powers the apps we use every day.</p>
+
+            <div class="content-section">
+              <h3><i class="ri-checkbox-circle-line"></i> Learning Objectives</h3>
+              <ul>
+                <li>Understand the definition and scope of mobile app development</li>
+                <li>Recognize the impact of mobile apps on modern society</li>
+                <li>Identify different types of mobile applications</li>
+                <li>Appreciate the role of mobile developers in creating digital experiences</li>
+              </ul>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-key-line"></i> Key Concepts</h3>
+              <p><strong>Mobile App Development:</strong> The process of creating software applications that run on mobile devices such as smartphones and tablets, designed to provide specific functionality or services to users.</p>
+              <p><strong>Native Apps:</strong> Applications built specifically for one platform (iOS or Android) using platform-specific programming languages.</p>
+              <p><strong>Cross-Platform Apps:</strong> Applications that work on multiple platforms using frameworks like Flutter or React Native.</p>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-global-line"></i> Why Mobile App Development Matters</h3>
+              <p>In today's mobile-first world, apps have become essential tools for communication, productivity, entertainment, and business. Skilled mobile developers:</p>
+              <ul>
+                <li>Create solutions that reach billions of smartphone users globally</li>
+                <li>Enable businesses to connect with customers on-the-go</li>
+                <li>Drive innovation in industries from healthcare to finance</li>
+                <li>Build products that improve daily life and productivity</li>
+                <li>Open new revenue streams through app monetization</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" id="prevBtn" disabled>
+              <i class="ri-arrow-left-line"></i> Previous
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn">
+              Next Lesson <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+
+        </main>
+      </div><!-- /.learning-dashboard -->
+
+      <!-- Sidebar Overlay (mobile tap-to-close) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    </div><!-- /.page-body -->
+
+    <!-- Footer (full-width, outside page-body) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/mobile-app-dashboard-ui.js"></script>
+    <script src="../assets/js/mobile-app-dashboard.js"></script>
+  </body>
+</html>

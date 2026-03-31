@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Marketing Learning Dashboard | Thexora</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/data-analysis-dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar (fixed, injected by JS) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page body: clears fixed navbar + matches site padding-inline -->
+    <div class="page-body">
+
+      <!-- Dashboard Layout -->
+      <div class="learning-dashboard">
+
+        <!-- ══════════════════════════════
+             SIDEBAR
+        ══════════════════════════════ -->
+        <aside class="sidebar" id="sidebar">
+
+          <!-- Sidebar Header -->
+          <div class="sidebar-header">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-icon">
+                <i class="ri-megaphone-fill"></i>
+              </div>
+              <div>
+                <h3>Digital Marketing</h3>
+                <span class="course-subtitle">Mastery Program</span>
+              </div>
+            </div>
+            <div class="course-meta">
+              <span><i class="ri-stack-line"></i> 11 Modules</span>
+            </div>
+          </div>
+
+          <!-- Modules list -->
+          <div class="modules-list">
+
+            <!-- Module 1 -->
+            <div class="module" data-module="1">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-megaphone-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">01</span>
+                  Introduction to Digital Marketing
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson active" data-lesson="1-1" data-content="Discover what digital marketing is, how it has transformed the way businesses reach customers, and why it's an essential skill in today's connected world.">What is Digital Marketing</li>
+                <li class="lesson" data-lesson="1-2" data-content="Understand the key differences between traditional marketing (TV, print, billboards) and digital marketing, and why businesses are shifting their budgets online.">Traditional vs Digital Marketing</li>
+                <li class="lesson" data-lesson="1-3" data-content="Get a bird's-eye view of all major digital marketing channels: SEO, social media, email, paid ads, content marketing, and more.">Digital Marketing Channels Overview</li>
+                <li class="lesson" data-lesson="1-4" data-content="Learn how customers move from first hearing about a brand (Awareness) all the way to making a purchase (Conversion) and how to market to each stage.">Customer Journey &amp; Funnel (Awareness → Conversion)</li>
+                <li class="lesson" data-lesson="1-5" data-content="Learn how to set SMART marketing goals, define KPIs, and build a measurable strategy that aligns with business objectives.">Setting Marketing Goals</li>
+              </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module" data-module="2">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-global-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">02</span>
+                  Website &amp; Landing Page Fundamentals
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="2-1" data-content="Explore the key elements that separate a high-converting website from one that loses visitors, including trust signals, clear messaging, and fast load times.">What Makes a High-Converting Website</li>
+                <li class="lesson" data-lesson="2-2" data-content="Learn fundamental UX/UI principles that improve user experience, reduce bounce rates, and guide visitors toward taking action.">UX/UI Basics for Marketing</li>
+                <li class="lesson" data-lesson="2-3" data-content="Break down the anatomy of an effective landing page: the hero section, value proposition, social proof, call-to-action, and offer.">Landing Page Structure (Hero, CTA, Offer)</li>
+                <li class="lesson" data-lesson="2-4" data-content="Understand Conversion Rate Optimization (CRO) — the science of improving the percentage of visitors who take a desired action on your page.">Conversion Rate Optimization (CRO)</li>
+                <li class="lesson" data-lesson="2-5" data-content="Get hands-on with WordPress and Webflow to build and publish marketing pages without writing code.">Tools: WordPress / Webflow Basics</li>
+              </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module" data-module="3">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-search-eye-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">03</span>
+                  Search Engine Optimization (SEO)
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="3-1" data-content="Understand what SEO is, how search engines work, and why ranking on Google is one of the most powerful free marketing strategies.">Introduction to SEO</li>
+                <li class="lesson" data-lesson="3-2" data-content="Master keyword research techniques to find what your audience is searching for, including the difference between short-tail and long-tail keywords.">Keyword Research (Short-tail &amp; Long-tail)</li>
+                <li class="lesson" data-lesson="3-3" data-content="Optimize individual web pages for search engines using best practices for titles, meta descriptions, header tags, and content structure.">On-Page SEO (Titles, Meta Tags, Headers)</li>
+                <li class="lesson" data-lesson="3-4" data-content="Learn how backlinks from other websites boost your domain authority and how to build a healthy off-page SEO strategy.">Off-Page SEO (Backlinks)</li>
+                <li class="lesson" data-lesson="3-5" data-content="Explore technical SEO essentials: site speed, mobile-friendliness, crawlability, sitemaps, and structured data.">Technical SEO Basics</li>
+                <li class="lesson" data-lesson="3-6" data-content="Get familiar with Google Search Console and Ahrefs to track rankings, find opportunities, and monitor your SEO performance.">SEO Tools (Google Search Console, Ahrefs)</li>
+              </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module" data-module="4">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-share-forward-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">04</span>
+                  Social Media Marketing
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="4-1" data-content="Compare the major social platforms (Instagram, Facebook, TikTok, LinkedIn, X) and understand which audience lives on each one.">Overview of Social Platforms</li>
+                <li class="lesson" data-lesson="4-2" data-content="Build a winning content strategy: define your niche, content pillars, posting schedule, and tone of voice.">Content Strategy &amp; Planning</li>
+                <li class="lesson" data-lesson="4-3" data-content="Proven tactics to grow your following organically without spending money on ads — including consistency, collaboration, and value-driven content.">Growing Followers Organically</li>
+                <li class="lesson" data-lesson="4-4" data-content="Learn how to research and use hashtags strategically to increase the discoverability of your posts.">Hashtag Strategy</li>
+                <li class="lesson" data-lesson="4-5" data-content="Boost your reach by increasing likes, comments, shares, and saves through engagement-first content tactics.">Engagement Techniques</li>
+                <li class="lesson" data-lesson="4-6" data-content="Master Instagram-specific strategies: Reels, Stories, carousels, and profile optimization for brand growth.">Instagram Marketing</li>
+                <li class="lesson" data-lesson="4-7" data-content="Learn Facebook page management, group marketing, and how to build a loyal community around your brand.">Facebook Marketing</li>
+                <li class="lesson" data-lesson="4-8" data-content="Understand TikTok's algorithm, trending formats, and how to create short-form videos that go viral.">TikTok Marketing</li>
+                <li class="lesson" data-lesson="4-9" data-content="Use LinkedIn for B2B marketing, personal branding, lead generation, and professional content publishing.">LinkedIn Basics</li>
+              </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module" data-module="5">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-advertisement-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">05</span>
+                  Paid Advertising (PPC)
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="5-1" data-content="Understand what Pay-Per-Click advertising is, why it's powerful, and how it differs from organic marketing.">Introduction to Paid Ads</li>
+                <li class="lesson" data-lesson="5-2" data-content="Learn to create, launch, and optimize Facebook and Instagram ad campaigns using Meta Ads Manager.">Facebook &amp; Instagram Ads</li>
+                <li class="lesson" data-lesson="5-3" data-content="Discover how Google Search and Display ads work, including campaign types, ad formats, and keyword bidding.">Google Ads Basics</li>
+                <li class="lesson" data-lesson="5-4" data-content="Master audience targeting options: demographics, interests, behaviours, custom audiences, and lookalike audiences.">Audience Targeting</li>
+                <li class="lesson" data-lesson="5-5" data-content="Learn how to set and manage your ad budget effectively, choose bidding strategies, and maximize ROI.">Budgeting &amp; Bidding Strategies</li>
+                <li class="lesson" data-lesson="5-6" data-content="Use A/B testing to compare ad creatives, headlines, and audiences to find what converts best.">A/B Testing Ads</li>
+                <li class="lesson" data-lesson="5-7" data-content="Track and interpret key ad metrics: CTR, CPC, CPM, ROAS, and conversion rate to measure campaign success.">Ad Performance Metrics</li>
+              </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module" data-module="6">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-mail-send-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">06</span>
+                  Email Marketing
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="6-1" data-content="Learn strategies to grow a targeted email list from scratch using opt-in forms, pop-ups, and landing pages.">Building an Email List</li>
+                <li class="lesson" data-lesson="6-2" data-content="Create irresistible lead magnets — free eBooks, checklists, templates, or discounts — that entice people to subscribe.">Lead Magnets (Freebies, Offers)</li>
+                <li class="lesson" data-lesson="6-3" data-content="Explore different email campaign types: newsletters, promotional emails, welcome sequences, and re-engagement campaigns.">Email Campaign Types</li>
+                <li class="lesson" data-lesson="6-4" data-content="Write subject lines and email body copy that get opened, read, and clicked using proven copywriting techniques.">Writing High-Converting Emails</li>
+                <li class="lesson" data-lesson="6-5" data-content="Set up automated email sequences (funnels) that nurture leads and guide them toward a purchase without manual effort.">Automation Basics (Funnels)</li>
+                <li class="lesson" data-lesson="6-6" data-content="Get hands-on with Mailchimp and ConvertKit to design, schedule, and track professional email campaigns.">Tools: Mailchimp / ConvertKit</li>
+              </ul>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module" data-module="7">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-article-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">07</span>
+                  Content Marketing
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="7-1" data-content="Define a content strategy that aligns with your business goals, target audience, and brand voice.">Content Strategy Development</li>
+                <li class="lesson" data-lesson="7-2" data-content="Learn how to write SEO-optimized blog posts that drive consistent organic traffic to your website.">Blogging for Traffic</li>
+                <li class="lesson" data-lesson="7-3" data-content="Harness the power of video content on YouTube and Instagram Reels to build authority and reach new audiences.">Video Marketing (YouTube, Reels)</li>
+                <li class="lesson" data-lesson="7-4" data-content="Master the fundamentals of copywriting — writing persuasive, clear, and compelling content that drives action.">Copywriting Basics</li>
+                <li class="lesson" data-lesson="7-5" data-content="Use brand storytelling to create emotional connections with your audience and make your marketing more memorable.">Storytelling in Marketing</li>
+                <li class="lesson" data-lesson="7-6" data-content="Plan and manage your content output using a structured content calendar across all channels.">Content Calendar Planning</li>
+              </ul>
+            </div>
+
+            <!-- Module 8 -->
+            <div class="module" data-module="8">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-bar-chart-grouped-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">08</span>
+                  Analytics &amp; Tracking
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="8-1" data-content="Understand why data is the backbone of modern marketing and how analytics helps you make smarter decisions.">Importance of Data in Marketing</li>
+                <li class="lesson" data-lesson="8-2" data-content="Navigate Google Analytics 4 to track website traffic, user behaviour, sessions, and traffic sources.">Google Analytics Basics</li>
+                <li class="lesson" data-lesson="8-3" data-content="Set up conversion tracking using Google Tag Manager, Meta Pixel, and goal tracking to measure real results.">Tracking Conversions</li>
+                <li class="lesson" data-lesson="8-4" data-content="Decode the most important marketing metrics: CTR, CPC, CPM, bounce rate, ROI, and ROAS.">Understanding Metrics (CTR, CPC, ROI)</li>
+                <li class="lesson" data-lesson="8-5" data-content="Learn how to read reports, spot trends, and use analytics data to optimize campaigns and strategy in real time.">Making Data-Driven Decisions</li>
+              </ul>
+            </div>
+
+            <!-- Module 9 -->
+            <div class="module" data-module="9">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-links-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">09</span>
+                  Affiliate &amp; Influencer Marketing
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="9-1" data-content="Learn what affiliate marketing is and how businesses use it to drive sales by rewarding external partners for referrals.">What is Affiliate Marketing</li>
+                <li class="lesson" data-lesson="9-2" data-content="Understand affiliate networks, tracking links, commission structures, and how the affiliate ecosystem operates.">How Affiliate Systems Work</li>
+                <li class="lesson" data-lesson="9-3" data-content="Discover how brands partner with influencers to reach new audiences authentically and drive high-trust conversions.">Influencer Marketing Basics</li>
+                <li class="lesson" data-lesson="9-4" data-content="Learn how to identify the right influencers for your brand, negotiate partnerships, and brief them effectively.">Finding &amp; Working with Influencers</li>
+                <li class="lesson" data-lesson="9-5" data-content="Plan, execute, and track influencer campaigns from start to finish with clear goals and performance metrics.">Campaign Management</li>
+              </ul>
+            </div>
+
+            <!-- Module 10 -->
+            <div class="module" data-module="10">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-git-merge-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">10</span>
+                  Sales Funnels &amp; Automation
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="10-1" data-content="Understand what a sales funnel is and how it maps the customer journey from stranger to paying customer.">What is a Sales Funnel</li>
+                <li class="lesson" data-lesson="10-2" data-content="Deep-dive into the funnel stages: Lead generation, Nurture sequences, and Conversion tactics at each step.">Funnel Stages (Lead → Nurture → Convert)</li>
+                <li class="lesson" data-lesson="10-3" data-content="Explore popular funnel-building tools like ClickFunnels, Systeme.io, and Leadpages to create high-converting funnels.">Funnel Tools Overview</li>
+                <li class="lesson" data-lesson="10-4" data-content="Automate your marketing workflows — email sequences, lead scoring, and follow-ups — so your business runs 24/7.">Marketing Automation Basics</li>
+                <li class="lesson" data-lesson="10-5" data-content="Use retargeting ads to re-engage visitors who didn't convert the first time and bring them back into your funnel.">Retargeting Strategies</li>
+              </ul>
+            </div>
+
+            <!-- Module 11 -->
+            <div class="module" data-module="11">
+              <div class="module-header">
+                <span class="module-icon icon-accent"><i class="ri-trophy-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">11</span>
+                  Final Project
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="11-1" data-content="Define a real brand or business and build a complete digital marketing strategy covering goals, audience, channels, and budget.">Create a Complete Marketing Strategy</li>
+                <li class="lesson" data-lesson="11-2" data-content="Design and publish a professional landing page using the tools and techniques learned throughout the course.">Build a Landing Page</li>
+                <li class="lesson" data-lesson="11-3" data-content="Set up and run a small real or simulated ad campaign on Meta or Google Ads with proper targeting and creatives.">Run a Sample Ad Campaign</li>
+                <li class="lesson" data-lesson="11-4" data-content="Develop an actionable SEO plan for a website including keyword targets, on-page recommendations, and link-building goals.">SEO Optimization Plan</li>
+                <li class="lesson" data-lesson="11-5" data-content="Compile an analytics report showing key metrics, insights, and what you would improve based on the data.">Analytics Report</li>
+                <li class="lesson" data-lesson="11-6" data-content="Present your full digital marketing project to your peers or instructor with clear recommendations and results.">Final Presentation</li>
+              </ul>
+            </div>
+
+          </div><!-- /.modules-list -->
+        </aside>
+
+        <!-- ══════════════════════════════
+             CONTENT AREA
+        ══════════════════════════════ -->
+        <main class="content-area">
+
+          <!-- Top bar: hamburger + breadcrumb -->
+          <div class="content-topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+              <i class="ri-menu-2-line"></i>
+            </button>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+              <a href="../pages/digital-marketing.html" class="breadcrumb-link">
+                <i class="ri-arrow-left-line"></i> Back to Course
+              </a>
+              <span class="breadcrumb-sep">/</span>
+              <span class="breadcrumb-current" id="breadcrumbModule">Module 1</span>
+            </nav>
+          </div>
+
+          <!-- Lesson header -->
+          <div class="content-header">
+            <div class="lesson-badge">
+              <i class="ri-megaphone-line"></i>
+              <span id="lessonBadge">Lesson 1 of 5</span>
+            </div>
+            <h2 id="lessonTitle">What is Digital Marketing</h2>
+          </div>
+
+          <!-- Lesson content card -->
+          <div class="lesson-content" id="lessonContent">
+            <p>Discover what digital marketing is, how it has transformed the way businesses reach customers, and why it's an essential skill in today's connected world.</p>
+
+            <div class="content-section">
+              <h3><i class="ri-checkbox-circle-line"></i> Learning Objectives</h3>
+              <ul>
+                <li>Understand the definition and scope of digital marketing</li>
+                <li>Recognize how digital marketing differs from traditional marketing</li>
+                <li>Identify key digital marketing channels and their purposes</li>
+                <li>Appreciate the impact of digital transformation on business</li>
+              </ul>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-key-line"></i> Key Concepts</h3>
+              <p><strong>Digital Marketing:</strong> The practice of promoting products, services, and brands using digital channels such as search engines, social media, email, websites, and mobile apps to connect with current and prospective customers.</p>
+              <p><strong>Digital Transformation:</strong> The integration of digital technology into all areas of business, fundamentally changing how organizations operate and deliver value to customers.</p>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-global-line"></i> Why Digital Marketing Matters</h3>
+              <p>In today's digital-first world, consumers spend significant time online. Digital marketing enables businesses to:</p>
+              <ul>
+                <li>Reach a global audience with precision targeting</li>
+                <li>Engage customers in real-time conversations</li>
+                <li>Measure campaign performance accurately</li>
+                <li>Optimize marketing spend for better ROI</li>
+                <li>Build lasting customer relationships</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" id="prevBtn" disabled>
+              <i class="ri-arrow-left-line"></i> Previous
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn">
+              Next Lesson <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+
+        </main>
+      </div><!-- /.learning-dashboard -->
+
+      <!-- Sidebar Overlay (mobile tap-to-close) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    </div><!-- /.page-body -->
+
+    <!-- Footer (full-width, outside page-body) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/digital-marketing-dashboard-ui.js"></script>
+    <script src="../assets/js/digital-marketing-dashboard.js"></script>
+  </body>
+</html>

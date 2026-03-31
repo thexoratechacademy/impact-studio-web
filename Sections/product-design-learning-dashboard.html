@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Design Learning Dashboard | Thexora</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/data-analysis-dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar (fixed, injected by JS) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page body: clears fixed navbar + matches site padding-inline -->
+    <div class="page-body">
+
+      <!-- Dashboard Layout -->
+      <div class="learning-dashboard">
+
+        <!-- ══════════════════════════════
+             SIDEBAR
+        ══════════════════════════════ -->
+        <aside class="sidebar" id="sidebar">
+
+          <!-- Sidebar Header -->
+          <div class="sidebar-header">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-icon">
+                <i class="ri-palette-line"></i>
+              </div>
+              <div>
+                <h3>Product Design</h3>
+                <span class="course-subtitle">UI/UX Mastery Program</span>
+              </div>
+            </div>
+            <div class="course-meta">
+              <span><i class="ri-stack-line"></i> 7 Modules</span>
+            </div>
+          </div>
+
+          <!-- Modules list -->
+          <div class="modules-list">
+
+            <!-- Module 1 -->
+            <div class="module" data-module="1">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-book-open-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">01</span>
+                  Introduction to Product Design
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson active" data-lesson="1-1" data-content="Discover what product design is, its evolution, and how it shapes the digital products we use every day.">What is Product Design</li>
+                <li class="lesson" data-lesson="1-2" data-content="Understand the key differences between UI design, UX design, and the broader role of product design.">Difference between UI, UX, and Product Design</li>
+                <li class="lesson" data-lesson="1-3" data-content="Explore the diverse responsibilities and career paths available to product designers in today's market.">Role of a Product Designer</li>
+                <li class="lesson" data-lesson="1-4" data-content="Learn the complete product design process from research to final delivery and iteration.">Overview of the Product Design Process</li>
+                <li class="lesson" data-lesson="1-5" data-content="Master Design Thinking methodology and its five stages for solving complex problems.">Introduction to Design Thinking</li>
+                <li class="lesson" data-lesson="1-6" data-content="Get familiar with industry-standard tools: Figma, Adobe XD, Sketch, Miro, and more.">Tools Used in Modern UI/UX Design</li>
+              </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module" data-module="2">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-user-search-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">02</span>
+                  UX Research & User Understanding
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="2-1" data-content="Learn why UX research is critical and how it informs every design decision you make.">Introduction to UX Research</li>
+                <li class="lesson" data-lesson="2-2" data-content="Master primary research methods (interviews, surveys) and secondary research techniques.">Primary and Secondary Research Methods</li>
+                <li class="lesson" data-lesson="2-3" data-content="Create detailed user personas that represent your target audience and guide design choices.">User Personas Creation</li>
+                <li class="lesson" data-lesson="2-4" data-content="Use empathy mapping to understand user thoughts, feelings, and motivations.">Empathy Mapping</li>
+                <li class="lesson" data-lesson="2-5" data-content="Craft clear, actionable problem statements that define what you're solving.">Problem Statement Definition</li>
+                <li class="lesson" data-lesson="2-6" data-content="Explore creative ideation techniques to generate innovative solutions.">Ideation Techniques</li>
+                <li class="lesson" data-lesson="2-7" data-content="Map the complete user journey to identify pain points and opportunities.">User Journey Mapping</li>
+                <li class="lesson" data-lesson="2-8" data-content="Create intuitive user flows that guide users through your product seamlessly.">User Flow Creation</li>
+              </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module" data-module="3">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-layout-grid-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">03</span>
+                  Information Architecture & Wireframing
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="3-1" data-content="Learn how to organize and structure information for optimal user understanding.">Information Architecture Principles</li>
+                <li class="lesson" data-lesson="3-2" data-content="Create sitemaps that visualize the hierarchy and structure of your product.">Sitemap Creation</li>
+                <li class="lesson" data-lesson="3-3" data-content="Structure logical user flows that support intuitive navigation patterns.">User Flow Structuring</li>
+                <li class="lesson" data-lesson="3-4" data-content="Master low-fidelity wireframing to quickly explore layout concepts.">Low-Fidelity Wireframing</li>
+                <li class="lesson" data-lesson="3-5" data-content="Use paper sketching techniques for rapid ideation and concept exploration.">Paper Sketching Techniques</li>
+                <li class="lesson" data-lesson="3-6" data-content="Transition to digital wireframing with precision and clarity.">Digital Wireframing</li>
+                <li class="lesson" data-lesson="3-7" data-content="Establish visual hierarchy and layout structure for effective communication.">Layout Structure and Hierarchy</li>
+              </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module" data-module="4">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-macbook-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">04</span>
+                  Prototyping & Interaction Design
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="4-1" data-content="Understand what prototyping is and why it's essential for testing and validation.">Introduction to Prototyping</li>
+                <li class="lesson" data-lesson="4-2" data-content="Learn when to use low, mid, and high-fidelity prototypes based on project needs.">Types of Prototypes (Low, Mid, High Fidelity)</li>
+                <li class="lesson" data-lesson="4-3" data-content="Build clickable prototypes that simulate real user interactions.">Clickable Prototypes</li>
+                <li class="lesson" data-lesson="4-4" data-content="Design seamless screen transitions and navigation flows.">Screen Linking and Navigation Flows</li>
+                <li class="lesson" data-lesson="4-5" data-content="Add micro-interactions to enhance user experience and delight.">Micro-Interactions</li>
+                <li class="lesson" data-lesson="4-6" data-content="Incorporate basic animations to bring your designs to life.">Basic UX Animations</li>
+              </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module" data-module="5">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-pencil-ruler-2-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">05</span>
+                  UI Design with Figma
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="5-1" data-content="Navigate Figma's interface like a pro and set up efficient workflows.">Figma Interface Mastery</li>
+                <li class="lesson" data-lesson="5-2" data-content="Master Auto Layout for creating responsive, flexible designs.">Auto Layout for Responsive Design</li>
+                <li class="lesson" data-lesson="5-3" data-content="Build reusable components and variants for scalable design systems.">Components and Variants</li>
+                <li class="lesson" data-lesson="5-4" data-content="Create comprehensive design systems with colors, typography, and spacing.">Design Systems (Colors, Typography, Spacing)</li>
+                <li class="lesson" data-lesson="5-5" data-content="Use variables and styles for consistent, maintainable designs.">Variables and Styles</li>
+                <li class="lesson" data-lesson="5-6" data-content="Organize icons and assets efficiently for smooth design workflows.">Icons and Assets Management</li>
+                <li class="lesson" data-lesson="5-7" data-content="Leverage plugins and optimize your workflow for maximum productivity.">Plugins and Workflow Optimization</li>
+                <li class="lesson" data-lesson="5-8" data-content="Master collaboration features and prepare designs for developer handoff.">Collaboration and Developer Handoff</li>
+              </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module" data-module="6">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-eye-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">06</span>
+                  Usability Testing & Iteration
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="6-1" data-content="Understand why usability testing is crucial for creating successful products.">Usability Testing Fundamentals</li>
+                <li class="lesson" data-lesson="6-2" data-content="Learn different types of usability testing and when to apply each method.">Types of Usability Testing</li>
+                <li class="lesson" data-lesson="6-3" data-content="Observe and analyze user behavior to uncover insights.">Observing User Behavior</li>
+                <li class="lesson" data-lesson="6-4" data-content="Identify UX issues and prioritize them for improvement.">Identifying UX Issues</li>
+                <li class="lesson" data-lesson="6-5" data-content="Collect actionable feedback from users effectively.">Collecting Feedback</li>
+                <li class="lesson" data-lesson="6-6" data-content="Apply iteration techniques to continuously improve your designs.">Iteration and Improvement Process</li>
+                <li class="lesson" data-lesson="6-7" data-content="Prepare and document designs for smooth development implementation.">Preparing Designs for Development</li>
+              </ul>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module" data-module="7">
+              <div class="module-header">
+                <span class="module-icon icon-accent"><i class="ri-trophy-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">07</span>
+                  Capstone Project (Final Case Study)
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="7-1" data-content="Conduct comprehensive UX research and define the core problem your product solves.">UX Research and Problem Definition</li>
+                <li class="lesson" data-lesson="7-2" data-content="Create user personas and journey maps to visualize the user experience.">User Personas and Journey Mapping</li>
+                <li class="lesson" data-lesson="7-3" data-content="Develop wireframes and information architecture for your solution.">Wireframing and Information Architecture</li>
+                <li class="lesson" data-lesson="7-4" data-content="Design stunning high-fidelity UIs that bring your product to life.">High-Fidelity UI Design</li>
+                <li class="lesson" data-lesson="7-5" data-content="Build an interactive prototype demonstrating full user flows.">Interactive Prototyping</li>
+                <li class="lesson" data-lesson="7-6" data-content="Conduct usability testing sessions and gather valuable feedback.">Usability Testing</li>
+                <li class="lesson" data-lesson="7-7" data-content="Create a compelling case study presentation showcasing your work.">Final Case Study Presentation</li>
+              </ul>
+            </div>
+
+          </div><!-- /.modules-list -->
+        </aside>
+
+        <!-- ══════════════════════════════
+             CONTENT AREA
+        ══════════════════════════════ -->
+        <main class="content-area">
+
+          <!-- Top bar: hamburger + breadcrumb -->
+          <div class="content-topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+              <i class="ri-menu-2-line"></i>
+            </button>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+              <a href="../pages/product-design.html" class="breadcrumb-link">
+                <i class="ri-arrow-left-line"></i> Back to Course
+              </a>
+              <span class="breadcrumb-sep">/</span>
+              <span class="breadcrumb-current" id="breadcrumbModule">Module 1</span>
+            </nav>
+          </div>
+
+          <!-- Lesson header -->
+          <div class="content-header">
+            <div class="lesson-badge">
+              <i class="ri-palette-line"></i>
+              <span id="lessonBadge">Lesson 1 of 6</span>
+            </div>
+            <h2 id="lessonTitle">What is Product Design</h2>
+          </div>
+
+          <!-- Lesson content card -->
+          <div class="lesson-content" id="lessonContent">
+            <p>Discover what product design is, its evolution, and how it shapes the digital products we use every day.</p>
+
+            <div class="content-section">
+              <h3><i class="ri-checkbox-circle-line"></i> Learning Objectives</h3>
+              <ul>
+                <li>Understand the definition and scope of product design</li>
+                <li>Recognize the evolution of product design in the digital age</li>
+                <li>Identify key principles that guide product designers</li>
+                <li>Appreciate the impact of good design on user experience</li>
+              </ul>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-key-line"></i> Key Concepts</h3>
+              <p><strong>Product Design:</strong> The process of creating digital products that solve user problems while meeting business goals. It encompasses both the visual design (UI) and the overall user experience (UX).</p>
+              <p><strong>Design Thinking:</strong> A human-centered approach to innovation that draws from the designer's toolkit to integrate the needs of people, the possibilities of technology, and the requirements for business success.</p>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-global-line"></i> Why Product Design Matters</h3>
+              <p>In today's digital-first world, product design is the competitive advantage that separates successful products from failures. Great design:</p>
+              <ul>
+                <li>Creates intuitive, enjoyable user experiences</li>
+                <li>Solves real user problems effectively</li>
+                <li>Drives business growth and customer loyalty</li>
+                <li>Reduces development costs by catching issues early</li>
+                <li>Builds brand reputation and trust</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" id="prevBtn" disabled>
+              <i class="ri-arrow-left-line"></i> Previous
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn">
+              Next Lesson <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+
+        </main>
+      </div><!-- /.learning-dashboard -->
+
+      <!-- Sidebar Overlay (mobile tap-to-close) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    </div><!-- /.page-body -->
+
+    <!-- Footer (full-width, outside page-body) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/product-design-dashboard-ui.js"></script>
+    <script src="../assets/js/product-design-dashboard.js"></script>
+  </body>
+</html>

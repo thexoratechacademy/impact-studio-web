@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Analysis Learning Dashboard | Thexora</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/data-analysis-dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar (fixed, injected by JS) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page body: clears fixed navbar + matches site padding-inline -->
+    <div class="page-body">
+
+      <!-- Dashboard Layout -->
+      <div class="learning-dashboard">
+
+        <!-- ══════════════════════════════
+             SIDEBAR
+        ══════════════════════════════ -->
+        <aside class="sidebar" id="sidebar">
+
+          <!-- Sidebar Header -->
+          <div class="sidebar-header">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-icon">
+                <i class="ri-bar-chart-box-fill"></i>
+              </div>
+              <div>
+                <h3>Data Analysis</h3>
+                <span class="course-subtitle">Mastery Program</span>
+              </div>
+            </div>
+            <div class="course-meta">
+              <span><i class="ri-stack-line"></i> 11 Modules</span>
+            </div>
+          </div>
+
+          <!-- Modules list -->
+          <div class="modules-list">
+
+            <!-- Module 1 -->
+            <div class="module" data-module="1">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-book-open-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">01</span>
+                  Introduction to Data Analysis
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson active" data-lesson="1-1" data-content="Learn what data analysis is, why it's important, and how it drives business decisions in modern organizations.">What is Data Analysis</li>
+                <li class="lesson" data-lesson="1-2" data-content="Understand the differences between structured data (databases, spreadsheets) and unstructured data (text, images, videos).">Types of Data (Structured vs Unstructured)</li>
+                <li class="lesson" data-lesson="1-3" data-content="Explore the complete data analysis workflow from problem definition to insights presentation.">Data Analysis Workflow</li>
+                <li class="lesson" data-lesson="1-4" data-content="Get introduced to the three main tools: Excel for analysis, SQL for databases, and Power BI for visualization.">Tools for Data Analysis (Excel, SQL, Power BI)</li>
+                <li class="lesson" data-lesson="1-5" data-content="See real-world examples of how data analysis is used in fintech, healthcare, e-commerce, and more.">Real-world Applications</li>
+              </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module" data-module="2">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-filter-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">02</span>
+                  Data Cleaning & Preparation
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="2-1" data-content="Learn what makes data 'dirty' and why cleaning is the most critical step in analysis.">Understanding Dirty Data</li>
+                <li class="lesson" data-lesson="2-2" data-content="Master techniques to identify and remove duplicate records from your datasets.">Removing Duplicates</li>
+                <li class="lesson" data-lesson="2-3" data-content="Learn strategies for handling missing values: deletion, imputation, and estimation methods.">Handling Missing Values</li>
+                <li class="lesson" data-lesson="2-4" data-content="Use LEFT, RIGHT, MID, and TRIM functions to clean and manipulate text data efficiently.">Text Functions (LEFT, RIGHT, MID, TRIM)</li>
+                <li class="lesson" data-lesson="2-5" data-content="Work with date and time data using Excel's powerful date functions.">Date & Time Functions</li>
+                <li class="lesson" data-lesson="2-6" data-content="Establish best practices for consistent data formatting across your datasets.">Data Formatting Best Practices</li>
+              </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module" data-module="3">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-table-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">03</span>
+                  Excel Fundamentals for Analysis
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="3-1" data-content="Master essential functions: SUM, AVERAGE, COUNT, MIN, MAX for quick data summaries.">Basic Functions (SUM, AVERAGE, COUNT)</li>
+                <li class="lesson" data-lesson="3-2" data-content="Use IF, AND, OR functions to create logical conditions and automate decision-making.">Logical Functions (IF, AND, OR)</li>
+                <li class="lesson" data-lesson="3-3" data-content="Apply color coding and visual cues to highlight important data patterns automatically.">Conditional Formatting</li>
+                <li class="lesson" data-lesson="3-4" data-content="Organize and find specific data quickly using sorting and filtering tools.">Sorting & Filtering Data</li>
+                <li class="lesson" data-lesson="3-5" data-content="Control what data can be entered in cells to maintain data integrity.">Data Validation</li>
+              </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module" data-module="4">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-search-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">04</span>
+                  Data Lookup & Advanced Excel
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="4-1" data-content="Learn VLOOKUP to search for data vertically across large tables and datasets.">VLOOKUP</li>
+                <li class="lesson" data-lesson="4-2" data-content="Master HLOOKUP for horizontal data lookup across rows.">HLOOKUP</li>
+                <li class="lesson" data-lesson="4-3" data-content="Use INDEX and MATCH together for powerful, flexible data lookup beyond VLOOKUP limitations.">INDEX & MATCH (Advanced Lookup)</li>
+                <li class="lesson" data-lesson="4-4" data-content="Discover XLOOKUP, Microsoft's modern replacement for VLOOKUP with enhanced features.">XLOOKUP (Modern Alternative)</li>
+                <li class="lesson" data-lesson="4-5" data-content="Get introduced to data modeling concepts for managing complex relationships between datasets.">Introduction to Data Modeling</li>
+              </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module" data-module="5">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-bar-chart-2-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">05</span>
+                  Data Visualization & Dashboards
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="5-1" data-content="Learn when to use bar charts, line graphs, pie charts, scatter plots, and other visualization types.">Chart Types & When to Use Them</li>
+                <li class="lesson" data-lesson="5-2" data-content="Create dynamic charts that update automatically when underlying data changes.">Creating Dynamic Charts</li>
+                <li class="lesson" data-lesson="5-3" data-content="Understand principles of effective dashboard design for clarity and impact.">Dashboard Design Principles</li>
+                <li class="lesson" data-lesson="5-4" data-content="Learn to tell compelling stories with your data through strategic visualization.">Visual Storytelling with Data</li>
+                <li class="lesson" data-lesson="5-5" data-content="Build interactive dashboards using slicers and filters for user exploration.">Interactive Dashboards (Slicers, Filters)</li>
+              </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module" data-module="6">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-lightbulb-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">06</span>
+                  Business Insights & Case Studies
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="6-1" data-content="Develop skills to spot trends, patterns, and anomalies in datasets.">Identifying Trends & Patterns</li>
+                <li class="lesson" data-lesson="6-2" data-content="Learn to analyze Key Performance Indicators (KPIs) that matter to businesses.">KPI Analysis</li>
+                <li class="lesson" data-lesson="6-3" data-content="Transform data findings into actionable business recommendations.">Making Data-Driven Decisions</li>
+                <li class="lesson" data-lesson="6-4" data-content="Hands-on analysis of sales data to identify opportunities and optimize performance.">Case Study: Sales Analysis</li>
+                <li class="lesson" data-lesson="6-5" data-content="Analyze customer behavior patterns to drive retention and growth strategies.">Case Study: Customer Behavior</li>
+              </ul>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module" data-module="7">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-dashboard-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">07</span>
+                  Introduction to Power BI
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="7-1" data-content="Navigate Power BI Desktop interface and understand its key components.">Power BI Interface Overview</li>
+                <li class="lesson" data-lesson="7-2" data-content="Connect to various data sources and import datasets into Power BI.">Importing Data</li>
+                <li class="lesson" data-lesson="7-3" data-content="Use Power Query Editor to clean and transform data before analysis.">Data Cleaning with Power Query</li>
+                <li class="lesson" data-lesson="7-4" data-content="Apply advanced transformation techniques to shape data for analysis.">Data Transformation Techniques</li>
+              </ul>
+            </div>
+
+            <!-- Module 8 -->
+            <div class="module" data-module="8">
+              <div class="module-header">
+                <span class="module-icon icon-yellow"><i class="ri-pie-chart-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">08</span>
+                  Data Visualization in Power BI
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="8-1" data-content="Build professional reports and interactive dashboards in Power BI.">Creating Reports & Dashboards</li>
+                <li class="lesson" data-lesson="8-2" data-content="Choose and create effective charts, graphs, and visual elements.">Using Charts & Visuals</li>
+                <li class="lesson" data-lesson="8-3" data-content="Apply filters and slicers to enable interactive data exploration.">Filters & Slicers</li>
+                <li class="lesson" data-lesson="8-4" data-content="Publish and share your Power BI reports with stakeholders.">Publishing Reports</li>
+              </ul>
+            </div>
+
+            <!-- Module 9 -->
+            <div class="module" data-module="9">
+              <div class="module-header">
+                <span class="module-icon icon-teal"><i class="ri-code-s-slash-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">09</span>
+                  DAX (Data Analysis Expressions)
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="9-1" data-content="Understand DAX syntax, context, and basic formula structure.">DAX Basics</li>
+                <li class="lesson" data-lesson="9-2" data-content="Learn the difference between calculated columns and measures and when to use each.">Calculated Columns vs Measures</li>
+                <li class="lesson" data-lesson="9-3" data-content="Master common DAX functions: CALCULATE, FILTER, ALL, RELATED.">Common DAX Functions</li>
+                <li class="lesson" data-lesson="9-4" data-content="Work with time-based calculations using YEAR, QUARTER, MONTH functions.">Time Intelligence Functions</li>
+                <li class="lesson" data-lesson="9-5" data-content="Combine DAX skills to build sophisticated interactive dashboards.">Building Interactive Dashboards</li>
+              </ul>
+            </div>
+
+            <!-- Module 10 -->
+            <div class="module" data-module="10">
+              <div class="module-header">
+                <span class="module-icon icon-navy"><i class="ri-database-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">10</span>
+                  SQL for Data Analysis
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="10-1" data-content="Understand database structure, tables, relationships, and RDBMS concepts.">Introduction to Databases</li>
+                <li class="lesson" data-lesson="10-2" data-content="Write basic SELECT queries to retrieve data from databases.">Writing Basic Queries (SELECT, WHERE)</li>
+                <li class="lesson" data-lesson="10-3" data-content="Filter query results using WHERE clause conditions.">Filtering Data</li>
+                <li class="lesson" data-lesson="10-4" data-content="Perform calculations on data using SUM, AVG, COUNT, MAX, MIN.">Aggregate Functions (SUM, AVG, COUNT, MAX, MIN)</li>
+                <li class="lesson" data-lesson="10-5" data-content="Group data for aggregated analysis using GROUP BY clause.">GROUP BY Clause</li>
+                <li class="lesson" data-lesson="10-6" data-content="Combine data from multiple tables using INNER, LEFT, RIGHT, FULL joins.">JOINS (INNER, LEFT, RIGHT, FULL)</li>
+              </ul>
+            </div>
+
+            <!-- Module 11 -->
+            <div class="module" data-module="11">
+              <div class="module-header">
+                <span class="module-icon icon-accent"><i class="ri-rocket-line"></i></span>
+                <span class="module-title">
+                  <span class="module-num">11</span>
+                  Final Project
+                </span>
+                <i class="ri-arrow-down-s-line module-toggle"></i>
+              </div>
+              <ul class="lessons-list">
+                <li class="lesson" data-lesson="11-1" data-content="Identify and define a real-world business problem to solve with data.">Define a Business Problem</li>
+                <li class="lesson" data-lesson="11-2" data-content="Apply cleaning techniques to prepare your dataset for analysis.">Clean & Prepare Dataset</li>
+                <li class="lesson" data-lesson="11-3" data-content="Conduct comprehensive analysis using Excel, SQL, and Power BI.">Perform Data Analysis</li>
+                <li class="lesson" data-lesson="11-4" data-content="Create a professional Excel dashboard showcasing your findings.">Build Excel Dashboard</li>
+                <li class="lesson" data-lesson="11-5" data-content="Develop an interactive Power BI dashboard for stakeholder presentation.">Build Power BI Dashboard</li>
+                <li class="lesson" data-lesson="11-6" data-content="Present your insights with clear recommendations and visualizations.">Present Insights & Recommendations</li>
+              </ul>
+            </div>
+
+          </div><!-- /.modules-list -->
+        </aside>
+
+        <!-- ══════════════════════════════
+             CONTENT AREA
+        ══════════════════════════════ -->
+        <main class="content-area">
+
+          <!-- Top bar: hamburger + breadcrumb -->
+          <div class="content-topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+              <i class="ri-menu-2-line"></i>
+            </button>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+              <a href="../pages/data-analysis.html" class="breadcrumb-link">
+                <i class="ri-arrow-left-line"></i> Back to Course
+              </a>
+              <span class="breadcrumb-sep">/</span>
+              <span class="breadcrumb-current" id="breadcrumbModule">Module 1</span>
+            </nav>
+          </div>
+
+          <!-- Lesson header -->
+          <div class="content-header">
+            <div class="lesson-badge">
+              <i class="ri-book-open-line"></i>
+              <span id="lessonBadge">Lesson 1 of 5</span>
+            </div>
+            <h2 id="lessonTitle">What is Data Analysis</h2>
+          </div>
+
+          <!-- Lesson content card -->
+          <div class="lesson-content" id="lessonContent">
+            <p>Learn what data analysis is, why it's important, and how it drives business decisions in modern organizations.</p>
+
+            <div class="content-section">
+              <h3><i class="ri-checkbox-circle-line"></i> Learning Objectives</h3>
+              <ul>
+                <li>Understand the definition and purpose of data analysis</li>
+                <li>Recognize the role of data in modern business decision-making</li>
+                <li>Identify different types of analytical approaches</li>
+                <li>Appreciate the impact of data-driven insights</li>
+              </ul>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-key-line"></i> Key Concepts</h3>
+              <p><strong>Data Analysis:</strong> The process of inspecting, cleansing, transforming, and modeling data to discover useful information, inform conclusions, and support decision-making.</p>
+              <p><strong>Business Intelligence:</strong> Technologies and strategies used by enterprises for data analysis and management of business information.</p>
+            </div>
+
+            <div class="content-section">
+              <h3><i class="ri-global-line"></i> Why Data Analysis Matters</h3>
+              <p>In today's digital economy, organizations generate vast amounts of data every second. Data analysis transforms this raw data into actionable insights that drive:</p>
+              <ul>
+                <li>Strategic business decisions</li>
+                <li>Operational efficiency improvements</li>
+                <li>Customer experience enhancements</li>
+                <li>Risk mitigation and fraud detection</li>
+                <li>New revenue opportunities</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" id="prevBtn" disabled>
+              <i class="ri-arrow-left-line"></i> Previous
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn">
+              Next Lesson <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+
+        </main>
+      </div><!-- /.learning-dashboard -->
+
+      <!-- Sidebar Overlay (mobile tap-to-close) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    </div><!-- /.page-body -->
+
+    <!-- Footer (full-width, outside page-body) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/data-analysis-dashboard.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const overlay    = document.getElementById("sidebarOverlay");
+        const sidebar    = document.getElementById("sidebar");
+        const menuToggle = document.getElementById("menuToggle");
+
+        /* ── Measure real navbar height and set CSS variable ── */
+        function syncNavbarHeight() {
+          const header = document.querySelector("header");
+          if (header) {
+            const h = header.getBoundingClientRect().height;
+            document.documentElement.style.setProperty("--navbar-h", h + "px");
+          }
+        }
+
+        /* ── Navbar injection ── */
+        fetch("../components/navbar.html")
+          .then((r) => r.text())
+          .then((html) => {
+            document.getElementById("navbar-placeholder").innerHTML = html;
+
+            requestAnimationFrame(() => {
+              syncNavbarHeight();
+              window.addEventListener("resize", syncNavbarHeight);
+            });
+
+            const hamburger    = document.querySelector(".hamburger-menu");
+            const navLinks     = document.querySelector(".nav-links");
+            const dropdown     = document.querySelector(".dropdown");
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+
+            if (hamburger && navLinks) {
+              hamburger.addEventListener("click", () => navLinks.classList.add("active"));
+              document.addEventListener("click", (e) => {
+                if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                  navLinks.classList.remove("active");
+                }
+              });
+            }
+
+            if (dropdown && dropdownMenu) {
+              if (window.innerWidth >= 1024) {
+                dropdown.addEventListener("mouseenter",     () => { dropdownMenu.style.display = "block"; });
+                dropdown.addEventListener("mouseleave",     () => { dropdownMenu.style.display = "none";  });
+                dropdownMenu.addEventListener("mouseenter", () => { dropdownMenu.style.display = "block"; });
+                dropdownMenu.addEventListener("mouseleave", () => { dropdownMenu.style.display = "none";  });
+              } else {
+                dropdown.addEventListener("click", () => {
+                  dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+                });
+              }
+            }
+          })
+          .catch((err) => console.error("Failed to load navbar:", err));
+
+        /* ── Footer injection ── */
+        fetch("../components/footer.html")
+          .then((r) => r.text())
+          .then((html) => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+          })
+          .catch((err) => console.error("Failed to load footer:", err));
+
+        /* ── Mobile sidebar overlay ── */
+        if (overlay && sidebar) {
+          overlay.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+            overlay.classList.remove("visible");
+          });
+        }
+
+        if (menuToggle && sidebar && overlay) {
+          menuToggle.addEventListener("click", () => {
+            const isNowOpen = sidebar.classList.contains("open");
+            overlay.classList.toggle("visible", isNowOpen);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
