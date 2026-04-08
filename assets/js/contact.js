@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const successMsg = document.getElementById("form-success");
 
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       // Basic validation
       const required = form.querySelectorAll("[required]");
@@ -68,13 +68,44 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = "Sending…";
       btn.disabled = true;
 
-      setTimeout(() => {
+     const API_URL = window.location.hostname === 'localhost'
+     ? "http://localhost:5000/api/submit"
+     : "https://impact-studio-web.onrender.com/api/submit";
+
+     const formData = {
+      formType:    'contact',
+      contactName: form.querySelector('#full-name').value,
+      email:       form.querySelector('#email').value,
+      phone:       form.querySelector('#phone').value || '',
+      subject:     form.querySelector('#subject').value,
+      message:     form.querySelector('#message').value,
+     };
+
+     try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+      if (data.success) {
         form.reset();
         btn.innerHTML = 'Send Message <i class="ri-send-plane-line"></i>';
         btn.disabled = false;
         successMsg.classList.add("visible");
         setTimeout(() => successMsg.classList.remove("visible"), 5000);
-      }, 1200);
+      }else {
+        alert('Error: ' + (data.errors?.[0]?.message || data.message));
+        btn.innerHTML = 'send Message <i class="ri-send-plane-line"></i>';
+        btn.disabled = false;
+      }
+     } catch (err) {
+      console.error('Submit error:', err);
+    alert('Could not reach the server. Please try again later.');
+    btn.innerHTML = 'Send Message <i class="ri-send-plane-line"></i>';
+    btn.disabled = false;
+     }
     });
 
     // Clear red border on input
