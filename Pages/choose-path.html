@@ -206,7 +206,14 @@
 
             </form>
           </div>
-        </div>
+
+      <!-- SUCCESS STATE -->
+      <div id="enroll-success" style="display:none; text-align:center; padding:60px 20px;">
+        <div style="font-size:3rem;">🎉</div>
+        <h2 style="margin:16px 0 8px;">Enrollment Submitted!</h2>
+        <p style="color:#555; max-width:420px; margin:0 auto 24px;">Thank you! We've received your information and will be in touch shortly.</p>
+        <a href="../index.html" style="display:inline-block; padding:12px 28px; background:#035472; color:#fff; border-radius:8px; text-decoration:none; font-weight:600;">Back to Home</a>
+      </div>
       </section>
     </main>
     <!-- Footer -->
@@ -245,8 +252,9 @@
           const data = await response.json();
 
           if (data.success) {
-            alert('Enrollment submitted! We will be in touch shortly.');
-            this.reset();
+            document.querySelector('.enroll-card').style.display = 'none';
+            document.getElementById('enroll-success').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
             alert('Error: ' + (data.errors?.[0]?.message || data.message));
           }
