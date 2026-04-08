@@ -112,45 +112,60 @@
                 </div>
               </div>
 
-              <!-- ── STEP 2 ── -->
+              <!-- ── STEP 2 : Educational Background ── -->
               <div class="form-container">
                 <div class="form-group">
-                  <label for="title-b">Title *</label>
+                  <label for="edu-level">Highest Education Level *</label>
                   <div class="select-wrapper">
-                    <select id="title-b" class="form-input" required>
-                      <option value="" selected hidden></option>
-                      <option>Mr</option>
-                      <option>Mrs</option>
-                      <option>Miss</option>
+                    <select id="edu-level" class="form-input" required>
+                      <option value="" selected hidden>Select level</option>
+                      <option>O'Level / WAEC</option>
+                      <option>NCE</option>
+                      <option>ND / OND</option>
+                      <option>HND</option>
+                      <option>BSc / BA</option>
+                      <option>MSc / MBA</option>
+                      <option>PhD</option>
+                      <option>Other</option>
                     </select>
                     <img src="../assets/images/Symbol.png" />
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="contact-name-b">Contact Name *</label>
-                  <input
-                    type="text"
-                    id="contact-name-b"
-                    placeholder="Person filling the form"
-                    class="form-input"
-                    required
-                  />
+                  <label for="field-of-study">Field of Study / Profession *</label>
+                  <input type="text" id="field-of-study" placeholder="e.g. Business Admin, Engineering" class="form-input" required />
                 </div>
                 <div class="form-group">
-                  <label for="company-b">Company Name *</label>
-                  <input type="text" id="company-b" class="form-input" required />
+                  <label for="tech-exp">Prior Tech Experience? *</label>
+                  <div class="select-wrapper">
+                    <select id="tech-exp" class="form-input" required>
+                      <option value="" selected hidden>Select one</option>
+                      <option value="No">No – Complete beginner</option>
+                      <option value="Basic">Yes – Basic knowledge</option>
+                      <option value="Intermediate">Yes – Intermediate</option>
+                    </select>
+                    <img src="../assets/images/Symbol.png" />
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="email-b">Work Email Address *</label>
-                  <input type="email" id="email-b" class="form-input" required />
+                  <label for="current-role">Current Job Role / Status *</label>
+                  <input type="text" id="current-role" placeholder="e.g. Student, Accountant, Unemployed" class="form-input" required />
                 </div>
                 <div class="form-group">
-                  <label for="phone-b">Phone Number *</label>
-                  <input type="tel" id="phone-b" class="form-input" required />
-                </div>
-                <div class="form-group">
-                  <label for="address-b">Office Address *</label>
-                  <input type="text" id="address-b" class="form-input" required />
+                  <label for="referral">How did you hear about us?</label>
+                  <div class="select-wrapper">
+                    <select id="referral" class="form-input">
+                      <option value="">Select one (optional)</option>
+                      <option>Instagram</option>
+                      <option>Facebook</option>
+                      <option>TikTok</option>
+                      <option>WhatsApp</option>
+                      <option>Friend / Family</option>
+                      <option>Google Search</option>
+                      <option>Other</option>
+                    </select>
+                    <img src="../assets/images/Symbol.png" />
+                  </div>
                 </div>
                 <div class="form-buttons">
                   <button class="previous">Previous</button>
@@ -158,49 +173,65 @@
                 </div>
               </div>
 
-              <!-- ── STEP 3 ── -->
+              <!-- ── STEP 3 : Enrollment & Program Details ── -->
               <div class="form-container">
                 <div class="form-group">
-                  <label for="title-c">Title *</label>
+                  <label for="course-interest">Course of Interest *</label>
                   <div class="select-wrapper">
-                    <select id="title-c" class="form-input" required>
-                      <option value="" selected hidden></option>
-                      <option>Mr</option>
-                      <option>Mrs</option>
-                      <option>Miss</option>
+                    <select id="course-interest" class="form-input" required>
+                      <option value="" selected hidden>Select a course</option>
+                      <option>Web Development</option>
+                      <option>Mobile App Development</option>
+                      <option>Digital Marketing</option>
+                      <option>Product Design</option>
+                      <option>Cyber Security</option>
+                      <option>Data Analysis</option>
                     </select>
                     <img src="../assets/images/Symbol.png" />
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="contact-name-c">Contact Name *</label>
-                  <input
-                    type="text"
-                    id="contact-name-c"
-                    placeholder="Person filling the form"
-                    class="form-input"
-                    required
-                  />
+                  <label for="learning-mode">Preferred Learning Mode *</label>
+                  <div class="select-wrapper">
+                    <select id="learning-mode" class="form-input" required>
+                      <option value="" selected hidden>Select mode</option>
+                      <option>Physical (Port Harcourt)</option>
+                      <option>Online</option>
+                    </select>
+                    <img src="../assets/images/Symbol.png" />
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="company-c">Company Name *</label>
-                  <input type="text" id="company-c" class="form-input" required />
+                  <label for="start-pref">Preferred Start</label>
+                  <div class="select-wrapper">
+                    <select id="start-pref" class="form-input">
+                      <option value="">Select (optional)</option>
+                      <option>Next available cohort</option>
+                      <option>In 1 month</option>
+                      <option>In 2-3 months</option>
+                      <option>Flexible</option>
+                    </select>
+                    <img src="../assets/images/Symbol.png" />
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="email-c">Work Email Address *</label>
-                  <input type="email" id="email-c" class="form-input" required />
+                  <label for="payment-pref">Payment Preference</label>
+                  <div class="select-wrapper">
+                    <select id="payment-pref" class="form-input">
+                      <option value="">Select (optional)</option>
+                      <option>Full Payment</option>
+                      <option>Installment Plan</option>
+                    </select>
+                    <img src="../assets/images/Symbol.png" />
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="phone-c">Phone Number *</label>
-                  <input type="tel" id="phone-c" class="form-input" required />
-                </div>
-                <div class="form-group">
-                  <label for="address-c">Office Address *</label>
-                  <input type="text" id="address-c" class="form-input" required />
+                  <label for="extra-notes">Additional Notes</label>
+                  <input type="text" id="extra-notes" placeholder="Any questions or requests..." class="form-input" />
                 </div>
                 <div class="form-buttons">
                   <button class="previous">Previous</button>
-                  <button type="submit" class="next-btn">Next</button>
+                  <button type="submit" class="next-btn" id="enroll-submit-btn">Submit</button>
                 </div>
               </div>
 
@@ -225,24 +256,40 @@
       document.querySelector('.enroll-form').addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        // Collect from ALL steps (all fields stay in DOM when steps are hidden)
+        const val = (id) => (document.getElementById(id) || {}).value || '';
+
         const formData = {
-          formType:      'enrollment',
-          title:         document.getElementById('title').value,
-          contactName:   document.getElementById('contact-name').value,
-          companyName:   document.getElementById('company').value,
-          email:         document.getElementById('email').value,
-          phone:         document.getElementById('phone').value,
-          officeAddress: document.getElementById('address').value,
+          formType:    'enrollment',
+          title:       val('title'),
+          contactName: val('contact-name'),
+          companyName: val('company'),
+          email:       val('email'),
+          phone:       val('phone'),
+          message: [
+            'Address: '   + val('address'),
+            'Education: ' + val('edu-level'),
+            'Field: '     + val('field-of-study'),
+            'Tech Exp: '  + val('tech-exp'),
+            'Role: '      + val('current-role'),
+            'Referral: '  + (val('referral') || 'N/A'),
+            'Course: '    + val('course-interest'),
+            'Mode: '      + val('learning-mode'),
+            'Start: '     + (val('start-pref')    || 'N/A'),
+            'Payment: '   + (val('payment-pref')  || 'N/A'),
+            'Notes: '     + (val('extra-notes')   || 'N/A'),
+          ].join(' | '),
         };
 
-        const btn = e.submitter;
+        // Safe button ref — e.submitter is null when triggered via dispatchEvent
+        const btn = document.getElementById('enroll-submit-btn');
         btn.textContent = 'Submitting...';
         btn.disabled = true;
 
         try {
           const API_URL = window.location.hostname === 'localhost'
-            ? "http://localhost:5000/api/submit"
-            : "https://impact-studio-web.onrender.com/api/submit";
+            ? 'http://localhost:5000/api/submit'
+            : 'https://impact-studio-web.onrender.com/api/submit';
 
           const response = await fetch(API_URL, {
             method: 'POST',
@@ -252,17 +299,18 @@
           const data = await response.json();
 
           if (data.success) {
-            document.querySelector('.enroll-card').style.display = 'none';
+            document.querySelector('.enroll-card').style.display  = 'none';
             document.getElementById('enroll-success').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
-            alert('Error: ' + (data.errors?.[0]?.message || data.message));
+            alert('Error: ' + (data.errors?.[0]?.message || data.message || 'Unknown error'));
+            btn.textContent = 'Submit';
+            btn.disabled = false;
           }
         } catch (err) {
           console.error('Submit error:', err);
           alert('Could not reach the server. Please try again later.');
-        } finally {
-          btn.textContent = 'Next';
+          btn.textContent = 'Submit';
           btn.disabled = false;
         }
       });
