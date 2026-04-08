@@ -20,13 +20,20 @@ app.use(cors({
 })); 
 
 // --- DATABASE CONNECTION ---
+let isDbConnected = false;
+
 const connectDB = async () => {
     try {
+        if (!process.env.MONGO_URL) {
+            console.error("❌ MONGO_URL is not set in environment variables!");
+            return;
+        }
         await mongoose.connect(process.env.MONGO_URL);
+        isDbConnected = true;
         console.log("✅ Database Connected Successfully");
     } catch (err) {
         console.error("❌ MongoDB Connection Error:", err.message);
-        process.exit(1); // Exit process with error code if cant connect
+        // Server stays alive — do NOT call process.exit(1)
     }
 };
 // DB connects after server starts (see bottom of file)
@@ -74,9 +81,17 @@ const enrollmentSchema = z.object({
     title:             z.string().optional(),
 })
 
+// --- HEALTH CHECK (required by Render) ---
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', db: isDbConnected ? 'connected' : 'disconnected' });
+});
+
 // --- THE API ROUTE ---
 app.post('/api/submit', async (req, res) => {
     try {
+        if (!isDbConnected) {
+            return res.status(503).json({ success: false, message: "Database not connected. Please try again shortly." });
+        }
         const { formType } = req.body;
         
         let schema;
