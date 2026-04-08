@@ -4,6 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 const { z } = require('zod');
 
 // DEBUG: This will tell us if the Variable is actually being seen now
@@ -65,6 +66,9 @@ const submissionSchema = new mongoose.Schema({
     socialLink: String, // For the YouTube/channel links you mentioned
     submittedAt: { type: Date, default: Date.now }
 });
+// Indexes for faster queries at scale
+submissionSchema.index({ email: 1, formType: 1 });
+submissionSchema.index({ submittedAt: -1 });
 const Submission = mongoose.model('Submission', submissionSchema);
 
 // --- SUBSCRIBER MODEL ---
@@ -72,7 +76,27 @@ const subscriberSchema = new mongoose.Schema({
     email:        { type: String, required: true, unique: true },
     subscribedAt: { type: Date, default: Date.now }
 });
+subscriberSchema.index({ subscribedAt: -1 });
 const Subscriber = mongoose.model('Subscriber', subscriberSchema);
+
+// --- RATE LIMITERS ---
+// General API: max 30 requests per 10 minutes per IP
+const apiLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000,
+    max: 30,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { success: false, message: 'Too many requests. Please wait a few minutes and try again.' }
+});
+
+// Subscribe route: stricter — max 5 per 10 minutes per IP
+const subscribeLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000,
+    max: 5,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { success: false, message: 'Too many subscription attempts. Please try again later.' }
+});
 
 // ---VALIDATION SCHEMA ---
 const hireSchema = z.object({
@@ -110,7 +134,7 @@ app.get('/health', (req, res) => {
 });
 
 // --- NEWSLETTER SUBSCRIBE ROUTE ---
-app.post('/api/subscribe', async (req, res) => {
+app.post('/api/subscribe', subscribeLimiter, async (req, res) => {
     try {
         if (!isDbConnected) {
             return res.status(503).json({ success: false, message: 'Database not connected. Please try again shortly.' });
@@ -136,7 +160,7 @@ app.post('/api/subscribe', async (req, res) => {
 
 
 // --- THE API ROUTE ---
-app.post('/api/submit', async (req, res) => {
+app.post('/api/submit', apiLimiter, async (req, res) => {
     try {
         if (!isDbConnected) {
             return res.status(503).json({ success: false, message: "Database not connected. Please try again shortly." });
