@@ -13,11 +13,27 @@ const app = express();
 
 //middleware
 app.use(express.json());
+
+const allowedOrigins = [
+    'https://impact-studio-web.netlify.app',
+    'http://localhost:3000',
+    'http://localhost:5000',
+    'http://localhost:5500',
+    'http://127.0.0.1:5500',
+    'http://localhost:8080',
+];
 app.use(cors({
-    origin: 'https://impact-studio-web.netlify.app',
+    origin: function (origin, callback) {
+        // Allow requests with no origin (e.g. Postman, mobile apps)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('CORS: origin not allowed: ' + origin));
+        }
+    },
     methods: 'GET,HEAD,PUT,POST,DELETE',
     credentials: true
-})); 
+}));
 
 // --- DATABASE CONNECTION ---
 let isDbConnected = false;
@@ -83,9 +99,9 @@ const enrollmentSchema = z.object({
     contactName:       z.string().min(2, "Name must be at least 2 characters"),
     email:             z.string().email("Invalid email address"),
     phone:             z.string().min(10, "Phone number is too short"),
-    companyName:       z.string().optional(),
-    officeAddress:     z.string().optional(),
     title:             z.string().optional(),
+    companyName:       z.string().optional(),
+    message:           z.string().optional(), // packed: education, course, mode, referral, etc.
 })
 
 // --- HEALTH CHECK (required by Render) ---
