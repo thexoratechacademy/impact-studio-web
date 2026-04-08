@@ -51,6 +51,13 @@ const submissionSchema = new mongoose.Schema({
 });
 const Submission = mongoose.model('Submission', submissionSchema);
 
+// --- SUBSCRIBER MODEL ---
+const subscriberSchema = new mongoose.Schema({
+    email:        { type: String, required: true, unique: true },
+    subscribedAt: { type: Date, default: Date.now }
+});
+const Subscriber = mongoose.model('Subscriber', subscriberSchema);
+
 // ---VALIDATION SCHEMA ---
 const hireSchema = z.object({
     formType:           z.literal('hire'),
@@ -85,6 +92,32 @@ const enrollmentSchema = z.object({
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok', db: isDbConnected ? 'connected' : 'disconnected' });
 });
+
+// --- NEWSLETTER SUBSCRIBE ROUTE ---
+app.post('/api/subscribe', async (req, res) => {
+    try {
+        if (!isDbConnected) {
+            return res.status(503).json({ success: false, message: 'Database not connected. Please try again shortly.' });
+        }
+        const emailSchema = z.object({
+            email: z.string().email('Invalid email address')
+        });
+        const { email } = emailSchema.parse(req.body);
+        const existing = await Subscriber.findOne({ email });
+        if (existing) {
+            return res.status(200).json({ success: true, message: 'Already subscribed!' });
+        }
+        await new Subscriber({ email }).save();
+        res.status(201).json({ success: true, message: 'Subscribed successfully!' });
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            return res.status(400).json({ success: false, message: error.errors[0].message });
+        }
+        console.error('Subscribe error:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
 
 // --- THE API ROUTE ---
 app.post('/api/submit', async (req, res) => {

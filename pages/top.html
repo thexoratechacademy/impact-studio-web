@@ -89,23 +89,57 @@
 
     <script>
       // Form validation and submission handling
-      document.getElementById('profile-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const form = this;
-        const isValid = form.checkValidity();
-        if (isValid) {
-          const formData = new FormData(form);
-          const data = Object.fromEntries(formData.entries());
-          console.log('Form submitted successfully:', data);
-          alert('Thank you! Your information has been submitted. We will contact you soon.');
-          form.reset();
-        } else {
-          const inputs = form.querySelectorAll('input, select');
-          inputs.forEach(input => {
+   document.getElementById('profile-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = this;
+
+    if (!form.checkValidity()) {
+        form.querySelectorAll('input, select').forEach(input => {
             if (!input.validity.valid) input.reportValidity();
-          });
+        });
+        return;
+    }
+
+    const formData = {
+        formType:      'hire',
+        title:         form.querySelector('#title').value,
+        contactName:   form.querySelector('#contact').value,
+        companyName:   form.querySelector('#company').value,
+        email:         form.querySelector('#email').value,
+        phone:         form.querySelector('#phone').value,
+        officeAddress: form.querySelector('#office').value,
+    };
+
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    try {
+        const API_URL = window.location.hostname === 'localhost'
+            ? "http://localhost:5000/api/submit"
+            : "https://impact-studio-web.onrender.com/api/submit";
+
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            alert('Thank you! Your information has been submitted.');
+            form.reset();
+        } else {
+            alert('Error: ' + (data.errors?.[0]?.message || data.message));
         }
-      });
+    } catch (err) {
+        console.error('Submit error:', err);
+        alert('Could not reach the server. Please try again later.');
+    } finally {
+        btn.innerHTML = 'Next <i class="ri-arrow-right-line"></i>';
+        btn.disabled = false;
+    }
+});
 
       // Real-time validation feedback
       document.querySelectorAll('#profile-form input, #profile-form select').forEach(input => {
@@ -167,5 +201,6 @@
           .catch(err => console.error("Failed to load footer:", err));
       });
     </script>
-  </body>
+    <script src="../assets/js/footer-subscribe.js" defer></script>
+</body>
 </html>

@@ -35,11 +35,13 @@
               </div>
               <div class="">
                 <span class="step">3</span>
-                <p class="step-label">Enrollment & Program Details</p>
+                <p class="step-label">Enrollment &amp; Program Details</p>
               </div>
             </div>
             <form class="enroll-form">
               <p class="form-heading">Profile information</p>
+
+              <!-- ── STEP 1 ── -->
               <div class="form-container active">
                 <div class="form-group">
                   <label for="title">Title *</label>
@@ -70,7 +72,7 @@
                     type="text"
                     id="company"
                     class="form-input"
-                    name="Company- name"
+                    name="Company-name"
                     required
                   />
                 </div>
@@ -106,14 +108,16 @@
                 </div>
                 <div class="form-buttons">
                   <button class="previous">Previous</button>
-                  <button type="submit" class="next-btn">Next</button>
+                  <button type="button" class="next-btn">Next</button>
                 </div>
               </div>
+
+              <!-- ── STEP 2 ── -->
               <div class="form-container">
                 <div class="form-group">
-                  <label for="title">TitleB *</label>
+                  <label for="title-b">Title *</label>
                   <div class="select-wrapper">
-                    <select id="title" class="form-input" required>
+                    <select id="title-b" class="form-input" required>
                       <option value="" selected hidden></option>
                       <option>Mr</option>
                       <option>Mrs</option>
@@ -123,41 +127,43 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="contact-name">Contact Name *</label>
+                  <label for="contact-name-b">Contact Name *</label>
                   <input
                     type="text"
-                    id="contact-name"
+                    id="contact-name-b"
                     placeholder="Person filling the form"
                     class="form-input"
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="company">Company Name *</label>
-                  <input type="text" id="company" class="form-input" required />
+                  <label for="company-b">Company Name *</label>
+                  <input type="text" id="company-b" class="form-input" required />
                 </div>
                 <div class="form-group">
-                  <label for="email">Work Email Address *</label>
-                  <input type="email" id="email" class="form-input" required />
+                  <label for="email-b">Work Email Address *</label>
+                  <input type="email" id="email-b" class="form-input" required />
                 </div>
                 <div class="form-group">
-                  <label for="phone">Phone Number *</label>
-                  <input type="tel" id="phone" class="form-input" required />
+                  <label for="phone-b">Phone Number *</label>
+                  <input type="tel" id="phone-b" class="form-input" required />
                 </div>
                 <div class="form-group">
-                  <label for="address">Office Address *</label>
-                  <input type="text" id="address" class="form-input" required />
+                  <label for="address-b">Office Address *</label>
+                  <input type="text" id="address-b" class="form-input" required />
                 </div>
                 <div class="form-buttons">
                   <button class="previous">Previous</button>
-                  <button type="submit" class="next-btn">Next</button>
+                  <button type="button" class="next-btn">Next</button>
                 </div>
               </div>
+
+              <!-- ── STEP 3 ── -->
               <div class="form-container">
                 <div class="form-group">
-                  <label for="title">TitleC *</label>
+                  <label for="title-c">Title *</label>
                   <div class="select-wrapper">
-                    <select id="title" class="form-input" required>
+                    <select id="title-c" class="form-input" required>
                       <option value="" selected hidden></option>
                       <option>Mr</option>
                       <option>Mrs</option>
@@ -167,43 +173,92 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="contact-name">Contact Name *</label>
+                  <label for="contact-name-c">Contact Name *</label>
                   <input
                     type="text"
-                    id="contact-name"
+                    id="contact-name-c"
                     placeholder="Person filling the form"
                     class="form-input"
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="company">Company Name *</label>
-                  <input type="text" id="company" class="form-input" required />
+                  <label for="company-c">Company Name *</label>
+                  <input type="text" id="company-c" class="form-input" required />
                 </div>
                 <div class="form-group">
-                  <label for="email">Work Email Address *</label>
-                  <input type="email" id="email" class="form-input" required />
+                  <label for="email-c">Work Email Address *</label>
+                  <input type="email" id="email-c" class="form-input" required />
                 </div>
                 <div class="form-group">
-                  <label for="phone">Phone Number *</label>
-                  <input type="tel" id="phone" class="form-input" required />
+                  <label for="phone-c">Phone Number *</label>
+                  <input type="tel" id="phone-c" class="form-input" required />
                 </div>
                 <div class="form-group">
-                  <label for="address">Office Address *</label>
-                  <input type="text" id="address" class="form-input" required />
+                  <label for="address-c">Office Address *</label>
+                  <input type="text" id="address-c" class="form-input" required />
                 </div>
                 <div class="form-buttons">
                   <button class="previous">Previous</button>
                   <button type="submit" class="next-btn">Next</button>
                 </div>
               </div>
+
             </form>
           </div>
         </div>
       </section>
     </main>
-      <!-- Footer -->
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
     <script src="../assets/js/course-path.js"></script>
-  </body>
+
+    <!-- Enrollment form submit handler -->
+    <script>
+      document.querySelector('.enroll-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const formData = {
+          formType:      'enrollment',
+          title:         document.getElementById('title').value,
+          contactName:   document.getElementById('contact-name').value,
+          companyName:   document.getElementById('company').value,
+          email:         document.getElementById('email').value,
+          phone:         document.getElementById('phone').value,
+          officeAddress: document.getElementById('address').value,
+        };
+
+        const btn = e.submitter;
+        btn.textContent = 'Submitting...';
+        btn.disabled = true;
+
+        try {
+          const API_URL = window.location.hostname === 'localhost'
+            ? "http://localhost:5000/api/submit"
+            : "https://impact-studio-web.onrender.com/api/submit";
+
+          const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+          const data = await response.json();
+
+          if (data.success) {
+            alert('Enrollment submitted! We will be in touch shortly.');
+            this.reset();
+          } else {
+            alert('Error: ' + (data.errors?.[0]?.message || data.message));
+          }
+        } catch (err) {
+          console.error('Submit error:', err);
+          alert('Could not reach the server. Please try again later.');
+        } finally {
+          btn.textContent = 'Next';
+          btn.disabled = false;
+        }
+      });
+    </script>
+    <script src="../assets/js/footer-subscribe.js" defer></script>
+</body>
 </html>
