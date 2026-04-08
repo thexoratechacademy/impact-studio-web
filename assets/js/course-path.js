@@ -102,7 +102,9 @@ nextBtns.forEach((btn) => {
       currentStep++;
       updateFormSteps();
     } else {
-      document.querySelector("form").submit();
+      // Dispatch submit event so the form's addEventListener fires correctly
+      const form = document.querySelector(".enroll-form");
+      form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
     }
   });
 });

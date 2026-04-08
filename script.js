@@ -25,8 +25,7 @@ async function submitThexoraForm(formData) {
 
         const data = await response.json();
         if (data.success) {
-            alert("Success! Form verified and sumitted.");
-            window.location.reload(); // Refresh after success
+            alert("Success! Your form has been submitted.");
         } else {
             // show the first validation error message from zod
             alert("Error: " + data.errors[0].message);

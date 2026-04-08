@@ -84,6 +84,14 @@
       </div>
     </section>
 
+    <!-- SUCCESS STATE -->
+    <div id="hire-success" style="display:none; text-align:center; padding:60px 20px;">
+      <div style="font-size:3rem;">✅</div>
+      <h2 style="margin:16px 0 8px;">Request Received!</h2>
+      <p style="color:#555; max-width:420px; margin:0 auto 24px;">Thank you! Your hiring request has been submitted. Our team will reach out to you shortly.</p>
+      <a href="../index.html" style="display:inline-block; padding:12px 28px; background:#035472; color:#fff; border-radius:8px; text-decoration:none; font-weight:600;">Back to Home</a>
+    </div>
+
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
@@ -127,8 +135,10 @@
         const data = await response.json();
 
         if (data.success) {
-            alert('Thank you! Your information has been submitted.');
-            form.reset();
+            document.querySelector('.form-card').style.display = 'none';
+            document.querySelector('.form-header').style.display = 'none';
+            document.getElementById('hire-success').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             alert('Error: ' + (data.errors?.[0]?.message || data.message));
         }
