@@ -14,10 +14,18 @@ document.addEventListener('submit', async function (e) {
   const btn   = document.getElementById('subscribe-btn');
   const msg   = document.getElementById('subscribe-msg');
 
+  // Honeypot check
+  const formData = new FormData(form);
+  const hpWebsite = formData.get('hp_website');
+  if (hpWebsite && hpWebsite.trim() !== '') {
+    console.warn('🤖 Bot detected (Newsletter)');
+    return; // Silently block
+  }
+
   const email = input ? input.value.trim() : '';
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    input.style.borderColor = '#e74040';
-    input.focus();
+    if (input) input.style.borderColor = '#e74040';
+    if (input) input.focus();
     return;
   }
 

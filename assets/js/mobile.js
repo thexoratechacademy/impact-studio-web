@@ -1,6 +1,6 @@
 // Inject the navbar component
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../components/navbar.html")
+  fetch("../components/navbar.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("navbar-placeholder").innerHTML = html;
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Inject the course-overview component into the page
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../sections/mobile-path.html")
+  fetch("../sections/mobile-path.html")
   .then((response) => response.text())
   .then((html) => {
     document.getElementById("course-overview-mobile-placeholder").innerHTML = html;
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Inject the getting-started component
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../sections/getting-started.html")
+  fetch("../sections/getting-started.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("getting-started-placeholder").innerHTML = html;
@@ -109,20 +109,20 @@ document.addEventListener("DOMContentLoaded", () => {
 // Inject the Access Us and Sponsors sections
 document.addEventListener("DOMContentLoaded", () => {
   // Access Us Section
-  fetch("../../sections/working-with-us.html")
+  fetch("../sections/working-with-us.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("accessing-us-section-placeholder").innerHTML = html;
     });
   // Sponsors Section
-  fetch("../../sections/sponsors.html")
+  fetch("../sections/sponsors.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("sponsors-section-placeholder").innerHTML = html;
     })
     .catch((err) => console.error("Failed to load sponsors:", err));
   // Footer
-  fetch("../../components/footer.html")
+  fetch("../components/footer.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("footer-placeholder").innerHTML = html;

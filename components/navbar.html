@@ -1,80 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
-      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <div id="navbar-placeholder"></div>
-    <header>
-      <nav>
-        <div class="nav-bar-container">
-          <div class="nav-bar-image">
-            <a href="/">
-              <img src="/assets/images/Logo.svg" alt="Logo" />
+<header>
+  <nav>
+    <div class="nav-bar-container">
+      <div class="nav-bar-image">
+        <a href="/index.html">
+          <img src="/assets/images/Logo.svg" alt="Thexora Logo" />
+        </a>
+      </div>
+      
+      <!-- Hamburger Menu -->
+      <button class="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navigation links -->
+      <div class="nav-links">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#" aria-haspopup="true" aria-expanded="false">
+              Courses <i class="ri-arrow-down-s-line"></i>
             </a>
-          </div>
-          <!-- Hamburger Menu -->
-          <div class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <!-- Navigation links -->
-          <div class="nav-links">
-            <ul>
-              <li><a href="/index.html">Home</a></li>
-              <li class="dropdown">
-                <a href="#">Courses<i class="ri-arrow-down-s-line"></i></a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="/pages/web-development.html">Web Development</a>
-                  </li>
-                  <li>
-                    <a href="/pages/mobile-app-development.html"
-                      >Mobile App Development</a
-                    >
-                  </li>
-                  <li>
-                    <a href="/pages/digital-marketing.html"
-                      >Digital Marketing</a
-                    >
-                  </li>
-                  <li><a href="/pages/product-design.html">Product Design</a></li>
-                  <li><a href="/pages/cyber-security.html">Cyber Security</a></li>
-                  <li><a href="/pages/data-analysis.html">Data Analysis</a></li>
-                </ul>
-              </li>
-              <li><a href="/pages/hire-page.html">Hire a talent</a></li>
-              <li>
-                <a href="/sections/working-with-us.html">Work with us</a>
-              </li>
-              <li><a href="/pages/about.html">About us</a></li>
-              <li><a href="/pages/contact.html">Contact us</a></li>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/web-development.html">Web Development</a></li>
+              <li><a href="/pages/mobile-app-development.html">Mobile App Development</a></li>
+              <li><a href="/pages/digital-marketing.html">Digital Marketing</a></li>
+              <li><a href="/pages/product-design.html">Product Design</a></li>
+              <li><a href="/pages/cyber-security.html">Cyber Security</a></li>
+              <li><a href="/pages/data-analysis.html">Data Analysis</a></li>
             </ul>
-            <div class="nav-button btn">
-              <a href="/pages/choose-path.html" class="btn"
-                >Enroll now<i class="ri-arrow-right-line"></i
-              ></a>
-            </div>
-          </div>
-          <div class="second-nav-button">
-            <a href="/pages/choose-path.html" class="btn"
-              >Enroll now<i class="ri-arrow-right-line"></i
-            ></a>
-          </div>
+          </li>
+          <li><a href="/pages/hire-page.html">Hire Talent</a></li>
+          <li><a href="/pages/about.html">About Us</a></li>
+          <li><a href="/pages/contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-button">
+          <a href="/pages/choose-path.html" class="btn">
+            Enroll Now <i class="ri-arrow-right-line"></i>
+          </a>
         </div>
-      </nav>
-    </header>
-  </body>
-</html>
+      </div>
+      
+      <!-- Mobile/Small Desktop Button -->
+      <div class="second-nav-button">
+        <a href="/pages/choose-path.html" class="btn">
+          Enroll Now <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

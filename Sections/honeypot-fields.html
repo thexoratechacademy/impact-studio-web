@@ -1,0 +1,53 @@
+<!-- 
+==========================================
+HONEYPOT BOT TRAP - HTML SNIPPET
+Drop this inside any <form> tag
+==========================================
+-->
+
+<!-- Honeypot Field 1: Website (bots love filling this) -->
+<div class="hp-field" aria-hidden="true">
+    <label for="hp_website">Website</label>
+    <input 
+        type="text" 
+        id="hp_website" 
+        name="hp_website" 
+        tabindex="-1" 
+        autocomplete="new-password"
+        readonly
+        onfocus="this.removeAttribute('readonly')"
+    />
+</div>
+
+<!-- Honeypot Field 2: Email (another common bot target) -->
+<div class="hp-field" aria-hidden="true">
+    <label for="hp_email">Confirm Email</label>
+    <input 
+        type="text" 
+        id="hp_email" 
+        name="hp_email" 
+        tabindex="-1" 
+        autocomplete="new-password"
+        readonly
+        onfocus="this.removeAttribute('readonly')"
+    />
+</div>
+
+<!-- Honeypot Field 3: Name (catches basic bots) -->
+<div class="hp-field" aria-hidden="true">
+    <label for="hp_name">Last Name</label>
+    <input 
+        type="text" 
+        id="hp_name" 
+        name="hp_name" 
+        tabindex="-1" 
+        autocomplete="new-password"
+        readonly
+        onfocus="this.removeAttribute('readonly')"
+    />
+</div>
+
+<!-- 
+NOTE: The timestamp field (hp_time_start) is automatically 
+added by the JavaScript setupHoneypotForm() function
+-->

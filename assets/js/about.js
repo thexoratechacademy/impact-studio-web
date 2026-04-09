@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //injection for Our Teams
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../sections/Team-Section.html")
+  fetch("../sections/Team-section.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("Team-section").innerHTML = html;

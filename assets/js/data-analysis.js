@@ -1,6 +1,6 @@
 // Inject course-overview section for Data Analysis
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../Sections/data-analysis-path.html")
+  fetch("../sections/data-analysis-path.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById(
@@ -89,3 +89,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.error("Failed to load data analysis overview:", err));
 });
+

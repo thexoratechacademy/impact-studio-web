@@ -4,8 +4,22 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { z } = require('zod');
+const { honeypotMiddleware } = require('./middleware/honeypot');
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const { JWT } = require('google-auth-library');
+
+// Limit each IP to 10 submissions per hour
+const formLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hour (fixed: was 60*60*100 = 10 min)
+    max: 10, // Increased from 5 to 10
+    message: "Too many requests from this IP, please try again after an hour",
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+
 
 // DEBUG: This will tell us if the Variable is actually being seen now
 console.log("Database URL check:", process.env.MONGO_URL ? "FOUND ✅": "NOT FOUND ❌")
@@ -13,6 +27,7 @@ const app = express();
 
 
 //middleware
+app.use(helmet());
 app.use(express.json());
 
 const allowedOrigins = [
@@ -21,6 +36,8 @@ const allowedOrigins = [
     'http://localhost:5000',
     'http://localhost:5500',
     'http://127.0.0.1:5500',
+    'http://localhost:5505',
+    'http://127.0.0.1:5505',
     'http://localhost:8080',
 ];
 app.use(cors({
@@ -53,17 +70,60 @@ const connectDB = async () => {
         // Server stays alive — do NOT call process.exit(1)
     }
 };
+// --- GOOGLE SHEETS SETUP ---
+const serviceAccountAuth = new JWT({
+    email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    key: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+});
+
+const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
+
+const syncToSheet = async (data, sheetType = 'submissions') => {
+    try {
+        await doc.loadInfo();
+        // Try to find a sheet by title, or use the first one
+        let sheet = doc.sheetsByTitle[sheetType];
+        if (!sheet) {
+            sheet = doc.sheetsByIndex[0];
+            console.log(`📝 Sheet "${sheetType}" not found, using default index 0: "${sheet.title}"`);
+        }
+        
+        // Map data to row
+        const row = {
+            Date: new Date().toLocaleString(),
+            Type: data.formType || 'subscription',
+            Name: data.contactName || 'N/A',
+            Email: data.email,
+            Phone: data.phone || 'N/A',
+            Subject: data.subject || 'N/A',
+            Company: data.companyName || 'N/A',
+            Message: data.message || 'N/A',
+            Title: data.title || 'N/A',
+            Social: data.socialLink || 'N/A'
+        };
+        
+        await sheet.addRow(row);
+        console.log("📊 Synced to Google Sheets ✅");
+    } catch (err) {
+        console.error("❌ Google Sheets Error:", err.message);
+    }
+};
+
 // DB connects after server starts (see bottom of file)
 
 // --- THE MODEL ---
 const submissionSchema = new mongoose.Schema({
- formType: String, // 'hire' or 'enrollment'
+    formType: String,      // 'hire', 'enrollment', or 'contact'
     contactName: String,
     email: String,
     phone: String,
     companyName: String,
-    message: String,
-    socialLink: String, // For the YouTube/channel links you mentioned
+    officeAddress: String, // For 'hire' form
+    subject: String,       // For 'contact' form
+    message: String,       // Multi-purpose field
+    title: String,         // Job title or Position deired
+    socialLink: String,    // For YouTube/channel links
     submittedAt: { type: Date, default: Date.now }
 });
 // Indexes for faster queries at scale
@@ -148,6 +208,10 @@ app.post('/api/subscribe', subscribeLimiter, async (req, res) => {
             return res.status(200).json({ success: true, message: 'Already subscribed!' });
         }
         await new Subscriber({ email }).save();
+        
+        // Sync to Sheets
+        syncToSheet({ email, formType: 'newsletter' }, 'subscribers');
+
         res.status(201).json({ success: true, message: 'Subscribed successfully!' });
     } catch (error) {
         if (error instanceof z.ZodError) {
@@ -158,14 +222,15 @@ app.post('/api/subscribe', subscribeLimiter, async (req, res) => {
     }
 });
 
-
 // --- THE API ROUTE ---
-app.post('/api/submit', apiLimiter, async (req, res) => {
+app.post('/api/submit', apiLimiter, formLimiter, honeypotMiddleware({ minSubmissionTime: 3000, logBotAttempts: true }), async (req, res) => {
     try {
         if (!isDbConnected) {
             return res.status(503).json({ success: false, message: "Database not connected. Please try again shortly." });
         }
-        const { formType } = req.body;
+        
+        // Use cleaned data (honeypot fields removed) from middleware
+        const { formType } = req.cleanData;
         
         let schema;
         if (formType == 'hire')                  schema = hireSchema;
@@ -173,9 +238,12 @@ app.post('/api/submit', apiLimiter, async (req, res) => {
         else if (formType === 'enrollment')      schema = enrollmentSchema;
         else return res.status(400).json({ success: false, message: " Unknown form type"});
 
-        const validatedData = schema.parse(req.body);
+        const validatedData = schema.parse(req.cleanData);
         const newSubmission = new Submission(validatedData);
         await newSubmission.save();
+
+        // Sync to Sheets
+        syncToSheet(validatedData, 'submissions');
 
         res.status(201).json({ success: true, message: "Submission saved successfully!"});
     }catch (error) {

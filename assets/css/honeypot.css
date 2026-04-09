@@ -1,0 +1,48 @@
+/* ==========================================
+   HONEYPOT BOT TRAP - REUSABLE CSS
+   Drop this into any form's CSS file
+   ========================================== */
+
+/* Hide honeypot field from real users */
+.hp-field {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    max-height: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+    tabindex: -1 !important;
+}
+
+/* Also hide the input fields inside */
+.hp-field input,
+.hp-field label,
+.hp-field select,
+.hp-field textarea {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    display: none !important;
+}
+
+/* Additional backup - hide by attribute */
+input[name^="hp_"],
+label[for^="hp_"] {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    display: none !important;
+    visibility: hidden !important;
+}

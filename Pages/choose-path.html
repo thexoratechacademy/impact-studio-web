@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Choose Your Path</title>
+    <title>Enroll Now – Choose Your Path | Thexora Tech Academy</title>
+    <meta name="description" content="Ready to start your tech journey? Choose from our curated learning paths and enroll in the next cohort at Thexora Tech Academy." />
+    <script src="../assets/js/config.js"></script>
     <link rel="stylesheet" href="../assets/css/choose-career-path.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/honeypot.css" />
   </head>
   <body>
     <div id="navbar-placeholder"></div>
@@ -38,7 +41,21 @@
                 <p class="step-label">Enrollment &amp; Program Details</p>
               </div>
             </div>
-            <form class="enroll-form">
+            <form class="enroll-form" id="enroll-form" novalidate>
+              <!-- HONEYPOT BOT TRAP FIELDS -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="hp_website">Website</label>
+                <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+              </div>
+              <div class="hp-field" aria-hidden="true">
+                <label for="hp_email">Confirm Email</label>
+                <input type="text" id="hp_email" name="hp_email" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+              </div>
+              <div class="hp-field" aria-hidden="true">
+                <label for="hp_name">Last Name</label>
+                <input type="text" id="hp_name" name="hp_name" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+              </div>
+              
               <p class="form-heading">Profile information</p>
 
               <!-- ── STEP 1 ── -->
@@ -250,68 +267,90 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     <script src="../assets/js/course-path.js"></script>
+    <script src="../assets/js/honeypot.js"></script>
 
-    <!-- Enrollment form submit handler -->
+    <!-- Enrollment form submission logic -->
     <script>
-      document.querySelector('.enroll-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.enroll-form');
+        if (form) {
+          // Remove old event listener by cloning
+          const newForm = form.cloneNode(true);
+          form.parentNode.replaceChild(newForm, form);
+          
+          // Add timestamp field for honeypot
+          const timeField = document.createElement('input');
+          timeField.type = 'hidden';
+          timeField.name = 'hp_time_start';
+          timeField.value = Date.now();
+          newForm.appendChild(timeField);
+          
+          newForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-        // Collect from ALL steps (all fields stay in DOM when steps are hidden)
-        const val = (id) => (document.getElementById(id) || {}).value || '';
+            // Collect from ALL steps
+            const val = (id) => (document.getElementById(id) || {}).value || '';
 
-        const formData = {
-          formType:    'enrollment',
-          title:       val('title'),
-          contactName: val('contact-name'),
-          companyName: val('company'),
-          email:       val('email'),
-          phone:       val('phone'),
-          message: [
-            'Address: '   + val('address'),
-            'Education: ' + val('edu-level'),
-            'Field: '     + val('field-of-study'),
-            'Tech Exp: '  + val('tech-exp'),
-            'Role: '      + val('current-role'),
-            'Referral: '  + (val('referral') || 'N/A'),
-            'Course: '    + val('course-interest'),
-            'Mode: '      + val('learning-mode'),
-            'Start: '     + (val('start-pref')    || 'N/A'),
-            'Payment: '   + (val('payment-pref')  || 'N/A'),
-            'Notes: '     + (val('extra-notes')   || 'N/A'),
-          ].join(' | '),
-        };
+            const formData = {
+              formType:    'enrollment',
+              title:       val('title'),
+              contactName: val('contact-name'),
+              companyName: val('company'),
+              email:       val('email'),
+              phone:       val('phone'),
+              message: [
+                'Address: '   + val('address'),
+                'Education: ' + val('edu-level'),
+                'Field: '     + val('field-of-study'),
+                'Tech Exp: '  + val('tech-exp'),
+                'Role: '      + val('current-role'),
+                'Referral: '  + (val('referral') || 'N/A'),
+                'Course: '    + val('course-interest'),
+                'Mode: '      + val('learning-mode'),
+                'Start: '     + (val('start-pref')    || 'N/A'),
+                'Payment: '   + (val('payment-pref')  || 'N/A'),
+                'Notes: '     + (val('extra-notes')   || 'N/A'),
+              ].join(' | '),
+              // Add honeypot fields
+              hp_website: document.querySelector('input[name="hp_website"]')?.value || '',
+              hp_email: document.querySelector('input[name="hp_email"]')?.value || '',
+              hp_name: document.querySelector('input[name="hp_name"]')?.value || '',
+              hp_time_start: document.querySelector('input[name="hp_time_start"]')?.value || '',
+              hp_time_submit: Date.now()
+            };
 
-        // Safe button ref — e.submitter is null when triggered via dispatchEvent
-        const btn = document.getElementById('enroll-submit-btn');
-        btn.textContent = 'Submitting...';
-        btn.disabled = true;
+            const btn = document.getElementById('enroll-submit-btn');
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
 
-        try {
-          const API_URL = window.location.hostname === 'localhost'
-            ? 'http://localhost:5000/api/submit'
-            : 'https://impact-studio-web.onrender.com/api/submit';
+            try {
+              const API_URL = window.location.hostname === 'localhost'
+                ? 'http://localhost:5000/api/submit'
+                : 'https://impact-studio-web.onrender.com/api/submit';
 
-          const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
+              const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+              });
+              const data = await response.json();
+
+              if (data.success) {
+                document.querySelector('.enroll-card').style.display  = 'none';
+                document.getElementById('enroll-success').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                alert('Error: ' + (data.errors?.[0]?.message || data.message || 'Unknown error'));
+                btn.textContent = 'Submit';
+                btn.disabled = false;
+              }
+            } catch (err) {
+              console.error('Submit error:', err);
+              alert('Could not reach the server. Please try again later.');
+              btn.textContent = 'Submit';
+              btn.disabled = false;
+            }
           });
-          const data = await response.json();
-
-          if (data.success) {
-            document.querySelector('.enroll-card').style.display  = 'none';
-            document.getElementById('enroll-success').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          } else {
-            alert('Error: ' + (data.errors?.[0]?.message || data.message || 'Unknown error'));
-            btn.textContent = 'Submit';
-            btn.disabled = false;
-          }
-        } catch (err) {
-          console.error('Submit error:', err);
-          alert('Could not reach the server. Please try again later.');
-          btn.textContent = 'Submit';
-          btn.disabled = false;
         }
       });
     </script>

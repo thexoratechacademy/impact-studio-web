@@ -1,6 +1,6 @@
 // Inject course-overview section for Product Design
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../Sections/product-design-path.html")
+  fetch("../sections/product-design-path.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById(
@@ -101,3 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.error("Failed to load product design overview:", err));
 });
+

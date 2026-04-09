@@ -9,7 +9,7 @@ let currentStep = 0;
 
 // injecting Nabar
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../components/navbar.html")
+  fetch("../components/navbar.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("navbar-placeholder").innerHTML = html;
@@ -123,7 +123,7 @@ updateFormSteps();
 
 // Inject the footer component into the homepage(index.html).
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../components/footer.html")
+  fetch("../components/footer.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("footer-placeholder").innerHTML = html;

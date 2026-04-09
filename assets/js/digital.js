@@ -1,6 +1,6 @@
 // Inject the  course-overview component into the homepage(web-development.html).
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../Sections/digital-path.html")
+  fetch("../sections/digital-path.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("course-overview-digital-placeholder").innerHTML =
@@ -90,3 +90,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.error("Failed to load footer:", err));
 });
+

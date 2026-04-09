@@ -1,6 +1,5 @@
-// Load navbar
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../components/navbar.html")
+  fetch("../components/navbar.html")
     .then((res) => res.text())
     .then((html) => {
       document.getElementById("navbar-placeholder").innerHTML = html;
@@ -34,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Load footer
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../components/footer.html")
+  fetch("../components/footer.html")
     .then((res) => res.text())
     .then((html) => {
       document.getElementById("footer-placeholder").innerHTML = html;
@@ -42,75 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => console.error("Failed to load footer:", err));
 });
 
-// Contact form — simple front-end submission handler
+// Contact form handler
+// Note: The main form logic is now in honeypot.js setupFormHandler()
+// This file is for contact-page-specific functionality only
+
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contact-form");
-  const successMsg = document.getElementById("form-success");
-
+  // Clear red border on input
+  const form = document.getElementById('contact-form');
   if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      // Basic validation
-      const required = form.querySelectorAll("[required]");
-      let valid = true;
-      required.forEach((field) => {
-        if (!field.value.trim()) {
-          field.style.borderColor = "#e74040";
-          valid = false;
-        } else {
-          field.style.borderColor = "";
-        }
-      });
-      if (!valid) return;
-
-      // Simulate sending (replace with real API call when ready)
-      const btn = form.querySelector(".contact-submit");
-      btn.textContent = "Sending…";
-      btn.disabled = true;
-
-     const API_URL = window.location.hostname === 'localhost'
-     ? "http://localhost:5000/api/submit"
-     : "https://impact-studio-web.onrender.com/api/submit";
-
-     const formData = {
-      formType:    'contact',
-      contactName: form.querySelector('#full-name').value,
-      email:       form.querySelector('#email').value,
-      phone:       form.querySelector('#phone').value || '',
-      subject:     form.querySelector('#subject').value,
-      message:     form.querySelector('#message').value,
-     };
-
-     try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-      if (data.success) {
-        form.reset();
-        btn.innerHTML = 'Send Message <i class="ri-send-plane-line"></i>';
-        btn.disabled = false;
-        successMsg.classList.add("visible");
-        setTimeout(() => successMsg.classList.remove("visible"), 5000);
-      }else {
-        alert('Error: ' + (data.errors?.[0]?.message || data.message));
-        btn.innerHTML = 'send Message <i class="ri-send-plane-line"></i>';
-        btn.disabled = false;
-      }
-     } catch (err) {
-      console.error('Submit error:', err);
-    alert('Could not reach the server. Please try again later.');
-    btn.innerHTML = 'Send Message <i class="ri-send-plane-line"></i>';
-    btn.disabled = false;
-     }
-    });
-
-    // Clear red border on input
     form.querySelectorAll("input, select, textarea").forEach((el) => {
       el.addEventListener("input", () => (el.style.borderColor = ""));
     });
+    
+    console.log('✅ Contact form page loaded');
   }
 });

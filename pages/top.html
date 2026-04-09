@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile Information Form | Thexora</title>
+    <title>Hire Top Tech Talent | Thexora Tech Academy</title>
+    <meta name="description" content="Hire skilled developers, designers, and tech experts from Thexora Tech Academy. Tell us your project needs and we'll match you with the right talent." />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
@@ -15,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/top.css" />
+    <link rel="stylesheet" href="../assets/css/honeypot.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -32,7 +34,20 @@
 
       <div class="form-card">
         <h3>Profile Information</h3>
-        <form id="profile-form" novalidate>
+        <form id="hire-talent-form" novalidate>
+          <!-- HONEYPOT BOT TRAP FIELDS -->
+          <div class="hp-field" aria-hidden="true">
+              <label for="hp_website">Website</label>
+              <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+          </div>
+          <div class="hp-field" aria-hidden="true">
+              <label for="hp_email">Confirm Email</label>
+              <input type="text" id="hp_email" name="hp_email" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+          </div>
+          <div class="hp-field" aria-hidden="true">
+              <label for="hp_name">Last Name</label>
+              <input type="text" id="hp_name" name="hp_name" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label for="title">Title *</label>
@@ -48,7 +63,7 @@
               <input
                 type="text"
                 id="contact"
-                name="contact"
+                name="contactName"
                 placeholder="Person filling the form"
                 required
                 aria-required="true"
@@ -60,7 +75,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="company">Company Name *</label>
-              <input type="text" id="company" name="company" placeholder="Enter name..." required aria-required="true" minlength="2" />
+              <input type="text" id="company" name="companyName" placeholder="Enter name..." required aria-required="true" minlength="2" />
             </div>
             <div class="form-group">
               <label for="email">Work Email Address *</label>
@@ -71,11 +86,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required aria-required="true" pattern="[0-9+\-\s()]{10,}" />
+              <input type="tel" id="phone" name="phone" placeholder="+234 (0) 000 000 0000" required aria-required="true" pattern="[0-9+\-\s()]{10,}" />
             </div>
             <div class="form-group">
               <label for="office">Office Address *</label>
-              <input type="text" id="office" name="office" placeholder="Enter office address..." required aria-required="true" minlength="10" />
+              <input type="text" id="office" name="officeAddress" placeholder="Enter office address..." required aria-required="true" minlength="10" />
             </div>
           </div>
 
@@ -94,123 +109,7 @@
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
-
-    <script>
-      // Form validation and submission handling
-   document.getElementById('profile-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = this;
-
-    if (!form.checkValidity()) {
-        form.querySelectorAll('input, select').forEach(input => {
-            if (!input.validity.valid) input.reportValidity();
-        });
-        return;
-    }
-
-    const formData = {
-        formType:      'hire',
-        title:         form.querySelector('#title').value,
-        contactName:   form.querySelector('#contact').value,
-        companyName:   form.querySelector('#company').value,
-        email:         form.querySelector('#email').value,
-        phone:         form.querySelector('#phone').value,
-        officeAddress: form.querySelector('#office').value,
-    };
-
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Submitting...';
-    btn.disabled = true;
-
-    try {
-        const API_URL = window.location.hostname === 'localhost'
-            ? "http://localhost:5000/api/submit"
-            : "https://impact-studio-web.onrender.com/api/submit";
-
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        });
-        const data = await response.json();
-
-        if (data.success) {
-            document.querySelector('.form-card').style.display = 'none';
-            document.querySelector('.form-header').style.display = 'none';
-            document.getElementById('hire-success').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-            alert('Error: ' + (data.errors?.[0]?.message || data.message));
-        }
-    } catch (err) {
-        console.error('Submit error:', err);
-        alert('Could not reach the server. Please try again later.');
-    } finally {
-        btn.innerHTML = 'Next <i class="ri-arrow-right-line"></i>';
-        btn.disabled = false;
-    }
-});
-
-      // Real-time validation feedback
-      document.querySelectorAll('#profile-form input, #profile-form select').forEach(input => {
-        input.addEventListener('blur', function() {
-          if (this.value && !this.validity.valid) {
-            this.style.borderColor = '#dc3545';
-          } else if (this.value && this.validity.valid) {
-            this.style.borderColor = '#28a745';
-          } else {
-            this.style.borderColor = '#cacaca';
-          }
-        });
-        input.addEventListener('focus', function() {
-          this.style.borderColor = '#035472';
-        });
-      });
-    </script>
-
-    <script>
-      // Inject navbar and footer
-      document.addEventListener("DOMContentLoaded", () => {
-        fetch("../components/navbar.html")
-          .then(r => r.text())
-          .then(html => {
-            document.getElementById("navbar-placeholder").innerHTML = html;
-            const hamburger = document.querySelector(".hamburger-menu");
-            const navLinks = document.querySelector(".nav-links");
-            const dropdown = document.querySelector(".dropdown");
-            const dropdownMenu = document.querySelector(".dropdown-menu");
-
-            if (hamburger && navLinks) {
-              hamburger.addEventListener("click", () => navLinks.classList.add("active"));
-              document.addEventListener("click", (e) => {
-                if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-                  navLinks.classList.remove("active");
-                }
-              });
-            }
-            if (dropdown && dropdownMenu) {
-              if (window.innerWidth >= 1024) {
-                dropdown.addEventListener("mouseenter", () => { dropdownMenu.style.display = "block"; });
-                dropdown.addEventListener("mouseleave", () => { dropdownMenu.style.display = "none"; });
-                dropdownMenu.addEventListener("mouseenter", () => { dropdownMenu.style.display = "block"; });
-                dropdownMenu.addEventListener("mouseleave", () => { dropdownMenu.style.display = "none"; });
-              } else {
-                dropdown.addEventListener("click", () => {
-                  dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-                });
-              }
-            }
-          })
-          .catch(err => console.error("Failed to load navbar:", err));
-
-        fetch("../components/footer.html")
-          .then(r => r.text())
-          .then(html => {
-            document.getElementById("footer-placeholder").innerHTML = html;
-          })
-          .catch(err => console.error("Failed to load footer:", err));
-      });
-    </script>
+    <script src="../assets/js/honeypot.js" defer></script>
     <script src="../assets/js/footer-subscribe.js" defer></script>
-</body>
+  </body>
 </html>

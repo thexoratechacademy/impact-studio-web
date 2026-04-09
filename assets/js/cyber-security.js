@@ -1,6 +1,6 @@
 // Inject course-overview section for Cyber Security
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../Sections/cyber-security-path.html")
+  fetch("../sections/cyber-security-path.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById(
@@ -98,3 +98,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.error("Failed to load cyber security overview:", err));
 });
+

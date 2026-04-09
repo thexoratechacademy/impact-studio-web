@@ -1,6 +1,6 @@
 // Inject the navbar component into the homepage(index.html).
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../components/navbar.html")
+  fetch("../components/navbar.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("navbar-placeholder").innerHTML = html;
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Inject the  course-overview component into the homepage(web-development.html).
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../Sections/full-stack-course-overview.html")
+  fetch("../sections/full-stack-course-overview.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("course-overview-placeholder").innerHTML = html;
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Inject the getting-started component into the homepage(web-development.html).
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../Sections/getting-started.html")
+  fetch("../sections/getting-started.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("getting-started-placeholder").innerHTML = html;
@@ -164,21 +164,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // Inject the  Sponsors and footer component into the homepage(index.html).
 document.addEventListener("DOMContentLoaded", () => {
   // Access Us Section
-  fetch("../../Sections/working-with-us.html")
+  fetch("../sections/working-with-us.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("accessing-us-section-placeholder").innerHTML =
         html;
     });
   // Sponsors Section
-  fetch("../../Sections/sponsors.html")
+  fetch("../sections/sponsors.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("sponsors-section-placeholder").innerHTML = html;
     })
     .catch((err) => console.error("Failed to load footer:", err));
   // Footer
-  fetch("../../components/footer.html")
+  fetch("../components/footer.html")
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("footer-placeholder").innerHTML = html;
