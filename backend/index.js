@@ -33,6 +33,33 @@ const formLimiter = rateLimit({
 app.use(helmet());
 app.use(express.json());
 
+// Request logger for troubleshooting
+app.use((req, res, next) => {
+    console.log(`📡 [${new Date().toISOString()}] ${req.method} ${req.url} - IP: ${req.ip}`);
+    next();
+});
+
+// Move diagnostic route to the top
+app.get('/api/sheets-check', async (req, res) => {
+    const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Connection timed out')), 15000));
+    try {
+        if (!doc) return res.status(500).json({ success: false, message: "Google Sheets script object missing." });
+        console.log("🔍 Attempting to load Google Sheet info...");
+        await Promise.race([doc.loadInfo(), timeout]);
+        const sheet = doc.sheetsByIndex[0];
+        res.json({ 
+            success: true, 
+            status: "Connected",
+            documentTitle: doc.title,
+            sheetTitle: sheet.title,
+            firstRowHeaders: sheet.headerValues || "No headers detected"
+        });
+    } catch (err) {
+        console.error("❌ Sheets Test Error:", err.message);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 const allowedOrigins = [
     'https://impact-studio-web.netlify.app',
     'https://thexora.art', // Added primary domain
@@ -254,38 +281,6 @@ app.post('/api/subscribe', subscribeLimiter, async (req, res) => {
         }
         console.error('Subscribe error:', error);
         res.status(500).json({ success: false, message: 'Internal server error' });
-    }
-});
-
-// --- GOOGLE SHEETS DIAGNOSTIC ROUTE ---
-app.get('/api/test-sheets', async (req, res) => {
-    // 10 second timeout for diagnostic
-    const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Connection timed out')), 10000));
-    
-    try {
-        if (!doc) {
-            return res.status(500).json({ success: false, message: "Google Sheets script object missing." });
-        }
-
-        console.log("🔍 Attempting to load Google Sheet info...");
-        
-        await Promise.race([doc.loadInfo(), timeout]);
-        
-        const sheet = doc.sheetsByIndex[0];
-        res.json({ 
-            success: true, 
-            status: "Connected",
-            documentTitle: doc.title,
-            sheetTitle: sheet.title,
-            firstRowHeaders: sheet.headerValues || "No headers detected"
-        });
-    } catch (err) {
-        console.error("❌ Sheets Test Error:", err.message);
-        res.status(500).json({ 
-            success: false, 
-            error: err.message, 
-            suggestion: err.message.includes('timeout') ? "Wait a minute and try again - the API might be slow." : "Check your Service Account permissions." 
-        });
     }
 });
 
