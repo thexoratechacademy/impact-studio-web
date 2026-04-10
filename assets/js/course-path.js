@@ -1,128 +1,103 @@
-const steps = document.querySelectorAll(".form-container");
-const stepIndicators = document.querySelectorAll(".enroll-steps div");
-const prevBtns = document.querySelectorAll(".previous");
-const nextBtns = document.querySelectorAll(".next-btn");
-const stepLabel = document.querySelectorAll(".step-label");
-const stepNumber = document.querySelectorAll(".step");
+// Helper to get elements (moved inside to be safer)
+const getElements = () => ({
+  steps: document.querySelectorAll(".form-container"),
+  stepIndicators: document.querySelectorAll(".enroll-steps div"),
+  prevBtns: document.querySelectorAll(".previous"),
+  nextBtns: document.querySelectorAll(".next-btn"),
+  stepLabels: document.querySelectorAll(".step-label"),
+  stepNumbers: document.querySelectorAll(".step")
+});
 
 let currentStep = 0;
 
-// injecting Nabar
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("../components/navbar.html")
-    .then((response) => response.text())
-    .then((html) => {
-      document.getElementById("navbar-placeholder").innerHTML = html;
-      // Hamburger Menubar
-      const hamburger = document.querySelector(".hamburger-menu");
-      const navLinks = document.querySelector(".nav-links");
-      const navBtn = document.querySelectorAll(".nav-links ul li a");
-
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.add("active");
-      });
-
-      navBtn.forEach((nav) => {
-        nav.addEventListener("click", (e) => {
-        });
-      });
-      document.addEventListener("click", (event) => {
-        if (
-          !navLinks.contains(event.target) &&
-          !hamburger.contains(event.target)
-        ) {
-          navLinks.classList.remove("active");
-        }
-      });
-      //Drop-down Menu
-      const dropdown = document.querySelector(".dropdown");
-      const dropdownMenu = document.querySelector(".dropdown-menu");
-      if (window.innerWidth >= 1024) {
-        dropdown.addEventListener("mouseenter", function () {
-          dropdownMenu.style.display = "block";
-        });
-        dropdown.addEventListener("mouseleave", function () {
-          setTimeout(function () {
-            if (!dropdownMenu.matches(":hover")) {
-              dropdownMenu.style.display = "none";
-            }
-          }, 2000);
-        });
-        dropdownMenu.addEventListener("mouseenter", function () {
-          dropdownMenu.style.display = "block";
-        });
-        document.addEventListener("click", function (event) {
-          if (
-            !dropdown.contains(event.target) &&
-            !dropdownMenu.contains(event.target)
-          ) {
-            dropdownMenu.style.display = "none";
-          }
-        });
-      } else{
-        {
-    // Mobile behavior (click toggle)
-    dropdown.addEventListener("click", () => {
-      const isOpen = dropdownMenu.style.display === "block";
-      dropdownMenu.style.display = isOpen ? "none" : "block";
-    });
-      }}
-    })
-    .catch((err) => console.error("Failed to load navbar:", err));
-});
-
 function updateFormSteps() {
-  steps.forEach((step, index) => {
+  const el = getElements();
+  
+  el.steps.forEach((step, index) => {
     step.classList.toggle("active", index === currentStep);
   });
-  stepLabel.forEach((label, index) => {
+  
+  el.stepLabels.forEach((label, index) => {
     label.classList.toggle("active", index === currentStep);
   });
-  stepNumber.forEach((number, index) => {
+  
+  el.stepNumbers.forEach((number, index) => {
     number.classList.toggle("active", index === currentStep);
   });
 
-  stepIndicators.forEach((indicator, index) => {
+  el.stepIndicators.forEach((indicator, index) => {
     indicator.classList.toggle("active", index === currentStep);
   });
 
-  prevBtns.forEach((btn) => {
+  el.prevBtns.forEach((btn) => {
     btn.style.display = currentStep === 0 ? "none" : "inline-block";
   });
 
-  nextBtns.forEach((btn) => {
-    btn.textContent = currentStep === steps.length - 1 ? "Submit" : "Next";
+  el.nextBtns.forEach((btn) => {
+    const isLastStep = currentStep === el.steps.length - 1;
+    btn.textContent = isLastStep ? "Submit" : "Next";
+    // If it's the submit button, ensure it has the submit type
+    if (isLastStep) {
+      btn.type = "submit";
+    } else {
+      btn.type = "button";
+    }
   });
 }
 
-nextBtns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (currentStep < steps.length - 1) {
-      currentStep++;
-      updateFormSteps();
-    } else {
-      // Dispatch submit event so the form's addEventListener fires correctly
-      const form = document.querySelector(".enroll-form");
-      form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-    }
-  });
-});
+// Delegate events to the form for better reliability
+document.addEventListener("click", (e) => {
+  // Handle Next button
+  if (e.target.closest(".next-btn")) {
+    const el = getElements();
+    // Only proceed if NOT the last step (let the form submit handle that)
+    if (currentStep < el.steps.length - 1) {
+      e.preventDefault();
+      
+      // Simple validation for current step
+      const currentFields = el.steps[currentStep].querySelectorAll("[required]");
+      let isValid = true;
+      currentFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.classList.add("error-shake");
+          setTimeout(() => field.classList.remove("error-shake"), 500);
+          isValid = false;
+        }
+      });
 
-prevBtns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
+      if (isValid) {
+        currentStep++;
+        updateFormSteps();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+    // If it is the last step, we don't preventDefault() so the form can submit
+  }
+
+  // Handle Previous button
+  if (e.target.closest(".previous")) {
     e.preventDefault();
     if (currentStep > 0) {
       currentStep--;
       updateFormSteps();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  });
+  }
 });
 
-updateFormSteps();
-
-// Inject the footer component into the homepage(index.html).
 document.addEventListener("DOMContentLoaded", () => {
+  updateFormSteps();
+
+  // Inject Navbar
+  fetch("../components/navbar.html")
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("navbar-placeholder").innerHTML = html;
+      initNavbarActions();
+    })
+    .catch((err) => console.error("Failed to load navbar:", err));
+
+  // Inject Footer
   fetch("../components/footer.html")
     .then((response) => response.text())
     .then((html) => {
@@ -130,3 +105,32 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.error("Failed to load footer:", err));
 });
+
+function initNavbarActions() {
+  const hamburger = document.querySelector(".hamburger-menu");
+  const navLinks = document.querySelector(".nav-links");
+  
+  if (!hamburger || !navLinks) return;
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.add("active");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+      navLinks.classList.remove("active");
+    }
+  });
+
+  // Mobile behavior for dropdowns
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+  if (dropdown && dropdownMenu) {
+    dropdown.addEventListener("click", (e) => {
+      if (window.innerWidth < 1024) {
+        const isOpen = dropdownMenu.style.display === "block";
+        dropdownMenu.style.display = isOpen ? "none" : "block";
+      }
+    });
+  }
+}

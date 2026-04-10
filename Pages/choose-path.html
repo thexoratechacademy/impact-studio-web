@@ -272,86 +272,86 @@
     <!-- Enrollment form submission logic -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('.enroll-form');
-        if (form) {
-          // Remove old event listener by cloning
-          const newForm = form.cloneNode(true);
-          form.parentNode.replaceChild(newForm, form);
-          
-          // Add timestamp field for honeypot
-          const timeField = document.createElement('input');
-          timeField.type = 'hidden';
-          timeField.name = 'hp_time_start';
-          timeField.value = Date.now();
-          newForm.appendChild(timeField);
-          
-          newForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+        const form = document.getElementById('enroll-form');
+        if (!form) return;
+        
+        // Add timestamp field for honeypot (without cloning)
+        if (!form.querySelector('input[name="hp_time_start"]')) {
+           const timeField = document.createElement('input');
+           timeField.type = 'hidden';
+           timeField.name = 'hp_time_start';
+           timeField.value = Date.now();
+           form.appendChild(timeField);
+        }
+        
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
 
-            // Collect from ALL steps
-            const val = (id) => (document.getElementById(id) || {}).value || '';
+          // Collect from ALL steps
+          const val = (id) => (document.getElementById(id) || {}).value || '';
 
-            const formData = {
-              formType:    'enrollment',
-              title:       val('title'),
-              contactName: val('contact-name'),
-              companyName: val('company'),
-              email:       val('email'),
-              phone:       val('phone'),
-              message: [
-                'Address: '   + val('address'),
-                'Education: ' + val('edu-level'),
-                'Field: '     + val('field-of-study'),
-                'Tech Exp: '  + val('tech-exp'),
-                'Role: '      + val('current-role'),
-                'Referral: '  + (val('referral') || 'N/A'),
-                'Course: '    + val('course-interest'),
-                'Mode: '      + val('learning-mode'),
-                'Start: '     + (val('start-pref')    || 'N/A'),
-                'Payment: '   + (val('payment-pref')  || 'N/A'),
-                'Notes: '     + (val('extra-notes')   || 'N/A'),
-              ].join(' | '),
-              // Add honeypot fields
-              hp_website: document.querySelector('input[name="hp_website"]')?.value || '',
-              hp_email: document.querySelector('input[name="hp_email"]')?.value || '',
-              hp_name: document.querySelector('input[name="hp_name"]')?.value || '',
-              hp_time_start: document.querySelector('input[name="hp_time_start"]')?.value || '',
-              hp_time_submit: Date.now()
-            };
+          const formData = {
+            formType:    'enrollment',
+            title:       val('title'),
+            contactName: val('contact-name'),
+            companyName: val('company'),
+            email:       val('email'),
+            phone:       val('phone'),
+            message: [
+              'Address: '   + val('address'),
+              'Education: ' + val('edu-level'),
+              'Field: '     + val('field-of-study'),
+              'Tech Exp: '  + val('tech-exp'),
+              'Role: '      + val('current-role'),
+              'Referral: '  + (val('referral') || 'N/A'),
+              'Course: '    + val('course-interest'),
+              'Mode: '      + val('learning-mode'),
+              'Start: '     + (val('start-pref')    || 'N/A'),
+              'Payment: '   + (val('payment-pref')  || 'N/A'),
+              'Notes: '     + (val('extra-notes')   || 'N/A'),
+            ].join(' | '),
+            // Add honeypot fields
+            hp_website: form.querySelector('input[name="hp_website"]')?.value || '',
+            hp_email: form.querySelector('input[name="hp_email"]')?.value || '',
+            hp_name: form.querySelector('input[name="hp_name"]')?.value || '',
+            hp_time_start: form.querySelector('input[name="hp_time_start"]')?.value || '',
+            hp_time_submit: Date.now()
+          };
 
-            const btn = document.getElementById('enroll-submit-btn');
-            btn.textContent = 'Submitting...';
-            btn.disabled = true;
+          const btn = document.getElementById('enroll-submit-btn');
+          const originalText = btn.textContent;
+          btn.textContent = 'Submitting...';
+          btn.disabled = true;
 
-            try {
-              const API_URL = window.location.hostname === 'localhost'
-                ? 'http://localhost:5000/api/submit'
-                : 'https://impact-studio-web.onrender.com/api/submit';
+          try {
+            // Use the global config if available, matching other forms
+            const API_BASE = (window.ThexoraConfig && window.ThexoraConfig.BACKEND_URL) 
+              ? window.ThexoraConfig.BACKEND_URL 
+              : (window.location.hostname === 'localhost' ? 'http://localhost:5000' : 'https://impact-studio-web.onrender.com');
 
-              const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-              });
-              const data = await response.json();
+            const response = await fetch(`${API_BASE}/api/submit`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(formData)
+            });
+            const data = await response.json();
 
-              if (data.success) {
-                document.querySelector('.enroll-card').style.display  = 'none';
-                document.getElementById('enroll-success').style.display = 'block';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              } else {
-                alert('Error: ' + (data.errors?.[0]?.message || data.message || 'Unknown error'));
-                btn.textContent = 'Submit';
-                btn.disabled = false;
-              }
-            } catch (err) {
-              console.error('Submit error:', err);
-              alert('Could not reach the server. Please try again later.');
-              btn.textContent = 'Submit';
+            if (data.success) {
+              document.querySelector('.enroll-card').style.display  = 'none';
+              document.getElementById('enroll-success').style.display = 'block';
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              alert('Error: ' + (data.errors?.[0]?.message || data.message || 'Unknown error'));
+              btn.textContent = originalText;
               btn.disabled = false;
             }
-          });
-        }
+          } catch (err) {
+            console.error('Submit error:', err);
+            alert('Could not reach the server. Please try again later.');
+            btn.textContent = originalText;
+            btn.disabled = false;
+          }
+        });
       });
     </script>
     <script src="../assets/js/footer-subscribe.js" defer></script>
