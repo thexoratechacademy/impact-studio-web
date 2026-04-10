@@ -79,18 +79,25 @@ let doc = null;
 
 const initGoogleSheets = () => {
     try {
-        if (!process.env.GOOGLE_SHEET_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY) {
+        const sheetId = process.env.GOOGLE_SHEET_ID;
+        const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+        let key = process.env.GOOGLE_PRIVATE_KEY;
+
+        if (!sheetId || !email || !key) {
             console.warn("⚠️ Google Sheets credentials or ID missing. Skipping sheet sync setup.");
             return null;
         }
 
+        // Deep sanitize: remove wrapping quotes and fix newlines
+        key = key.trim().replace(/^"|"$/g, '').replace(/\\n/g, '\n');
+
         const serviceAccountAuth = new JWT({
-            email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-            key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+            email: email,
+            key: key,
             scopes: ['https://www.googleapis.com/auth/spreadsheets'],
         });
 
-        return new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
+        return new GoogleSpreadsheet(sheetId, serviceAccountAuth);
     } catch (err) {
         console.error("❌ Google Sheets Init Error:", err.message);
         return null;
@@ -252,22 +259,33 @@ app.post('/api/subscribe', subscribeLimiter, async (req, res) => {
 
 // --- GOOGLE SHEETS DIAGNOSTIC ROUTE ---
 app.get('/api/test-sheets', async (req, res) => {
+    // 10 second timeout for diagnostic
+    const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Connection timed out')), 10000));
+    
     try {
         if (!doc) {
-            return res.status(500).json({ success: false, message: "Google Sheets not initialized. Check server logs for credential errors." });
+            return res.status(500).json({ success: false, message: "Google Sheets script object missing." });
         }
-        await doc.loadInfo();
+
+        console.log("🔍 Attempting to load Google Sheet info...");
+        
+        await Promise.race([doc.loadInfo(), timeout]);
+        
         const sheet = doc.sheetsByIndex[0];
         res.json({ 
             success: true, 
-            message: "Connected to Google Sheets!", 
+            status: "Connected",
             documentTitle: doc.title,
             sheetTitle: sheet.title,
-            rowCount: sheet.rowCount
+            firstRowHeaders: sheet.headerValues || "No headers detected"
         });
     } catch (err) {
-        console.error("❌ Google Sheets Test Error:", err.message);
-        res.status(500).json({ success: false, error: err.message, tip: "Ensure the sheet is shared with the service account email as an Editor." });
+        console.error("❌ Sheets Test Error:", err.message);
+        res.status(500).json({ 
+            success: false, 
+            error: err.message, 
+            suggestion: err.message.includes('timeout') ? "Wait a minute and try again - the API might be slow." : "Check your Service Account permissions." 
+        });
     }
 });
 
