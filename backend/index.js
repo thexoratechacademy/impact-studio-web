@@ -134,18 +134,23 @@ const initGoogleSheets = () => {
 doc = initGoogleSheets();
 
 const syncToSheet = async (data, sheetType = 'submissions') => {
+    // Immediate safety check
     if (!doc) {
-        console.warn("⚠️ Cannot sync to sheet: Document not initialized.");
+        console.warn("⚠️ Sheet Sync: doc not initialized. Check your credentials.");
         return;
     }
+
     try {
-        console.log(`📊 Syncing ${data.formType || 'submission'} to Google Sheets...`);
-        await doc.loadInfo();
+        console.log(`📊 Sheet Sync: Starting for ${data.formType || 'submission'}...`);
+        
+        // Ensure info is loaded, but with a timeout to prevent hanging the event loop
+        const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Sync Timeout')), 8000));
+        await Promise.race([doc.loadInfo(), timeout]);
         
         let sheet = doc.sheetsByTitle[sheetType];
         if (!sheet) {
             sheet = doc.sheetsByIndex[0];
-            console.log(`📝 Sheet "${sheetType}" not found, using first available sheet: "${sheet.title}"`);
+            console.log(`📝 Sheet Sync: "${sheetType}" not found, using index 0: "${sheet.title}"`);
         }
         
         const row = {
@@ -162,13 +167,11 @@ const syncToSheet = async (data, sheetType = 'submissions') => {
         };
         
         await sheet.addRow(row);
-        console.log("✅ Google Sheets Sync: SUCCESS");
+        console.log("✅ Sheet Sync: SUCCESS");
     } catch (err) {
-        console.error("❌ Google Sheets Sync: FAILED");
-        console.error(`   Error details: ${err.message}`);
-        if (err.message.includes('403')) {
-            console.error("   TIP: Make sure you shared the sheet with the service account email as an Editor.");
-        }
+        console.error("❌ Sheet Sync: FAILED");
+        console.error(`   Message: ${err.message}`);
+        // Do NOT rethrow - stay silent but log it so the server lives
     }
 };
 
