@@ -100,17 +100,20 @@ const initGoogleSheets = () => {
 doc = initGoogleSheets();
 
 const syncToSheet = async (data, sheetType = 'submissions') => {
-    if (!doc) return; // Silent skip if not initialized
+    if (!doc) {
+        console.warn("⚠️ Cannot sync to sheet: Document not initialized.");
+        return;
+    }
     try {
+        console.log(`📊 Syncing ${data.formType || 'submission'} to Google Sheets...`);
         await doc.loadInfo();
-        // Try to find a sheet by title, or use the first one
+        
         let sheet = doc.sheetsByTitle[sheetType];
         if (!sheet) {
             sheet = doc.sheetsByIndex[0];
-            console.log(`📝 Sheet "${sheetType}" not found, using default index 0: "${sheet.title}"`);
+            console.log(`📝 Sheet "${sheetType}" not found, using first available sheet: "${sheet.title}"`);
         }
         
-        // Map data to row
         const row = {
             Date: new Date().toLocaleString(),
             Type: data.formType || 'subscription',
@@ -125,9 +128,13 @@ const syncToSheet = async (data, sheetType = 'submissions') => {
         };
         
         await sheet.addRow(row);
-        console.log("📊 Synced to Google Sheets ✅");
+        console.log("✅ Google Sheets Sync: SUCCESS");
     } catch (err) {
-        console.error("❌ Google Sheets Error:", err.message);
+        console.error("❌ Google Sheets Sync: FAILED");
+        console.error(`   Error details: ${err.message}`);
+        if (err.message.includes('403')) {
+            console.error("   TIP: Make sure you shared the sheet with the service account email as an Editor.");
+        }
     }
 };
 
@@ -240,6 +247,27 @@ app.post('/api/subscribe', subscribeLimiter, async (req, res) => {
         }
         console.error('Subscribe error:', error);
         res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// --- GOOGLE SHEETS DIAGNOSTIC ROUTE ---
+app.get('/api/test-sheets', async (req, res) => {
+    try {
+        if (!doc) {
+            return res.status(500).json({ success: false, message: "Google Sheets not initialized. Check server logs for credential errors." });
+        }
+        await doc.loadInfo();
+        const sheet = doc.sheetsByIndex[0];
+        res.json({ 
+            success: true, 
+            message: "Connected to Google Sheets!", 
+            documentTitle: doc.title,
+            sheetTitle: sheet.title,
+            rowCount: sheet.rowCount
+        });
+    } catch (err) {
+        console.error("❌ Google Sheets Test Error:", err.message);
+        res.status(500).json({ success: false, error: err.message, tip: "Ensure the sheet is shared with the service account email as an Editor." });
     }
 });
 
