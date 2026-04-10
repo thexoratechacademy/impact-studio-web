@@ -1,5 +1,5 @@
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+// Load environment variables early
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -11,20 +11,23 @@ const { honeypotMiddleware } = require('./middleware/honeypot');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { JWT } = require('google-auth-library');
 
+// --- APP CONFIG ---
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// DEBUG: Check database URL
+console.log("🔍 Checking environment variables...");
+console.log("Database URL check:", process.env.MONGO_URL ? "FOUND ✅": "NOT FOUND ❌");
+console.log("Google Sheets ID check:", process.env.GOOGLE_SHEET_ID ? "FOUND ✅": "NOT FOUND ❌");
+
 // Limit each IP to 10 submissions per hour
 const formLimiter = rateLimit({
-    windowMs: 60 * 60 * 1000, // 1 hour (fixed: was 60*60*100 = 10 min)
-    max: 10, // Increased from 5 to 10
+    windowMs: 60 * 60 * 1000, 
+    max: 10,
     message: "Too many requests from this IP, please try again after an hour",
     standardHeaders: true,
     legacyHeaders: false,
 });
-
-
-// DEBUG: This will tell us if the Variable is actually being seen now
-console.log("Database URL check:", process.env.MONGO_URL ? "FOUND ✅": "NOT FOUND ❌")
-const app = express();
-
 
 //middleware
 app.use(helmet());
@@ -32,6 +35,7 @@ app.use(express.json());
 
 const allowedOrigins = [
     'https://impact-studio-web.netlify.app',
+    'https://thexora.art', // Added primary domain
     'http://localhost:3000',
     'http://localhost:5000',
     'http://localhost:5500',
@@ -40,9 +44,9 @@ const allowedOrigins = [
     'http://127.0.0.1:5505',
     'http://localhost:8080',
 ];
+
 app.use(cors({
     origin: function (origin, callback) {
-        // Allow requests with no origin (e.g. Postman, mobile apps)
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -67,19 +71,36 @@ const connectDB = async () => {
         console.log("✅ Database Connected Successfully");
     } catch (err) {
         console.error("❌ MongoDB Connection Error:", err.message);
-        // Server stays alive — do NOT call process.exit(1)
     }
 };
-// --- GOOGLE SHEETS SETUP ---
-const serviceAccountAuth = new JWT({
-    email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    key: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-});
 
-const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
+// --- GOOGLE SHEETS SETUP ---
+let doc = null;
+
+const initGoogleSheets = () => {
+    try {
+        if (!process.env.GOOGLE_SHEET_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY) {
+            console.warn("⚠️ Google Sheets credentials or ID missing. Skipping sheet sync setup.");
+            return null;
+        }
+
+        const serviceAccountAuth = new JWT({
+            email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+            key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+            scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+        });
+
+        return new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
+    } catch (err) {
+        console.error("❌ Google Sheets Init Error:", err.message);
+        return null;
+    }
+};
+
+doc = initGoogleSheets();
 
 const syncToSheet = async (data, sheetType = 'submissions') => {
+    if (!doc) return; // Silent skip if not initialized
     try {
         await doc.loadInfo();
         // Try to find a sheet by title, or use the first one
@@ -255,7 +276,6 @@ app.post('/api/submit', apiLimiter, formLimiter, honeypotMiddleware({ minSubmiss
     }
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`✅ Server started on port ${PORT}`);
     connectDB();
