@@ -66,7 +66,7 @@ git push origin main
 #### Frontend (Netlify)
 1. Go to: https://app.netlify.com/sites/impact-studio-web
 2. Check deployment status (should be automatic)
-3. Visit: https://impact-studio-web.netlify.app
+3. Visit: https://tech300.netlify.app
 
 #### Backend (Render)
 1. Go to: https://dashboard.render.com
@@ -122,7 +122,7 @@ https://impact-studio-web.netlify.app/pages/choose-path.html
 
 ### CORS Errors?
 Backend already configured for:
-- `https://impact-studio-web.netlify.app` ✅
+- https://tech300.netlify.app ✅
 - `http://localhost:*` ✅
 
 If using different domain, add to `backend/index.js` line 30-38

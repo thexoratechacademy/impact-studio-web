@@ -10,6 +10,7 @@ const { z } = require('zod');
 const { honeypotMiddleware } = require('./middleware/honeypot');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { JWT } = require('google-auth-library');
+const path = require('path');
 
 // --- APP CONFIG ---
 const app = express();
@@ -39,6 +40,20 @@ app.use((req, res, next) => {
     next();
 });
 
+// --- STATIC FILE SERVING ---
+// These routes allow Render to host the frontend since Netlify may be paused
+app.use('/assets', express.static(path.join(__dirname, '../assets')));
+app.use('/pages', express.static(path.join(__dirname, '../pages')));
+app.use('/components', express.static(path.join(__dirname, '../components')));
+app.use('/sections', express.static(path.join(__dirname, '../sections')));
+app.get('/script.js', (req, res) => res.sendFile(path.join(__dirname, '../script.js')));
+
+// --- ROOT ROUTE (Main Website) ---
+app.get('/', (req, res) => {
+    // Check if the frontend index.html exists, if so serve it
+    res.sendFile(path.join(__dirname, '../index.html'));
+});
+
 // Move diagnostic route to the top
 app.get('/api/sheets-check', async (req, res) => {
     const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Connection timed out')), 15000));
@@ -62,6 +77,7 @@ app.get('/api/sheets-check', async (req, res) => {
 
 const allowedOrigins = [
     'https://impact-studio-web.netlify.app',
+    'https://tech300.netlify.app',
     'https://thexora.art', // Added primary domain
     'http://localhost:3000',
     'http://localhost:5000',
