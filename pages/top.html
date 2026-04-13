@@ -1,115 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hire Top Tech Talent | Thexora Tech Academy</title>
-    <meta name="description" content="Hire skilled developers, designers, and tech experts from Thexora Tech Academy. Tell us your project needs and we'll match you with the right talent." />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
-      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/top.css" />
-    <link rel="stylesheet" href="../assets/css/honeypot.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <div id="navbar-placeholder"></div>
+<section class="form-section">
+  <div class="form-header">
+    <div class="underline"></div>
+    <h1>Tell us what you're looking for, and we'll help you find the right fit</h1>
+    <p>
+      Connect with our team of expert developers and designers. We'll match you with the perfect talent for your project needs.
+    </p>
+  </div>
 
-    <section class="form-section">
-
-      <div class="form-header">
-        <div class="underline"></div>
-        <h1>Tell us what you're looking for, and we'll help you find the right fit</h1>
-        <p>
-          Connect with our team of expert developers and designers. We'll match you with the perfect talent for your project needs.
-        </p>
+  <div class="form-card">
+    <h3>Profile Information</h3>
+    <form id="hire-talent-form" novalidate>
+      <!-- HONEYPOT BOT TRAP FIELDS -->
+      <div class="hp-field" aria-hidden="true">
+          <label for="hp_website">Website</label>
+          <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+      </div>
+      <div class="hp-field" aria-hidden="true">
+          <label for="hp_email">Confirm Email</label>
+          <input type="text" id="hp_email" name="hp_email" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+      </div>
+      <div class="hp-field" aria-hidden="true">
+          <label for="hp_name">Last Name</label>
+          <input type="text" id="hp_name" name="hp_name" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="title">Title *</label>
+          <select id="title" name="title" required aria-required="true">
+            <option value="">Select Title</option>
+            <option value="mr">Mr</option>
+            <option value="mrs">Mrs</option>
+            <option value="ms">Ms</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact Name *</label>
+          <input
+            type="text"
+            id="contact"
+            name="contactName"
+            placeholder="Person filling the form"
+            required
+            aria-required="true"
+            minlength="2"
+          />
+        </div>
       </div>
 
-      <div class="form-card">
-        <h3>Profile Information</h3>
-        <form id="hire-talent-form" novalidate>
-          <!-- HONEYPOT BOT TRAP FIELDS -->
-          <div class="hp-field" aria-hidden="true">
-              <label for="hp_website">Website</label>
-              <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
-          </div>
-          <div class="hp-field" aria-hidden="true">
-              <label for="hp_email">Confirm Email</label>
-              <input type="text" id="hp_email" name="hp_email" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
-          </div>
-          <div class="hp-field" aria-hidden="true">
-              <label for="hp_name">Last Name</label>
-              <input type="text" id="hp_name" name="hp_name" tabindex="-1" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly')" />
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="title">Title *</label>
-              <select id="title" name="title" required aria-required="true">
-                <option value="">Select Title</option>
-                <option value="mr">Mr</option>
-                <option value="mrs">Mrs</option>
-                <option value="ms">Ms</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="contact">Contact Name *</label>
-              <input
-                type="text"
-                id="contact"
-                name="contactName"
-                placeholder="Person filling the form"
-                required
-                aria-required="true"
-                minlength="2"
-              />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="company">Company Name *</label>
-              <input type="text" id="company" name="companyName" placeholder="Enter name..." required aria-required="true" minlength="2" />
-            </div>
-            <div class="form-group">
-              <label for="email">Work Email Address *</label>
-              <input type="email" id="email" name="email" placeholder="example@company.com" required aria-required="true" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="+234 (0) 000 000 0000" required aria-required="true" pattern="[0-9+\-\s()]{10,}" />
-            </div>
-            <div class="form-group">
-              <label for="office">Office Address *</label>
-              <input type="text" id="office" name="officeAddress" placeholder="Enter office address..." required aria-required="true" minlength="10" />
-            </div>
-          </div>
-
-          <button type="submit">Next <i class="ri-arrow-right-line"></i></button>
-        </form>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="company">Company Name *</label>
+          <input type="text" id="company" name="companyName" placeholder="Enter name..." required aria-required="true" minlength="2" />
+        </div>
+        <div class="form-group">
+          <label for="email">Work Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="example@company.com" required aria-required="true" />
+        </div>
       </div>
-    </section>
 
-    <!-- SUCCESS STATE -->
-    <div id="hire-success" style="display:none; text-align:center; padding:60px 20px;">
-      <div style="font-size:3rem;">✅</div>
-      <h2 style="margin:16px 0 8px;">Request Received!</h2>
-      <p style="color:#555; max-width:420px; margin:0 auto 24px;">Thank you! Your hiring request has been submitted. Our team will reach out to you shortly.</p>
-      <a href="../index.html" style="display:inline-block; padding:12px 28px; background:#035472; color:#fff; border-radius:8px; text-decoration:none; font-weight:600;">Back to Home</a>
-    </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" placeholder="+234 (0) 000 000 0000" required aria-required="true" pattern="[0-9+\-\s()]{10,}" />
+        </div>
+        <div class="form-group">
+          <label for="office">Office Address *</label>
+          <input type="text" id="office" name="officeAddress" placeholder="Enter office address..." required aria-required="true" minlength="10" />
+        </div>
+      </div>
 
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-    <script src="../assets/js/honeypot.js" defer></script>
-    <script src="../assets/js/footer-subscribe.js" defer></script>
-  </body>
-</html>
+      <button type="submit">Next <i class="ri-arrow-right-line"></i></button>
+    </form>
+  </div>
+</section>
+
+<!-- SUCCESS STATE -->
+<div id="hire-success" style="display:none; text-align:center; padding:60px 20px;">
+  <div style="font-size:3rem;">✅</div>
+  <h2 style="margin:16px 0 8px;">Request Received!</h2>
+  <p style="color:#555; max-width:420px; margin:0 auto 24px;">Thank you! Your hiring request has been submitted. Our team will reach out to you shortly.</p>
+  <a href="../index.html" style="display:inline-block; padding:12px 28px; background:#035472; color:#fff; border-radius:8px; text-decoration:none; font-weight:600;">Back to Home</a>
+</div>

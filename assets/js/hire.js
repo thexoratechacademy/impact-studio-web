@@ -31,6 +31,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     topPlaceholder.innerHTML = topHtml;
     footerPlaceholder.innerHTML = footerHtml;
 
+    // Initialize form handlers after injection (Crucial for dynamic loading)
+    if (typeof setupFormHandler === 'function') {
+        setupFormHandler('hire-talent-form', 'hire', {
+            successMessage: 'Request sent! We\'ll connect you with talent soon.',
+            onSuccess: (result) => {
+                const formSection = document.querySelector('.form-section');
+                const successState = document.getElementById('hire-success');
+                if (formSection && successState) {
+                    formSection.style.display = 'none';
+                    successState.style.display = 'block';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        });
+    }
+
     // Initialize navbar interactions
     const hamburger = document.querySelector(".hamburger-menu");
     const navLinks = document.querySelector(".nav-links");
