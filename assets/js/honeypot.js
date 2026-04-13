@@ -267,6 +267,14 @@ document.addEventListener('DOMContentLoaded', () => {
         successMessage: 'Request sent! We\'ll connect you with talent soon.',
         onSuccess: (result) => {
             console.log('Hire talent form submitted:', result);
+            // Hide form section and show success state
+            const formSection = document.querySelector('.form-section');
+            const successState = document.getElementById('hire-success');
+            if (formSection && successState) {
+                formSection.style.display = 'none';
+                successState.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
     });
 
