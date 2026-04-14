@@ -168,22 +168,6 @@
                   <label for="current-role">Current Job Role / Status *</label>
                   <input type="text" id="current-role" placeholder="e.g. Student, Accountant, Unemployed" class="form-input" required />
                 </div>
-                <div class="form-group">
-                  <label for="referral">How did you hear about us?</label>
-                  <div class="select-wrapper">
-                    <select id="referral" class="form-input">
-                      <option value="">Select one (optional)</option>
-                      <option>Instagram</option>
-                      <option>Facebook</option>
-                      <option>TikTok</option>
-                      <option>WhatsApp</option>
-                      <option>Friend / Family</option>
-                      <option>Google Search</option>
-                      <option>Other</option>
-                    </select>
-                    <img src="../assets/images/Symbol.png" />
-                  </div>
-                </div>
                 <div class="form-buttons">
                   <button class="previous">Previous</button>
                   <button type="button" class="next-btn">Next</button>
@@ -291,25 +275,35 @@
           const val = (id) => (document.getElementById(id) || {}).value || '';
 
           const formData = {
-            formType:    'enrollment',
-            title:       val('title'),
-            contactName: val('contact-name'),
-            companyName: val('company'),
-            email:       val('email'),
-            phone:       val('phone'),
+            formType:       'enrollment',
+            title:          val('title'),
+            contactName:    val('contact-name'),
+            companyName:    val('company'),
+            email:          val('email'),
+            phone:          val('phone'),
+            officeAddress:  val('address'),
+            
+            // Structured Fields (Sent to DB)
+            educationLevel:    val('edu-level'),
+            fieldOfStudy:      val('field-of-study'),
+            techExperience:    val('tech-exp'),
+            currentRole:       val('current-role'),
+            course:            val('course-interest'),
+            learningMode:      val('learning-mode'),
+            preferredStart:    val('start-pref') || 'N/A',
+            paymentPreference: val('payment-pref') || 'N/A',
+
+            // PACKED MESSAGE (For the 11-column Google Sheet)
             message: [
-              'Address: '   + val('address'),
-              'Education: ' + val('edu-level'),
-              'Field: '     + val('field-of-study'),
-              'Tech Exp: '  + val('tech-exp'),
-              'Role: '      + val('current-role'),
-              'Referral: '  + (val('referral') || 'N/A'),
               'Course: '    + val('course-interest'),
               'Mode: '      + val('learning-mode'),
+              'Education: ' + val('edu-level'),
+              'Exp: '       + val('tech-exp'),
               'Start: '     + (val('start-pref')    || 'N/A'),
               'Payment: '   + (val('payment-pref')  || 'N/A'),
               'Notes: '     + (val('extra-notes')   || 'N/A'),
             ].join(' | '),
+
             // Add honeypot fields
             hp_website: form.querySelector('input[name="hp_website"]')?.value || '',
             hp_email: form.querySelector('input[name="hp_email"]')?.value || '',

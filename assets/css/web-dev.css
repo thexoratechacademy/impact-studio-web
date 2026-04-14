@@ -123,6 +123,7 @@ body {
   height: auto;
   display: block;
   transition: transform 0.4s ease;
+  aspect-ratio: 9 / 16;
 }
 .web-hero-image .second-image:hover img {
   transform: scale(1.08);

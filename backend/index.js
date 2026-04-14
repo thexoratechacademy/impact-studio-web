@@ -163,10 +163,25 @@ const syncToSheet = async (data, sheetType = 'submissions') => {
         const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Sync Timeout')), 8000));
         await Promise.race([doc.loadInfo(), timeout]);
         
-        let sheet = doc.sheetsByTitle[sheetType];
+        // --- Tab Selection Logic ---
+        const availableTabs = doc.sheetsByIndex.map(s => s.title);
+        console.log(`📋 Available tabs in Sheet: [${availableTabs.join(', ')}]`);
+
+        // 1. Try exact/case-insensitive title
+        let sheet = doc.sheetsByIndex.find(s => s.title.toLowerCase() === sheetType.toLowerCase());
+        
+        // 2. Fallback to general category if specific course tab wasn't found
+        if (!sheet && data.formType && sheetType !== data.formType) {
+            console.log(`🔍 Tab "${sheetType}" not found, trying general category: "${data.formType}"`);
+            sheet = doc.sheetsByIndex.find(s => s.title.toLowerCase() === data.formType.toLowerCase());
+        }
+
+        // 3. Fallback to Index 0
         if (!sheet) {
             sheet = doc.sheetsByIndex[0];
-            console.log(`📝 Sheet Sync: "${sheetType}" not found, using index 0: "${sheet.title}"`);
+            console.log(`⚠️ No matching tab found for "${sheetType}". Using first tab: "${sheet.title}"`);
+        } else {
+            console.log(`✅ Mapping to tab: "${sheet.title}"`);
         }
         
         const row = {
@@ -175,11 +190,12 @@ const syncToSheet = async (data, sheetType = 'submissions') => {
             Name: data.contactName || 'N/A',
             Email: data.email,
             Phone: data.phone || 'N/A',
-            Subject: data.subject || 'N/A',
+            Subject: data.subject || (data.formType === 'enrollment' ? `Enrollment: ${data.course || 'N/A'}` : 'N/A'),
             Company: data.companyName || 'N/A',
             Message: data.message || 'N/A',
             Title: data.title || 'N/A',
-            Social: data.socialLink || 'N/A'
+            Social: data.socialLink || 'N/A',
+            OfficeAddress: data.officeAddress || data.address || 'N/A'
         };
         
         await sheet.addRow(row);
@@ -202,8 +218,17 @@ const submissionSchema = new mongoose.Schema({
     companyName: String,
     officeAddress: String, // For 'hire' form
     subject: String,       // For 'contact' form
-    message: String,       // Multi-purpose field
-    title: String,         // Job title or Position deired
+    message: String,       // General notes or messages
+    title: String,         // Mr/Mrs/Miss or Job Title
+    
+    // Enrollment Specific Structured Fields
+    course: String,        // e.g., 'Web Development'
+    learningMode: String,  // 'Physical' or 'Online'
+    educationLevel: String, 
+    fieldOfStudy: String,
+    techExperience: String,
+    paymentPreference: String,
+    
     socialLink: String,    // For YouTube/channel links
     submittedAt: { type: Date, default: Date.now }
 });
@@ -266,7 +291,18 @@ const enrollmentSchema = z.object({
     phone:             z.string().min(10, "Phone number is too short"),
     title:             z.string().optional(),
     companyName:       z.string().optional(),
-    message:           z.string().optional(), // packed: education, course, mode, referral, etc.
+    officeAddress:     z.string().optional(),
+    
+    // Detailed fields
+    course:            z.string().optional(),
+    learningMode:      z.string().optional(),
+    educationLevel:    z.string().optional(),
+    fieldOfStudy:      z.string().optional(),
+    techExperience:    z.string().optional(),
+    currentRole:       z.string().optional(),
+    preferredStart:    z.string().optional(),
+    paymentPreference: z.string().optional(),
+    message:           z.string().optional(), // Now used for "Additional Notes"
 })
 
 // --- HEALTH CHECK (required by Render) ---
@@ -323,8 +359,14 @@ app.post('/api/submit', apiLimiter, formLimiter, honeypotMiddleware({ minSubmiss
         const newSubmission = new Submission(validatedData);
         await newSubmission.save();
 
-        // Sync to Sheets
-        syncToSheet(validatedData, 'submissions');
+        // Dynamic Sheet Selection: 
+        // If it's an enrollment, try to sync to a tab named after the course (e.g., 'Web Development')
+        // Otherwise, use the formType (e.g., 'enrollment', 'contact', 'hire')
+        const sheetName = (formType === 'enrollment' && validatedData.course) 
+            ? validatedData.course 
+            : validatedData.formType;
+
+        syncToSheet(validatedData, sheetName);
 
         res.status(201).json({ success: true, message: "Submission saved successfully!"});
     }catch (error) {
