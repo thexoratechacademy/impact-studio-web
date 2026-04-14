@@ -167,13 +167,13 @@ const syncToSheet = async (data, sheetType = 'submissions') => {
         const availableTabs = doc.sheetsByIndex.map(s => s.title);
         console.log(`📋 Available tabs in Sheet: [${availableTabs.join(', ')}]`);
 
-        // 1. Try exact/case-insensitive title
-        let sheet = doc.sheetsByIndex.find(s => s.title.toLowerCase() === sheetType.toLowerCase());
+        // 1. Try exact/case-insensitive title (trimmed)
+        let sheet = doc.sheetsByIndex.find(s => s.title.trim().toLowerCase() === sheetType.trim().toLowerCase());
         
         // 2. Fallback to general category if specific course tab wasn't found
         if (!sheet && data.formType && sheetType !== data.formType) {
             console.log(`🔍 Tab "${sheetType}" not found, trying general category: "${data.formType}"`);
-            sheet = doc.sheetsByIndex.find(s => s.title.toLowerCase() === data.formType.toLowerCase());
+            sheet = doc.sheetsByIndex.find(s => s.title.trim().toLowerCase() === data.formType.trim().toLowerCase());
         }
 
         // 3. Fallback to Index 0
@@ -184,21 +184,63 @@ const syncToSheet = async (data, sheetType = 'submissions') => {
             console.log(`✅ Mapping to tab: "${sheet.title}"`);
         }
         
-        const row = {
+        // --- Case-Insensitive Header Matching ---
+        let sheetHeaders = [];
+        try {
+            await sheet.loadHeaderRow();
+            sheetHeaders = sheet.headerValues;
+        } catch (e) {
+            console.warn(`⚠️ Could not load headers for tab "${sheet.title}". Using defaults.`);
+            sheetHeaders = ['Date', 'Type', 'Email', 'Name', 'Phone', 'Message'];
+        }
+        
+        const sourceData = {
             Date: new Date().toLocaleString(),
             Type: data.formType || 'subscription',
+            Title: data.title || (data.formType === 'hire' ? 'Business' : 'N/A'),
             Name: data.contactName || 'N/A',
+            Gender: data.gender || 'N/A',
+            DOB: data.dob || 'N/A',
             Email: data.email,
             Phone: data.phone || 'N/A',
+            Nationality: data.nationality || 'N/A',
+            State: data.state || 'N/A',
+            City: data.city || 'N/A',
+            Address: data.officeAddress || data.address || 'N/A', 
+            Education: data.educationLevel || 'N/A',
+            FieldOfStudy: data.fieldOfStudy || 'N/A',
+            TechExperience: data.techExperience || 'N/A',
+            CurrentRole: data.currentRole || 'N/A',
+            Course: data.course || 'N/A',
+            LearningMode: data.learningMode || 'N/A',
+            PreferredStart: data.preferredStart || 'N/A',
+            PaymentPreference: data.paymentPreference || 'N/A',
+            Message: data.message || 'N/A',
             Subject: data.subject || (data.formType === 'enrollment' ? `Enrollment: ${data.course || 'N/A'}` : 'N/A'),
             Company: data.companyName || 'N/A',
-            Message: data.message || 'N/A',
-            Title: data.title || 'N/A',
             Social: data.socialLink || 'N/A',
             OfficeAddress: data.officeAddress || data.address || 'N/A'
         };
+
+        // Construct the row by finding matching headers case-insensitively
+        const finalRow = {};
+        sheetHeaders.forEach(header => {
+            const matchKey = Object.keys(sourceData).find(key => 
+                key.toLowerCase().replace(/[\s_]/g, '') === header.toLowerCase().replace(/[\s_]/g, '')
+            );
+            if (matchKey) {
+                finalRow[header] = sourceData[matchKey];
+            }
+        });
+
+        // Final safety: if the sheet has NO headers yet, create them or fallback
+        const rowToSubmit = Object.keys(finalRow).length > 0 ? finalRow : sourceData;
         
-        await sheet.addRow(row);
+        await sheet.addRow(rowToSubmit);
+        console.log("✅ Sheet Sync: SUCCESS", {
+            mappedFields: Object.keys(finalRow).length,
+            tab: sheet.title
+        });
         console.log("✅ Sheet Sync: SUCCESS");
     } catch (err) {
         console.error("❌ Sheet Sync: FAILED");
@@ -324,6 +366,7 @@ app.get('/health', (req, res) => {
 
 // --- NEWSLETTER SUBSCRIBE ROUTE ---
 app.post('/api/subscribe', subscribeLimiter, async (req, res) => {
+    console.log('📡 [Newsletter] Subscription request received for:', req.body.email);
     try {
         if (!isDbConnected) {
             return res.status(503).json({ success: false, message: 'Database not connected. Please try again shortly.' });
@@ -333,12 +376,11 @@ app.post('/api/subscribe', subscribeLimiter, async (req, res) => {
         });
         const { email } = emailSchema.parse(req.body);
         const existing = await Subscriber.findOne({ email });
-        if (existing) {
-            return res.status(200).json({ success: true, message: 'Already subscribed!' });
+        if (!existing) {
+            await new Subscriber({ email }).save();
         }
-        await new Subscriber({ email }).save();
         
-        // Sync to Sheets
+        // Sync to Sheets (Always sync for testing/verification)
         syncToSheet({ email, formType: 'newsletter' }, 'subscribers');
 
         res.status(201).json({ success: true, message: 'Subscribed successfully!' });

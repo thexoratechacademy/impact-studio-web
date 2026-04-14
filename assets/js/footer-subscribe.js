@@ -1,9 +1,11 @@
 // Footer subscribe — works via event delegation so it runs
 // even after the footer is dynamically injected into the page.
 
-const SUBSCRIBE_API = window.location.hostname === 'localhost'
+const SUBSCRIBE_API = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
   ? 'http://localhost:5000/api/subscribe'
   : 'https://impact-studio-web.onrender.com/api/subscribe';
+
+console.log('📬 Newsletter system ready pointing to:', SUBSCRIBE_API);
 
 document.addEventListener('submit', async function (e) {
   if (!e.target || e.target.id !== 'subscribe-form') return;
