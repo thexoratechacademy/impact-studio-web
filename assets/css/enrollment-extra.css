@@ -1,0 +1,102 @@
+/* enrollment-extra.css */
+.iti { width: 100%; }
+.select-loading { opacity: 0.5; pointer-events: none; }
+
+/* Premium Custom Country Dropdown */
+.custom-select-container { 
+    position: relative; 
+    width: 100%; 
+}
+
+.custom-select-display {
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+    padding: 12px 15px; 
+    background: #fff; 
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.custom-select-display:hover {
+    border-color: #035472;
+}
+
+.custom-select-display img { 
+    width: 24px; 
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.custom-select-options {
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    right: 0; 
+    z-index: 1000;
+    max-height: 300px; 
+    overflow-y: hidden; /* Search box fixed, list scrolls */
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #ddd; 
+    border-top: none; 
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    display: none;
+}
+
+.custom-select-options.active { 
+    display: flex; 
+}
+
+#country-search {
+    width: calc(100% - 20px); 
+    margin: 10px; 
+    padding: 10px; 
+    border: 1px solid #eee; 
+    border-radius: 6px; 
+    outline: none;
+    font-size: 14px;
+}
+
+#country-search:focus {
+    border-color: #035472;
+}
+
+#country-list {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.custom-option {
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    padding: 12px 15px; 
+    cursor: pointer; 
+    transition: background 0.2s;
+}
+
+.custom-option:hover { 
+    background: #f0f7f9; 
+}
+
+.custom-option img { 
+    width: 20px; 
+    border-radius: 2px; 
+}
+
+.error-shake {
+    animation: shake 0.5s;
+    border-color: #ff4d4d !important;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}

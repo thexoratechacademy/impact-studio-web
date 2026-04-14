@@ -219,7 +219,12 @@ const submissionSchema = new mongoose.Schema({
     officeAddress: String, // For 'hire' form
     subject: String,       // For 'contact' form
     message: String,       // General notes or messages
-    title: String,         // Mr/Mrs/Miss or Job Title
+    title:         String,         // Mr/Mrs/Miss or Job Title
+    gender:        String,
+    dob:           String,
+    nationality:   String,
+    state:         String,
+    city:          String,
     
     // Enrollment Specific Structured Fields
     course: String,        // e.g., 'Web Development'
@@ -292,6 +297,13 @@ const enrollmentSchema = z.object({
     title:             z.string().optional(),
     companyName:       z.string().optional(),
     officeAddress:     z.string().optional(),
+    
+    // New personal fields
+    gender:            z.string().optional(),
+    dob:               z.string().optional(),
+    nationality:       z.string().optional(),
+    state:             z.string().optional(),
+    city:              z.string().optional(),
     
     // Detailed fields
     course:            z.string().optional(),
