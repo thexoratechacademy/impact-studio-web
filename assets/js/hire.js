@@ -116,11 +116,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
 
-    // Remove empty navBtn listeners (add functionality if needed)
+    // Set active link in navbar
+    const currentPath = window.location.pathname;
     const navBtn = document.querySelectorAll(".nav-links ul li a");
     navBtn.forEach((nav) => {
+      const navHref = nav.getAttribute("href");
+      if (navHref && (currentPath.endsWith(navHref) || (currentPath === "/" && navHref === "/index.html"))) {
+        nav.classList.add("active");
+      }
+      
       nav.addEventListener("click", (e) => {
-        // Example: Close menu on link click
+        // Close menu on link click
         navLinks.classList.remove("active");
         hamburger.setAttribute("aria-expanded", "false");
       });

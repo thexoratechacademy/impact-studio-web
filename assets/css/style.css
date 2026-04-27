@@ -27,15 +27,19 @@ header {
 }
 .nav-bar-container {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding-inline: 1.7em;
+  padding-inline: 2rem;
   padding-block: 0.5em;
   cursor: pointer;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+
 .nav-bar-image {
   width: 100%;
   max-width: 90px;
@@ -85,7 +89,8 @@ header {
   color: #737373;
   transition: 0.2s;
 }
-.nav-links ul li a:hover {
+.nav-links ul li a:hover,
+.nav-links ul li a.active {
   color: #fdb241;
 }
 .nav-button,
@@ -157,7 +162,12 @@ header {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.6em;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: 2rem;
 }
+
+
 .footer-logo {
   width: 6.25em;
   height: auto;
@@ -401,13 +411,19 @@ header {
 }
 @media screen and (min-width: 1320px) {
   .nav-bar-container {
-    padding-inline: 9em;
+    padding-inline: 4em;
     padding-block: 2em;
   }
+
   .site-footer {
-    padding-inline: 9.5em;
+    padding-inline: 0;
+  }
+
+  .footer-container {
+    padding-inline: 4em;
   }
 }
+
 
 /* ===================================================
    Floating WhatsApp Widget (Global)

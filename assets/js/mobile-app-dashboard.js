@@ -127,10 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateNavigation();
       
       // Scroll to top of content
-      const contentArea = document.querySelector('.content-area');
-      if (contentArea) {
-        contentArea.scrollTop = 0;
-      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 300);
   }
 
@@ -268,3 +265,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+

@@ -67,6 +67,8 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 /* ---- Sidebar: Info + Socials ---- */
@@ -421,6 +423,7 @@
   .contact-hero-inner h1 { font-size: 3.5rem; }
 }
 @media screen and (min-width: 1320px) {
-  .contact-main { padding-inline: 9.5em; }
-  .contact-hero { padding-inline: 9.5em; }
+  .contact-main { padding-inline: 4em; }
+  .contact-hero { padding-inline: 4em; }
 }
+

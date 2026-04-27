@@ -15,6 +15,8 @@
 }
 .hero-container {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   padding-inline: 1.46em;
   padding-block: 6em 2em;
   display: flex;
@@ -22,6 +24,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .hero-image {
   width: 100%;
   display: flex;
@@ -94,10 +97,13 @@
   flex-direction: column;
   gap: 3em;
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
   background-color: transparent;
 }
+
 .expertise {
   width: 100%;
   min-height: 18em;
@@ -352,9 +358,10 @@
 }
 @media screen and (min-width: 1320px) {
   .hero-container {
-    padding-inline: 9.5em;
+    padding-inline: 4em;
     padding-block: 8rem 2em;
   }
+
   .hero-content {
     width: 50%;
     padding-top: 1.4em;
@@ -370,8 +377,9 @@
   }
   .expertise-container {
     width: 100%;
-    padding-inline: 9.5em;
+    padding-inline: 4em;
   }
+
   .expertise {
     width: 32%;
   }

@@ -8,10 +8,12 @@
 
 .form-section {
   width: 100%;
-  margin: auto;
+  max-width: 1440px;
+  margin: 0 auto;
   padding-inline: 1.46rem;
   padding-top: 3rem; 
 }
+
 @media screen and (min-width: 600px) {
   .form-section { padding-inline: 2.5em; }
 }
@@ -25,7 +27,7 @@
   .form-section { padding-inline: 7em; }
 }
 @media screen and (min-width: 1320px) {
-  .form-section { padding-inline: 9.5em; }
+  .form-section { padding-inline: 4em; }
 }
 
 .form-header {
@@ -33,9 +35,6 @@
   text-align: center;
   margin-bottom: 3rem;
 }
-
-
-
 
 .form-header .underline {
   width: 3.75rem;
@@ -110,7 +109,6 @@ form {
   font-family: 'poppins', sans-serif;
   font-weight: 500;
   font-size: large;
-  /* font-size: 0.875rem; */
   line-height: 100%;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
@@ -194,78 +192,64 @@ button[type="submit"]:hover {
   transform: scale(1.02);
 }
 
-/* Tablet and below: stack form rows */
 @media (max-width: 768px) {
   .form-row {
     flex-direction: column;
   }
-
   .form-header h1 {
     font-size: 1.5rem;
     width: 90%;
   }
-
   .form-header .underline {
     width: 15%;
     height: 0.25rem;
     margin-bottom: 1rem;
   }
-
   .form-card {
     padding: 1rem;
   }
-
   input::placeholder {
     color: #999;
   }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
   .form-header h1 {
     font-size: 1.3rem;
     width: 90%;
   }
-
   .form-header .underline {
     width: 20%;
   }
-
   input,
   select {
     padding: 0.75rem;
     font-size: 0.9rem;
   }
-
   button[type="submit"] {
     width: 100%;
     font-size: 1rem;
     place-self: center;
   }
-
   .form-group label {
     font-size: 0.9rem;
     font-weight: 500;
   }
 }
 
-/* Medium tablets */
 @media (min-width: 769px) and (max-width: 1023px) {
   .form-header h1 {
     font-size: 1.8rem;
     width: 80%;
   }
-
   .form-header .underline {
     width: 8%;
     height: 0.25rem;
     margin-bottom: 1rem;
   }
-
   .form-card {
     padding: 1.5rem;
   }
-
   input::placeholder {
     color: #999;
   }

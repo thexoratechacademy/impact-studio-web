@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNavigation();
     
     // Scroll to top of content
-    document.querySelector('.content-area').scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   // Generate Detailed Content for Each Lesson
@@ -232,3 +232,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
