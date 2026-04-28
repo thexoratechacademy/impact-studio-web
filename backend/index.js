@@ -16,6 +16,10 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// --- PRODUCTION CONFIG ---
+// Trust the first proxy (AWS App Runner / CloudFront)
+app.set('trust proxy', 1);
+
 // DEBUG: Check database URL
 console.log("🔍 Checking environment variables...");
 console.log("Database URL check:", process.env.MONGO_URL ? "FOUND ✅": "NOT FOUND ❌");
@@ -31,7 +35,11 @@ const formLimiter = rateLimit({
 });
 
 //middleware
-app.use(helmet());
+//middleware
+app.use(helmet({
+    contentSecurityPolicy: false, // Disable if you have many external scripts, or configure properly
+    crossOriginEmbedderPolicy: false,
+}));
 app.use(express.json());
 
 // Request logger for troubleshooting
@@ -41,20 +49,20 @@ app.use((req, res, next) => {
 });
 
 // --- STATIC FILE SERVING ---
-// These routes allow Render to host the frontend since Netlify may be paused
-app.use('/assets', express.static(path.join(__dirname, '../assets')));
-app.use('/pages', express.static(path.join(__dirname, '../pages')));
-app.use('/components', express.static(path.join(__dirname, '../components')));
-app.use('/sections', express.static(path.join(__dirname, '../sections')));
-app.get('/script.js', (req, res) => res.sendFile(path.join(__dirname, '../script.js')));
+// These routes allow Render to host the frontend
+app.use('/assets', express.static(path.join(__dirname, '../frontend/assets')));
+app.use('/pages', express.static(path.join(__dirname, '../frontend/pages')));
+app.use('/components', express.static(path.join(__dirname, '../frontend/components')));
+app.use('/sections', express.static(path.join(__dirname, '../frontend/sections')));
+app.get('/script.js', (req, res) => res.sendFile(path.join(__dirname, '../frontend/script.js')));
 
 // --- ROOT ROUTE (Main Website) ---
 app.get('/', (req, res) => {
-    // Check if the frontend index.html exists, if so serve it
-    res.sendFile(path.join(__dirname, '../index.html'));
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
-// Move diagnostic route to the top
+// --- API ROUTES ---
+// Diagnostic route to check Google Sheets connection
 app.get('/api/sheets-check', async (req, res) => {
     const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Connection timed out')), 15000));
     try {
@@ -76,9 +84,10 @@ app.get('/api/sheets-check', async (req, res) => {
 });
 
 const allowedOrigins = [
+    process.env.FRONTEND_URL, // Dynamic production URL from environment
     'https://impact-studio-web.netlify.app',
     'https://tech300.netlify.app',
-    'https://thexora.art', // Added primary domain
+    'https://thexora.art',
     'http://localhost:3000',
     'http://localhost:5000',
     'http://localhost:5500',
@@ -86,7 +95,7 @@ const allowedOrigins = [
     'http://localhost:5505',
     'http://127.0.0.1:5505',
     'http://localhost:8080',
-];
+].filter(Boolean); // Remove undefined/null values
 
 app.use(cors({
     origin: function (origin, callback) {
@@ -432,7 +441,36 @@ app.post('/api/submit', apiLimiter, formLimiter, honeypotMiddleware({ minSubmiss
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`✅ Server started on port ${PORT}`);
+// --- GLOBAL ERROR HANDLER ---
+// This prevents the server from crashing on unhandled errors
+app.use((err, req, res, next) => {
+    console.error(`❌ [SERVER ERROR] ${new Date().toISOString()}:`, err.message);
+    if (process.env.NODE_ENV !== 'production') {
+        console.error(err.stack);
+    }
+    res.status(500).json({ 
+        success: false, 
+        message: "An internal server error occurred. Our team has been notified." 
+    });
+});
+
+// --- SERVER START & GRACEFUL SHUTDOWN ---
+const server = app.listen(PORT, () => {
+    console.log(`✅ Production Server started on port ${PORT}`);
     connectDB();
 });
+
+// Handle termination signals for zero-downtime deploys
+const shutdown = () => {
+    console.log('📡 Shutdown signal received. Closing server...');
+    server.close(() => {
+        console.log('🛑 Server closed.');
+        mongoose.connection.close(false, () => {
+            console.log('🔌 MongoDB connection closed.');
+            process.exit(0);
+        });
+    });
+};
+
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);
